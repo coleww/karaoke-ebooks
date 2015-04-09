@@ -1,0 +1,21 @@
+{
+  "name": "problumz",
+  "version": "1.0.0",
+  "description": "probability sequencer",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify index.js -o bundle.js",
+    "watch": "watchify index.js -o bundle.js --debug --verbose"
+  },
+  "author": "Cole Willsea <coleww@gmail.com> (http://colewillsea.com/)",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^9.0.7",
+    "watchify": "^3.1.0"
+  },
+  "dependencies": {
+    "int2freq": "^1.0.0",
+    "openmusic-oscillator": "^1.3.0",
+    "openmusic-sample-player": "^1.3.1"
+  }
+}
