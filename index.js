@@ -1,30 +1,13 @@
 // var int2freq = require('int2freq');
 
-var SamplePlayer = require('openmusic-sample-player');
+var Sampler = require('./sampler');
 var ac = new AudioContext();
 
-var player = SamplePlayer(ac);
+var player = new Sampler(ac, 'samples/clap.wav');
+
 player.connect(ac.destination);
 
 
-var request = new XMLHttpRequest();
-request.open('GET', 'samples/clap.wav', true);
-request.responseType = 'arraybuffer';
-
-request.onload = function() {
-  ac.decodeAudioData(request.response, onBufferLoaded, onBufferLoadError);
-};
-
-request.send();
-
-function onBufferLoaded(buffer) {
-  player.buffer = buffer;
-  run();
-}
-
-function onBufferLoadError(err) {
-  console.error('oh no', err);
-}
 
 
 
@@ -59,3 +42,5 @@ function run(){
     }
   }, 500)
 }
+
+  run();
