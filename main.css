@@ -1,0 +1,16 @@
+.drum-prob {
+  width: 25px;
+  height: 25px;
+}
+
+.marker {
+  width: 25px;
+  height: 25px;
+  float: left;
+  border: 2px inset;
+  padding: 1px;
+}
+
+.active {
+  background-color: lightgreen;
+}

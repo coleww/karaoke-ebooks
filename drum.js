@@ -20,6 +20,7 @@ Drum.prototype.installRow = function(){
   for(var i = 0; i < this.notes.length; i++){
     var cell = document.createElement("input");
     cell.setAttribute("type", "text")
+    cell.setAttribute("class", "drum-prob")
     cell.setAttribute("data-index", i);
     cell.addEventListener('keyup', function updateProbz(e){
       that.notes[~~e.target.dataset.index] = parseFloat(e.target.value);
