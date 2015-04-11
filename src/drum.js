@@ -22,21 +22,43 @@ Drum.prototype.installRow = function(){
     cell.setAttribute("type", "text")
     cell.setAttribute("class", "drum-prob")
     cell.setAttribute("data-index", i);
-    cell.addEventListener('keyup', function updateProbz(e){
+    cell.addEventListener("keyup", function updateProbz(e){
       that.notes[~~e.target.dataset.index] = parseFloat(e.target.value);
     });
     drum.appendChild(cell);
   }
+
   var label = document.createElement("span");
   label.textContent = this.name;
   drum.appendChild(label);
+
+  var saveBtn = document.createElement("button");
+  saveBtn.textContent = "save";
+  saveBtn.addEventListener("click", function(){
+    that.saveRow();
+  })
+  drum.appendChild(saveBtn);
+
+  var loadBtn = document.createElement("button");
+  loadBtn.textContent = "load";
+  loadBtn.addEventListener("click", function(){
+    that.loadRow();
+  })
+  drum.appendChild(loadBtn);
+
   document.body.appendChild(drum);
 }
 
-Drum.prototype.loadRow = function(notes){
-  // notes => array of values
-  // replaces this.notes
-  // update dom
+Drum.prototype.loadRow = function(){
+  var that = this;
+  this.notes = localStorage.getItem(this.name).split(",");
+  this.notes.forEach(function(val, i){
+    document.querySelector('.'+that.name+' input[data-index="'+i+'"]').value = val;
+  });
+}
+
+Drum.prototype.saveRow = function(){
+  localStorage.setItem(this.name, this.notes.join(","));
 }
 
 module.exports = Drum;
