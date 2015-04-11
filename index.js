@@ -13,7 +13,7 @@ var updateMarkers = Markers.updateMarkers;
 var ac = new AudioContext();
 var instruments = [];
 
-var drums = ['clap', 'cym', 'htom', 'ltom'];
+var drums = ['clap', 'cym', 'hat', 'snare', 'kick'];
 
 drums.forEach(function(drum){
   var sampler = new Sampler(ac, 'samples/'+drum+'.wav');
