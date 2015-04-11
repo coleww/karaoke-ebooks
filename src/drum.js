@@ -52,7 +52,9 @@ Drum.prototype.installRow = function(){
 
 Drum.prototype.loadRow = function(){
   var that = this;
-  this.notes = localStorage.getItem(this.name).split(",");
+  var noteString = localStorage.getItem(this.name);
+  if(!noteString) return;
+  this.notes = noteString.split(",");
   this.notes.forEach(function(val, i){
     document.querySelector('.'+that.name+' input[data-index="'+i+'"]').value = val;
   });

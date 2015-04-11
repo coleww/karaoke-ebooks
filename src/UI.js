@@ -25,7 +25,28 @@ function updateMarkers(position, num){
   document.querySelector('.marker[data-index="'+position+'"]').classList.add('active');
 }
 
+function createSaveLoadButtons(instruments){
+  var saveBtn = document.createElement("button");
+  saveBtn.textContent = "save all";
+  saveBtn.addEventListener("click", function(){
+    instruments.forEach(function(instrument){
+      instrument.saveRow();
+    })
+  })
+  document.body.appendChild(saveBtn);
+
+  var loadBtn = document.createElement("button");
+  loadBtn.textContent = "load all";
+  loadBtn.addEventListener("click", function(){
+    instruments.forEach(function(instrument){
+      instrument.loadRow();
+    })
+  })
+  document.body.appendChild(loadBtn);
+}
+
 module.exports = {
   installMarkers: installMarkers,
-  updateMarkers: updateMarkers
+  updateMarkers: updateMarkers,
+  createSaveLoadButtons: createSaveLoadButtons
 }

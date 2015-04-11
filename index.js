@@ -6,9 +6,10 @@ var getTick = require('./src/get_tick');
 var Sampler = require('./src/sampler');
 var Drum = require('./src/drum');
 
-var Markers = require('./src/markers');
-var installMarkers = Markers.installMarkers;
-var updateMarkers = Markers.updateMarkers;
+var UI = require('./src/UI');
+var installMarkers = UI.installMarkers;
+var updateMarkers = UI.updateMarkers;
+var createSaveLoadButtons = UI.createSaveLoadButtons;
 
 var ac = new AudioContext();
 var instruments = [];
@@ -67,7 +68,7 @@ function createSlider(run){
   document.body.appendChild(slider);
 }
 
-
 installMarkers(NUM_BEATS);
 createSlider(run);
+createSaveLoadButtons(instruments);
 run(tick);
