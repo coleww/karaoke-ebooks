@@ -10,6 +10,9 @@ function installMarkers(num){
   }
 
   document.body.appendChild(markerRow);
+  var clearFix = document.createElement("div");
+  clearFix.setAttribute("class", "cf");
+  document.body.appendChild(clearFix);
 };
 
 function updateMarkers(position, num){

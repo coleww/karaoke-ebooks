@@ -1,4 +1,5 @@
 var NUM_BEATS = 16;
+var BPM = 120;
 
 var Sampler = require('./sampler');
 var Drum = require('./drum');
@@ -21,8 +22,17 @@ drums.forEach(function(drum){
 
 var position = 0;
 
-function run(){
-  window.setInterval(function(){
+var interval;
+
+var tick = getTick(BPM);
+
+function getTick(bpm){
+  return (60 * 1000) / bpm;
+}
+
+
+function run(tick){
+  interval = window.setInterval(function(){
     updateMarkers(position, NUM_BEATS);
     instruments.forEach(function(instrument){
       instrument.play(position);
@@ -31,8 +41,33 @@ function run(){
     if(position >= 16){
       position = 0;
     }
-  }, 500);
+  }, tick);
 };
 
+
+function createSlider(run){
+  var slider = document.createElement("div");
+  slider.setAttribute("class", "bpm-slider");
+  var bpmInfo = document.createElement("span");
+  bpmInfo.setAttribute("class", "bpm-info");
+  bpmInfo.textContent = BPM+'bpm';
+  var bpmSlider = document.createElement("input");
+  bpmSlider.setAttribute("type", "range");
+  bpmSlider.setAttribute("min", 20);
+  bpmSlider.setAttribute("max", 500);
+  bpmSlider.oninput = function updateBPM(e){
+    window.clearInterval(interval);
+    bpm = e.target.valueAsNumber;
+    bpmInfo.textContent = bpm + 'bpm';
+    tick = getTick(bpm);
+    run(tick);
+  };
+  slider.appendChild(bpmSlider);
+  slider.appendChild(bpmInfo);
+  document.body.appendChild(slider);
+}
+
+
 installMarkers(NUM_BEATS);
-run();
+createSlider(run);
+run(tick);
