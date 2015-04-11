@@ -14,8 +14,8 @@ Drum.prototype.play = function(pos){
 Drum.prototype.installRow = function(){
   var that = this;
 
-  var drum = document.createElement("div")
-  drum.setAttribute("class", name);
+  var drum = document.createElement("div");
+  drum.setAttribute("class", this.name);
 
   for(var i = 0; i < this.notes.length; i++){
     var cell = document.createElement("input");
@@ -27,7 +27,9 @@ Drum.prototype.installRow = function(){
     });
     drum.appendChild(cell);
   }
-
+  var label = document.createElement("span");
+  label.textContent = this.name;
+  drum.appendChild(label);
   document.body.appendChild(drum);
 }
 

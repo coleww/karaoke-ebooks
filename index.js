@@ -18,7 +18,7 @@ var drums = ['clap', 'cym', 'hat', 'snare', 'kick'];
 drums.forEach(function(drum){
   var sampler = new Sampler(ac, 'samples/'+drum+'.wav');
   sampler.connect(ac.destination);
-  var drum = new Drum(sampler, 'clap');
+  var drum = new Drum(sampler, drum);
   instruments.push(drum)
 })
 
