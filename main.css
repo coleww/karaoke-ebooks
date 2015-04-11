@@ -3,6 +3,12 @@
   height: 25px;
 }
 
+.drum-label {
+  display: inline-block;
+  text-align: center;
+  width: 50px;
+}
+
 .marker {
   width: 25px;
   height: 25px;

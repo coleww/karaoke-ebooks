@@ -29,6 +29,7 @@ Drum.prototype.installRow = function(){
   }
 
   var label = document.createElement("span");
+  label.setAttribute("class", "drum-label")
   label.textContent = this.name;
   drum.appendChild(label);
 
