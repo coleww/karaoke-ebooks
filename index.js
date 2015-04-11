@@ -26,7 +26,7 @@ drums.forEach(function(drum){
   instruments.push(drum)
 })
 
-var synths = ['triangle', 'square'];
+var synths = ['triangle', 'sine'];
 
 synths.forEach(function(synth){
   var oscillator = new Oscillator(ac);
@@ -49,7 +49,7 @@ function run(tick){
   interval = window.setInterval(function(){
     updateMarkers(position, NUM_BEATS);
     instruments.forEach(function(instrument){
-      instrument.play(position);
+      instrument.play(position, ac);
     })
     position++;
     if(position >= 16){

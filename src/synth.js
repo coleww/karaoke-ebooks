@@ -5,15 +5,21 @@ var Synth = function(oscillator, name){
   this.name = name;
   this.probs = Array(16);
   this.notes = Array(16);
+  this.playing = false;
   this.installRow();
 }
 
-Synth.prototype.play = function(pos){
+Synth.prototype.play = function(pos, ac){
   if(Math.random() < this.probs[pos]){
     var noteInt = this.notes[pos][~~(Math.random() * this.notes[pos].length)]
     if(!noteInt) noteInt = 0;
-    this.oscillator.frequency = int2freq(~~noteInt, {tonic: 'C3', scale: 'major'})
+    var freq = int2freq(~~noteInt, {tonic: 'C3', scale: 'major'});
+    this.oscillator.frequency.setValueAtTime(freq, ac.currentTime);
     this.oscillator.start();
+    this.playing = true;
+  } else {
+    if(this.playing) this.oscillator.stop(ac.currentTime);
+    this.playing = false
   }
 }
 
