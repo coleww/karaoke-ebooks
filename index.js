@@ -1,6 +1,8 @@
 var NUM_BEATS = 16;
 var BPM = 120;
 
+var getTick = require('./get_tick');
+
 var Sampler = require('./sampler');
 var Drum = require('./drum');
 
@@ -26,9 +28,7 @@ var interval;
 
 var tick = getTick(BPM);
 
-function getTick(bpm){
-  return (60 * 1000) / bpm;
-}
+
 
 
 function run(tick){
