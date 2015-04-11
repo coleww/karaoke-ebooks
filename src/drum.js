@@ -56,7 +56,9 @@ Drum.prototype.loadRow = function(){
   if(!noteString) return;
   this.probs = noteString.split(",");
   this.probs.forEach(function(val, i){
-    document.querySelector('.'+that.name+' input[data-index="'+i+'"]').value = val;
+    if(!isNaN(val)){
+      document.querySelector('.'+that.name+' input[data-index="'+i+'"]').value = val;
+    }
   });
 }
 
