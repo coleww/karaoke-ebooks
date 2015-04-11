@@ -1,12 +1,12 @@
 var NUM_BEATS = 16;
 var BPM = 120;
 
-var getTick = require('./get_tick');
+var getTick = require('./src/get_tick');
 
-var Sampler = require('./sampler');
-var Drum = require('./drum');
+var Sampler = require('./src/sampler');
+var Drum = require('./src/drum');
 
-var Markers = require('./markers');
+var Markers = require('./src/markers');
 var installMarkers = Markers.installMarkers;
 var updateMarkers = Markers.updateMarkers;
 
