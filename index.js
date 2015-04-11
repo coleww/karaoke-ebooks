@@ -8,18 +8,25 @@ var installMarkers = Markers.installMarkers;
 var updateMarkers = Markers.updateMarkers;
 
 var ac = new AudioContext();
+var instruments = [];
 
-var player = new Sampler(ac, 'samples/clap.wav');
-player.connect(ac.destination);
+var drums = ['clap', 'cym', 'htom', 'ltom'];
 
-var instrument = new Drum(player, 'clap');
+drums.forEach(function(drum){
+  var sampler = new Sampler(ac, 'samples/'+drum+'.wav');
+  sampler.connect(ac.destination);
+  var drum = new Drum(sampler, 'clap');
+  instruments.push(drum)
+})
 
 var position = 0;
 
 function run(){
   window.setInterval(function(){
     updateMarkers(position, NUM_BEATS);
-    instrument.play(position);
+    instruments.forEach(function(instrument){
+      instrument.play(position);
+    })
     position++;
     if(position >= 16){
       position = 0;
