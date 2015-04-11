@@ -1,16 +1,26 @@
-.drum-prob {
-  width: 25px;
+.prob {
+  width: 24px;
+  margin: 0 13px 0 13px;
   height: 25px;
 }
 
-.drum-label {
+.notes {
+  width: 50px;
+  height: 25px;
+}
+
+.label {
   display: inline-block;
   text-align: center;
-  width: 50px;
+  width: 75px;
+}
+
+.synth-probs {
+  display: inline-block;
 }
 
 .marker {
-  width: 25px;
+  width: 50px;
   height: 25px;
   float: left;
   border: 2px inset;

@@ -6,6 +6,9 @@ var getTick = require('./src/get_tick');
 var Sampler = require('./src/sampler');
 var Drum = require('./src/drum');
 
+var Oscillator = require('openmusic-oscillator');
+var Synth = require('./src/synth');
+
 var UI = require('./src/UI');
 var installMarkers = UI.installMarkers;
 var updateMarkers = UI.updateMarkers;
@@ -21,6 +24,16 @@ drums.forEach(function(drum){
   sampler.connect(ac.destination);
   var drum = new Drum(sampler, drum);
   instruments.push(drum)
+})
+
+var synths = ['triangle', 'square'];
+
+synths.forEach(function(synth){
+  var oscillator = new Oscillator(ac);
+  oscillator.type = synth;
+  oscillator.connect(ac.destination);
+  var synthesizer = new Synth(oscillator, synth);
+  instruments.push(synthesizer);
 })
 
 var position = 0;
