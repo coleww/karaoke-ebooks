@@ -53,9 +53,13 @@ function createDefaultInstrumentUI(that, container){
 
   var muteBtn = document.createElement("button");
   muteBtn.textContent = "mute";
-  muteBtn.setAttribute("class", "active");
   muteBtn.addEventListener("click", function(){
     that.toggleMute();
+    if(muteBtn.classList.contains("inactive")){
+      muteBtn.classList.remove("inactive");
+    } else {
+      muteBtn.classList.add("inactive");
+    }
   })
   container.appendChild(muteBtn);
 }
