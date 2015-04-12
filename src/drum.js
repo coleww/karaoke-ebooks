@@ -1,12 +1,15 @@
+var createDefaultInstrumentUI = require('./UI').createDefaultInstrumentUI;
+
 var Drum = function(sampler, name){
   this.sampler = sampler;
   this.name = name;
   this.probs = Array(16);
+  this.mute = false;
   this.installRow();
 }
 
 Drum.prototype.play = function(pos){
-  if(Math.random() < this.probs[pos]){
+  if(!this.mute && Math.random() < this.probs[pos]){
     this.sampler.start();
   }
 }
@@ -28,24 +31,7 @@ Drum.prototype.installRow = function(){
     drum.appendChild(cell);
   }
 
-  var label = document.createElement("span");
-  label.setAttribute("class", "label")
-  label.textContent = this.name;
-  drum.appendChild(label);
-
-  var saveBtn = document.createElement("button");
-  saveBtn.textContent = "save";
-  saveBtn.addEventListener("click", function(){
-    that.saveRow();
-  })
-  drum.appendChild(saveBtn);
-
-  var loadBtn = document.createElement("button");
-  loadBtn.textContent = "load";
-  loadBtn.addEventListener("click", function(){
-    that.loadRow();
-  })
-  drum.appendChild(loadBtn);
+  createDefaultInstrumentUI(this, drum);
 
   document.body.appendChild(drum);
 }
@@ -64,6 +50,10 @@ Drum.prototype.loadRow = function(){
 
 Drum.prototype.saveRow = function(){
   localStorage.setItem(this.name, this.probs.join(","));
+}
+
+Drum.prototype.toggleMute = function(){
+  this.mute = !this.mute;
 }
 
 module.exports = Drum;

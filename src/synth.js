@@ -1,3 +1,4 @@
+var createDefaultInstrumentUI = require('./UI').createDefaultInstrumentUI;
 var int2freq = require("int2freq");
 
 var Synth = function(oscillator, name){
@@ -5,12 +6,13 @@ var Synth = function(oscillator, name){
   this.name = name;
   this.probs = Array(16);
   this.notes = Array(16);
+  this.mute = false;
   this.playing = false;
   this.installRow();
 }
 
 Synth.prototype.play = function(pos, ac){
-  if(Math.random() < this.probs[pos]){
+  if(!this.mute && Math.random() < this.probs[pos]){
     var noteInt = this.notes[pos][~~(Math.random() * this.notes[pos].length)]
     if(!noteInt) noteInt = 0;
     var freq = int2freq(~~noteInt, {tonic: 'C3', scale: 'major'});
@@ -59,24 +61,7 @@ Synth.prototype.installRow = function(){
 
   synth.appendChild(synthProbs)
 
-  var label = document.createElement("span");
-  label.setAttribute("class", "label")
-  label.textContent = this.name;
-  synth.appendChild(label);
-
-  var saveBtn = document.createElement("button");
-  saveBtn.textContent = "save";
-  saveBtn.addEventListener("click", function(){
-    that.saveRow();
-  })
-  synth.appendChild(saveBtn);
-
-  var loadBtn = document.createElement("button");
-  loadBtn.textContent = "load";
-  loadBtn.addEventListener("click", function(){
-    that.loadRow();
-  })
-  synth.appendChild(loadBtn);
+  createDefaultInstrumentUI(this, synth);
 
   document.body.appendChild(synth);
 }
@@ -104,4 +89,9 @@ Synth.prototype.loadRow = function(position){
     document.querySelector('.'+that.name+' input[data-index="'+i+'"].notes').value = val.join(",");
   });
 }
+
+Synth.prototype.toggleMute = function(){
+  this.mute = !this.mute;
+}
+
 module.exports = Synth;
