@@ -83,7 +83,7 @@ function createSlider(run){
 
 function createKeySelect(){
   var tonic = document.createElement("select");
-  ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"].forEach(function(note){
+  ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"].forEach(function(note){
     var opt = document.createElement("option");
     opt.value = opt.textContent = note;
     tonic.appendChild(opt);
