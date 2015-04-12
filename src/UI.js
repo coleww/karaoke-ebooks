@@ -51,20 +51,6 @@ function createDefaultInstrumentUI(that, container){
   label.textContent = that.name;
   container.appendChild(label);
 
-  var saveBtn = document.createElement("button");
-  saveBtn.textContent = "save";
-  saveBtn.addEventListener("click", function(){
-    that.saveRow();
-  })
-  container.appendChild(saveBtn);
-
-  var loadBtn = document.createElement("button");
-  loadBtn.textContent = "load";
-  loadBtn.addEventListener("click", function(){
-    that.loadRow();
-  })
-  container.appendChild(loadBtn);
-
   var muteBtn = document.createElement("button");
   muteBtn.textContent = "mute";
   muteBtn.setAttribute("class", "active");
