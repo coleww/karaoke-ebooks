@@ -91,7 +91,6 @@ function createKeySelect(){
 
   tonic.addEventListener("change", function(e){
     key.tonic = e.target.value + "3";
-    console.log(key)
   })
   document.body.appendChild(tonic);
 
@@ -105,7 +104,6 @@ function createKeySelect(){
 
   keySelect.addEventListener("change", function(e){
     key.scale = e.target.value;
-    console.log(key)
   })
   document.body.appendChild(keySelect);
 }
