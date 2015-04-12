@@ -27,6 +27,10 @@
   padding: 1px;
 }
 
+.one-beat {
+  background-color: lightgray;
+}
+
 .active {
   background-color: lightgreen;
 }

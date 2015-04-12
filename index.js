@@ -67,8 +67,8 @@ function createSlider(run){
   bpmInfo.textContent = BPM+'bpm';
   var bpmSlider = document.createElement("input");
   bpmSlider.setAttribute("type", "range");
-  bpmSlider.setAttribute("min", 20);
-  bpmSlider.setAttribute("max", 500);
+  bpmSlider.setAttribute("min", 5);
+  bpmSlider.setAttribute("max", 250);
   bpmSlider.oninput = function updateBPM(e){
     window.clearInterval(interval);
     bpm = e.target.valueAsNumber;

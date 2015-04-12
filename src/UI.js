@@ -4,7 +4,8 @@ function installMarkers(num){
 
   for(var i = 0; i < num; i++){
     var marker = document.createElement("div");
-    marker.setAttribute("class", "marker")
+    marker.setAttribute("class", "marker");
+    if(i % 4 === 0) marker.setAttribute("class", "marker one-beat");
     marker.setAttribute("data-index", i);
     markerRow.appendChild(marker);
   }
