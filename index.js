@@ -43,13 +43,13 @@ var interval;
 var tick = getTick(BPM);
 
 
-
+var key = {tonic: 'C3', scale: 'major'};
 
 function run(tick){
   interval = window.setInterval(function(){
     updateMarkers(position, NUM_BEATS);
     instruments.forEach(function(instrument){
-      instrument.play(position, ac);
+      instrument.play(position, ac, key);
     })
     position++;
     if(position >= 16){
@@ -81,7 +81,37 @@ function createSlider(run){
   document.body.appendChild(slider);
 }
 
+function createKeySelect(){
+  var tonic = document.createElement("select");
+  ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"].forEach(function(note){
+    var opt = document.createElement("option");
+    opt.value = opt.textContent = note;
+    tonic.appendChild(opt);
+  });
+
+  tonic.addEventListener("change", function(e){
+    key.tonic = e.target.value + "3";
+    console.log(key)
+  })
+  document.body.appendChild(tonic);
+
+
+  var keySelect = document.createElement("select");
+  ["major", "minor", "pentMaj", "pentMin"].forEach(function(scale){
+    var opt = document.createElement("option");
+    opt.value = opt.textContent = scale;
+    keySelect.appendChild(opt);
+  });
+
+  keySelect.addEventListener("change", function(e){
+    key.scale = e.target.value;
+    console.log(key)
+  })
+  document.body.appendChild(keySelect);
+}
+
 installMarkers(NUM_BEATS);
 createSlider(run);
+createKeySelect();
 createSaveLoadButtons(instruments);
 run(tick);

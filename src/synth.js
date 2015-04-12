@@ -11,11 +11,11 @@ var Synth = function(oscillator, name){
   this.installRow();
 }
 
-Synth.prototype.play = function(pos, ac){
+Synth.prototype.play = function(pos, ac, key){
   if(!this.mute && Math.random() < this.probs[pos]){
     var noteInt = this.notes[pos][~~(Math.random() * this.notes[pos].length)]
     if(!noteInt) noteInt = 0;
-    var freq = int2freq(~~noteInt, {tonic: 'C3', scale: 'major'});
+    var freq = int2freq(~~noteInt, key);
     this.oscillator.frequency.setValueAtTime(freq, ac.currentTime);
     this.oscillator.start();
     this.playing = true;
