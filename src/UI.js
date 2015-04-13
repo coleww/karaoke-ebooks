@@ -11,6 +11,7 @@ function createSaveLoadButtons(instruments){
   var loadBtn = document.createElement("button");
   loadBtn.textContent = "load all";
   loadBtn.addEventListener("click", function(){
+    loadBtn.setAttribute("disabled", true);
     instruments.forEach(function(instrument){
       instrument.loadRows();
     })
