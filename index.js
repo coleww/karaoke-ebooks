@@ -9,10 +9,10 @@ var Drum = require('./src/drum');
 var Oscillator = require('openmusic-oscillator');
 var Synth = require('./src/synth');
 
-var UI = require('./src/UI');
-var installMarkers = UI.installMarkers;
-var updateMarkers = UI.updateMarkers;
-var createSaveLoadButtons = UI.createSaveLoadButtons;
+var Markers = require('./src/markers');
+var installMarkers = Markers.installMarkers;
+var updateMarkers = Markers.updateMarkers;
+var createSaveLoadButtons = require('./src/UI').createSaveLoadButtons;
 
 var ac = new AudioContext();
 var instruments = [];
