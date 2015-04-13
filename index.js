@@ -59,7 +59,7 @@ function run(tick){
 };
 
 
-function createSlider(run){
+function createSlider(){
   var slider = document.createElement("div");
   slider.setAttribute("class", "bpm-slider");
   var bpmInfo = document.createElement("span");
@@ -108,8 +108,26 @@ function createKeySelect(){
   document.body.appendChild(keySelect);
 }
 
+function createPowerButton(){
+    var powerBtn = document.createElement("button");
+    powerBtn.textContent = "|>";
+    powerBtn.addEventListener("click", function(){
+    if(interval){
+      window.clearInterval(interval);
+      interval = undefined;
+      powerBtn.textContent = "|>";
+    } else {
+      run(tick);
+      powerBtn.textContent = "| |";
+    }
+  })
+  document.body.appendChild(powerBtn);
+}
+
 installMarkers(NUM_BEATS);
-createSlider(run);
+createSlider();
 createKeySelect();
+createPowerButton();
 createSaveLoadButtons(instruments);
-run(tick);
+
+// run(tick);
