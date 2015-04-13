@@ -3,7 +3,7 @@ function createSaveLoadButtons(instruments){
   saveBtn.textContent = "save all";
   saveBtn.addEventListener("click", function(){
     instruments.forEach(function(instrument){
-      instrument.saveRow();
+      instrument.saveRows();
     })
   })
   document.body.appendChild(saveBtn);
@@ -12,7 +12,7 @@ function createSaveLoadButtons(instruments){
   loadBtn.textContent = "load all";
   loadBtn.addEventListener("click", function(){
     instruments.forEach(function(instrument){
-      instrument.loadRow();
+      instrument.loadRows();
     })
   })
   document.body.appendChild(loadBtn);
@@ -35,6 +35,18 @@ function createDefaultInstrumentUI(that, container){
     }
   })
   container.appendChild(muteBtn);
+
+  var currentSelect = document.createElement("select");
+  currentSelect.addEventListener("change", function updateProbz(e){
+    that.current = ~~e.target.value;
+    that.loadRow();
+  });
+  for(var i = 0; i < 6; i++){
+    var opt = document.createElement("option");
+    opt.value = opt.textContent = i;
+    currentSelect.appendChild(opt);
+  }
+  container.appendChild(currentSelect);
 }
 
 module.exports = {
