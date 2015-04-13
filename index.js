@@ -3,38 +3,17 @@ var BPM = 120;
 
 var getTick = require('./src/get_tick');
 
-var Sampler = require('./src/sampler');
-var Drum = require('./src/drum');
-
-var Oscillator = require('openmusic-oscillator');
-var Synth = require('./src/synth');
-
 var Markers = require('./src/markers');
 var installMarkers = Markers.installMarkers;
 var updateMarkers = Markers.updateMarkers;
 var createSaveLoadButtons = require('./src/UI').createSaveLoadButtons;
 
+var createInstruments = require('./src/instruments');
+
 var ac = new AudioContext();
-var instruments = [];
-
 var drums = ['clap', 'cym', 'hat', 'snare', 'kick'];
-
-drums.forEach(function(drum){
-  var sampler = new Sampler(ac, 'samples/'+drum+'.wav');
-  sampler.connect(ac.destination);
-  var drum = new Drum(sampler, drum);
-  instruments.push(drum)
-})
-
 var synths = ['triangle', 'sine'];
-
-synths.forEach(function(synth){
-  var oscillator = new Oscillator(ac);
-  oscillator.type = synth;
-  oscillator.connect(ac.destination);
-  var synthesizer = new Synth(oscillator, synth);
-  instruments.push(synthesizer);
-})
+var instruments = createInstruments(ac, drums, synths);
 
 var position = 0;
 
