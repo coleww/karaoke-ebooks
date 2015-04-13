@@ -4,7 +4,11 @@ var Drum = function(sampler, name){
   this.sampler = sampler;
   this.name = name;
   this.probs = []
-  for(var i = 0; i < 6; i++) this.probs.push(Array(16));
+  this.nexts = [];
+  for(var i = 0; i < 6; i++) {
+    this.probs.push(Array(16));
+    this.nexts.push([0]);
+  }
   this.current = 0;
   this.mute = false;
   this.installRow();
@@ -45,6 +49,13 @@ Drum.prototype.loadRows = function(){
   this.probs = noteString.split("$").map(function(row){
     return row.split(",");
   });
+
+  var nextString = localStorage.getItem(this.name+"-nexts");
+  if(!nextString) return;
+  this.nexts = nextString.split("$").map(function(row){
+    return row.split(",");
+  });
+
   this.loadRow();
 }
 
@@ -55,6 +66,9 @@ Drum.prototype.loadRow = function(){
       document.querySelector('.'+that.name+' input[data-index="'+i+'"]').value = val;
     }
   });
+
+  document.querySelector('.'+this.name+' .nexts').value = this.nexts[this.current].join(",");
+  document.querySelector('.'+this.name+' select').value = this.current;
 }
 
 Drum.prototype.saveRows = function(){
@@ -62,10 +76,23 @@ Drum.prototype.saveRows = function(){
     return row.join(",");
   });
   localStorage.setItem(this.name, rows.join("$"));
+
+
+  var nexts = this.nexts.map(function(next){
+    return next.join(",");
+  });
+  localStorage.setItem(this.name+"-nexts", nexts.join("$"));
 }
 
 Drum.prototype.toggleMute = function(){
   this.mute = !this.mute;
 }
+
+
+Drum.prototype.next = function(){
+  var nexts = this.nexts[this.current];
+  this.current = nexts[~~(Math.random() * nexts.length)];
+  this.loadRow();
+};
 
 module.exports = Drum;

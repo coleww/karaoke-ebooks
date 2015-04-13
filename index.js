@@ -32,6 +32,9 @@ function run(tick){
     })
     position++;
     if(position >= 16){
+      instruments.forEach(function(instrument){
+        instrument.next();
+      });
       position = 0;
     }
   }, tick);

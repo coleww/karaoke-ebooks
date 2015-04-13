@@ -47,6 +47,15 @@ function createDefaultInstrumentUI(that, container){
     currentSelect.appendChild(opt);
   }
   container.appendChild(currentSelect);
+
+  var nextInput = document.createElement("input");
+  nextInput.setAttribute("type", "text");
+  nextInput.setAttribute("class", "nexts");
+  nextInput.value = 0;
+  nextInput.addEventListener("keyup", function updateProbz(e){
+    that.nexts[that.current] = e.target.value.split(",");
+  });
+  container.appendChild(nextInput);
 }
 
 module.exports = {

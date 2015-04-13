@@ -9,6 +9,11 @@
   height: 25px;
 }
 
+.nexts {
+  width: 75px;
+  height: 25px;
+}
+
 .label {
   display: inline-block;
   text-align: center;
