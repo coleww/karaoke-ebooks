@@ -1,9 +1,10 @@
 var createSynthUI = require('./UI').createSynthUI;
 var int2freq = require("int2freq");
 
-var Synth = function(oscillator, opts, gain){
+var Synth = function(oscillator, opts, gain, filter){
   this.oscillator = oscillator;
   this.gain = gain;
+  this.filter = filter;
   this.name = opts.name;
   this.type = opts.type;
   this.probs = [];
@@ -106,6 +107,10 @@ Synth.prototype.exportRows = function(){
 
 Synth.prototype.updateVolume = function(val){
   this.gain.gain.value = val;
+}
+
+Synth.prototype.updateFilter = function(val){
+  this.filter.frequency.value = val;
 }
 
 Synth.prototype.next = function(){

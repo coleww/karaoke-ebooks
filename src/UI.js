@@ -179,16 +179,26 @@ function createDefaultInstrumentUI(that, container){
   });
   container.appendChild(nextInput);
 
-  var slider = document.createElement("input");
-  slider.setAttribute("type", "range");
-  slider.setAttribute("min", 0);
-  slider.setAttribute("value", that.gain.gain.value);
-  slider.setAttribute("step", 0.05);
-  slider.setAttribute("max", 1);
-  slider.oninput = function updateBPM(e){
+  var volSlider = document.createElement("input");
+  volSlider.setAttribute("type", "range");
+  volSlider.setAttribute("min", 0);
+  volSlider.setAttribute("value", that.gain.gain.value);
+  volSlider.setAttribute("step", 0.05);
+  volSlider.setAttribute("max", 1);
+  volSlider.oninput = function updateBPM(e){
     that.updateVolume(e.target.valueAsNumber);
   };
-  container.appendChild(slider);
+  container.appendChild(volSlider);
+
+  var filterSlider = document.createElement("input");
+  filterSlider.setAttribute("type", "range");
+  filterSlider.setAttribute("min", 0);
+  filterSlider.setAttribute("value", 350);
+  filterSlider.setAttribute("max", 10000);
+  filterSlider.oninput = function updateBPM(e){
+    that.updateFilter(e.target.valueAsNumber);
+  };
+  container.appendChild(filterSlider);
 }
 
 function createSynthUI(that){

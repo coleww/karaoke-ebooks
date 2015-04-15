@@ -1,7 +1,8 @@
 var createDrumUI = require('./UI').createDrumUI;
 
-var Drum = function(sampler, opts, gain){
+var Drum = function(sampler, opts, gain, filter){
   this.gain = gain;
+  this.filter = filter;
   this.sampler = sampler;
   this.name = opts.name;
   this.probs = []
@@ -80,6 +81,9 @@ Drum.prototype.updateVolume = function(val){
   this.gain.gain.value = val;
 }
 
+Drum.prototype.updateFilter = function(val){
+  this.filter.frequency.value = val;
+}
 
 Drum.prototype.next = function(){
   var nexts = this.nexts[this.current];

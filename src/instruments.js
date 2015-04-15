@@ -11,8 +11,11 @@ module.exports = function createInstruments(ac, drums, synths){
     var sampler = new Sampler(ac, 'samples/'+drum.name+'.wav');
     var gainNode = ac.createGain();
     sampler.connect(gainNode);
-    gainNode.connect(ac.destination);
-    var drum = new Drum(sampler, drum, gainNode);
+    var filter = ac.createBiquadFilter();
+    filter.type = 'lowpass';
+    gainNode.connect(filter);
+    filter.connect(ac.destination);
+    var drum = new Drum(sampler, drum, gainNode, filter);
     instruments.push(drum)
   });
 
@@ -21,8 +24,11 @@ module.exports = function createInstruments(ac, drums, synths){
     oscillator.type = synth.type;
     var gainNode = ac.createGain();
     oscillator.connect(gainNode);
-    gainNode.connect(ac.destination);
-    var synthesizer = new Synth(oscillator, synth, gainNode);
+    var filter = ac.createBiquadFilter();
+    filter.type = 'lowpass';
+    gainNode.connect(filter);
+    filter.connect(ac.destination);
+    var synthesizer = new Synth(oscillator, synth, gainNode, filter);
     instruments.push(synthesizer);
   });
 
