@@ -9,7 +9,7 @@ var Drum = function(sampler, opts, gain, filter){
   this.nexts = [];
   for(var i = 0; i < 6; i++) {
     this.probs.push(Array(16));
-    this.nexts.push([0]);
+    this.nexts.push([i]);
   }
   this.current = 0;
   this.installRow();
@@ -87,8 +87,10 @@ Drum.prototype.updateFilter = function(val){
 
 Drum.prototype.next = function(){
   var nexts = this.nexts[this.current];
-  this.current = nexts[~~(Math.random() * nexts.length)];
-  this.loadRow();
+  var next = nexts[~~(Math.random() * nexts.length)];
+  var same = next === this.current;
+  this.current = next;
+  if(!same) this.loadRow();
 };
 
 module.exports = Drum;
