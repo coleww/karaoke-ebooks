@@ -73,7 +73,9 @@ Drum.prototype.exportRows = function(){
   return {
     name: this.name,
     probs: this.probs,
-    nexts: this.nexts
+    nexts: this.nexts,
+    gain: this.gain.gain.value,
+    freq: this.filter.frequency.value
   }
 }
 

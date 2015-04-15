@@ -31,4 +31,17 @@ Sequencer.prototype.run = function(){
   }, tick);
 };
 
+Sequencer.prototype.getState = function(){
+  var instruments = [];
+  this.instruments.forEach(function(instrument){
+    instruments.push(instrument.exportRows());
+  })
+
+  return {
+    instruments: instruments,
+    bpm: this.bpm,
+    key: this.key
+  }
+}
+
 module.exports = Sequencer;

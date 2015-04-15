@@ -21,16 +21,7 @@ function createSaveLoadButtons(that){
   var exportBtn = document.createElement("button");
   exportBtn.textContent = "export";
   exportBtn.addEventListener("click", function(){
-    var instruments = [];
-    that.instruments.forEach(function(instrument){
-      instruments.push(instrument.exportRows());
-    })
-
-    var state = {
-      instruments: instruments,
-      bpm: that.bpm,
-      key: that.key
-    }
+    var state = that.getState();
 
     var download = document.createElement('a');
     download.textContent = "X";

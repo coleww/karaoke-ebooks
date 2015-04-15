@@ -100,7 +100,9 @@ Synth.prototype.exportRows = function(){
     type: this.type,
     probs: this.probs,
     notes: this.notes,
-    nexts: this.nexts
+    nexts: this.nexts,
+    gain: this.gain.gain.value,
+    freq: this.filter.frequency.value
   }
 }
 
