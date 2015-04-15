@@ -1,6 +1,6 @@
 function createSaveLoadButtons(that){
   var saveBtn = document.createElement("button");
-  saveBtn.textContent = "save all";
+  saveBtn.textContent = "save";
   saveBtn.addEventListener("click", function(){
     that.instruments.forEach(function(instrument){
       instrument.saveRows();
@@ -9,7 +9,7 @@ function createSaveLoadButtons(that){
   document.body.appendChild(saveBtn);
 
   var loadBtn = document.createElement("button");
-  loadBtn.textContent = "load all";
+  loadBtn.textContent = "load";
   loadBtn.addEventListener("click", function(){
     loadBtn.setAttribute("disabled", true);
     that.instruments.forEach(function(instrument){
@@ -19,7 +19,7 @@ function createSaveLoadButtons(that){
   document.body.appendChild(loadBtn);
 
   var exportBtn = document.createElement("button");
-  exportBtn.textContent = "export junk";
+  exportBtn.textContent = "export";
   exportBtn.addEventListener("click", function(){
     var instruments = [];
     that.instruments.forEach(function(instrument){
