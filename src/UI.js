@@ -184,6 +184,17 @@ function createDefaultInstrumentUI(that, container){
     that.nexts[that.current] = e.target.value.split(",");
   });
   container.appendChild(nextInput);
+
+  var slider = document.createElement("input");
+  slider.setAttribute("type", "range");
+  slider.setAttribute("min", 0);
+  slider.setAttribute("value", that.gain.gain.value);
+  slider.setAttribute("step", 0.05);
+  slider.setAttribute("max", 1);
+  slider.oninput = function updateBPM(e){
+    that.updateVolume(e.target.valueAsNumber);
+  };
+  container.appendChild(slider);
 }
 
 function createSynthUI(that){

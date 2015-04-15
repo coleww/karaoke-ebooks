@@ -1,6 +1,7 @@
 var createDrumUI = require('./UI').createDrumUI;
 
-var Drum = function(sampler, opts){
+var Drum = function(sampler, opts, gain){
+  this.gain = gain;
   this.sampler = sampler;
   this.name = opts.name;
   this.probs = []
@@ -78,6 +79,10 @@ Drum.prototype.exportRows = function(){
 
 Drum.prototype.toggleMute = function(){
   this.mute = !this.mute;
+}
+
+Drum.prototype.updateVolume = function(val){
+  this.gain.gain.value = val;
 }
 
 

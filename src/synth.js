@@ -1,8 +1,9 @@
 var createSynthUI = require('./UI').createSynthUI;
 var int2freq = require("int2freq");
 
-var Synth = function(oscillator, opts){
+var Synth = function(oscillator, opts, gain){
   this.oscillator = oscillator;
+  this.gain = gain;
   this.name = opts.name;
   this.type = opts.type;
   this.probs = [];
@@ -106,6 +107,10 @@ Synth.prototype.exportRows = function(){
 Synth.prototype.toggleMute = function(){
   this.mute = !this.mute;
 };
+
+Synth.prototype.updateVolume = function(val){
+  this.gain.gain.value = val;
+}
 
 Synth.prototype.next = function(){
   var nexts = this.nexts[this.current];
