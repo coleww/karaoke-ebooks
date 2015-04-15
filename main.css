@@ -1,23 +1,23 @@
 .prob {
-  width: 24px;
-  margin: 0 13px 0 13px;
-  height: 25px;
+  width: 20px;
+  margin: 0 10px 0 10px;
+  height: 20px;
 }
 
 .notes {
-  width: 50px;
-  height: 25px;
+  width: 40px;
+  height: 20px;
 }
 
 .nexts {
-  width: 75px;
-  height: 25px;
+  width: 60px;
+  height: 20px;
 }
 
 .label {
   display: inline-block;
   text-align: center;
-  width: 75px;
+  width: 60px;
 }
 
 .synth-probs {
@@ -25,11 +25,27 @@
 }
 
 .marker {
-  width: 50px;
-  height: 25px;
+  width: 40px;
+  height: 20px;
   float: left;
-  border: 2px inset;
+  border: 0;
+  border-bottom: 2px inset;
   padding: 1px;
+}
+
+input {
+  border: 0;
+  border-bottom: 1px solid black;
+}
+
+.bpm-slider {
+  float: left;
+  margin-right: 15px;
+}
+
+.key-select {
+  float: left;
+  margin-right: 15px;
 }
 
 .one-beat {

@@ -86,6 +86,8 @@ function createSlider(that){
 }
 
 function createKeySelect(that){
+  var keySelect = document.createElement("div");
+  keySelect.setAttribute("class", "key-select")
   var tonic = document.createElement("select");
   ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"].forEach(function(note){
     var opt = document.createElement("option");
@@ -96,19 +98,23 @@ function createKeySelect(that){
   tonic.addEventListener("change", function(e){
     that.key.tonic = e.target.value + "3";
   })
-  document.body.appendChild(tonic);
+
+  keySelect.appendChild(tonic);
 
 
-  var keySelect = document.createElement("select");
+  var key = document.createElement("select");
   ["major", "minor", "pentMaj", "pentMin"].forEach(function(scale){
     var opt = document.createElement("option");
     opt.value = opt.textContent = scale;
-    keySelect.appendChild(opt);
+    key.appendChild(opt);
   });
 
-  keySelect.addEventListener("change", function(e){
+  key.addEventListener("change", function(e){
     that.key.scale = e.target.value;
   })
+
+  keySelect.appendChild(key);
+
   document.body.appendChild(keySelect);
 }
 
@@ -195,6 +201,7 @@ function createSynthUI(that){
     var cell = document.createElement("input");
     cell.setAttribute("type", "text")
     cell.setAttribute("class", "prob")
+    if(i%4==0) cell.setAttribute("class", "prob one-beat");
     cell.setAttribute("data-index", i);
     cell.addEventListener("keyup", function updateProbz(e){
       that.probs[that.current][~~e.target.dataset.index] = parseFloat(e.target.value);
@@ -210,6 +217,7 @@ function createSynthUI(that){
     var cell = document.createElement("input");
     cell.setAttribute("type", "text")
     cell.setAttribute("class", "notes")
+    if(i%4==0) cell.setAttribute("class", "notes one-beat");
     cell.setAttribute("data-index", i);
     cell.addEventListener("keyup", function updateProbz(e){
       that.notes[that.current][~~e.target.dataset.index] = e.target.value.split(",");
@@ -230,6 +238,7 @@ function createDrumUI(that){
     var cell = document.createElement("input");
     cell.setAttribute("type", "text")
     cell.setAttribute("class", "prob")
+    if(i%4==0) cell.setAttribute("class", "prob one-beat")
     cell.setAttribute("data-index", i);
     cell.addEventListener("keyup", function updateProbz(e){
       that.probs[that.current][~~e.target.dataset.index] = parseFloat(e.target.value);
