@@ -1,8 +1,7 @@
 var Sampler = require('./sampler');
-var Drum = require('./drum');
 
 var Oscillator = require('openmusic-oscillator');
-var Synth = require('./synth');
+var Instrument = require('./instrument');
 
 module.exports = function createInstruments(ac, drums, synths){
   var instruments = [];
@@ -13,9 +12,10 @@ module.exports = function createInstruments(ac, drums, synths){
     sampler.connect(gainNode);
     var filter = ac.createBiquadFilter();
     filter.type = 'lowpass';
+    filter.frequency.value = 1000;
     gainNode.connect(filter);
     filter.connect(ac.destination);
-    var drum = new Drum(sampler, drum, gainNode, filter);
+    var drum = new Instrument(sampler, drum, gainNode, filter);
     instruments.push(drum)
   });
 
@@ -26,9 +26,10 @@ module.exports = function createInstruments(ac, drums, synths){
     oscillator.connect(gainNode);
     var filter = ac.createBiquadFilter();
     filter.type = 'lowpass';
+    filter.frequency.value = 1000;
     gainNode.connect(filter);
     filter.connect(ac.destination);
-    var synthesizer = new Synth(oscillator, synth, gainNode, filter);
+    var synthesizer = new Instrument(oscillator, synth, gainNode, filter);
     instruments.push(synthesizer);
   });
 

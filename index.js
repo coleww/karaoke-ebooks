@@ -1,18 +1,23 @@
 var drums = [
   {
-    name: 'clap'
+    name: 'clap',
+    type: 'drum'
   },
   {
-    name: 'cym'
+    name: 'cym',
+    type: 'drum'
   },
   {
-    name: 'hat'
+    name: 'hat',
+    type: 'drum'
   },
   {
-    name: 'snare'
+    name: 'snare',
+    type: 'drum'
   },
   {
-    name: 'kick'
+    name: 'kick',
+    type: 'drum'
   }
 ];
 var synths = [
