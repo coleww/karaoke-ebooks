@@ -152,18 +152,6 @@ function createDefaultInstrumentUI(that, container){
   label.textContent = that.name;
   container.appendChild(label);
 
-  var muteBtn = document.createElement("button");
-  muteBtn.textContent = "mute";
-  muteBtn.addEventListener("click", function(){
-    that.toggleMute();
-    if(muteBtn.classList.contains("inactive")){
-      muteBtn.classList.remove("inactive");
-    } else {
-      muteBtn.classList.add("inactive");
-    }
-  })
-  container.appendChild(muteBtn);
-
   var currentSelect = document.createElement("select");
   currentSelect.addEventListener("change", function updateProbz(e){
     that.current = ~~e.target.value;

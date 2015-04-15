@@ -15,13 +15,12 @@ var Synth = function(oscillator, opts, gain){
     this.nexts.push([0]);
   }
   this.current = 0;
-  this.mute = false;
   this.playing = false;
   this.installRow();
 }
 
 Synth.prototype.play = function(pos, ac, key){
-  if(!this.mute && Math.random() < this.probs[this.current][pos]){
+  if(Math.random() < this.probs[this.current][pos]){
     var noteInt = this.notes[this.current][pos][~~(Math.random() * this.notes[this.current][pos].length)]
     if(!noteInt) noteInt = 0;
     var freq = int2freq(~~noteInt, key);
@@ -104,9 +103,6 @@ Synth.prototype.exportRows = function(){
   }
 }
 
-Synth.prototype.toggleMute = function(){
-  this.mute = !this.mute;
-};
 
 Synth.prototype.updateVolume = function(val){
   this.gain.gain.value = val;

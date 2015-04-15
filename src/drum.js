@@ -11,12 +11,11 @@ var Drum = function(sampler, opts, gain){
     this.nexts.push([0]);
   }
   this.current = 0;
-  this.mute = false;
   this.installRow();
 }
 
 Drum.prototype.play = function(pos){
-  if(!this.mute && Math.random() < this.probs[this.current][pos]){
+  if(Math.random() < this.probs[this.current][pos]){
     this.sampler.start();
   }
 }
@@ -75,10 +74,6 @@ Drum.prototype.exportRows = function(){
     probs: this.probs,
     nexts: this.nexts
   }
-}
-
-Drum.prototype.toggleMute = function(){
-  this.mute = !this.mute;
 }
 
 Drum.prototype.updateVolume = function(val){
