@@ -8,7 +8,7 @@ module.exports = function createInstruments(ac, drums, synths){
   var instruments = [];
 
   drums.forEach(function(drum){
-    var sampler = new Sampler(ac, 'samples/'+drum+'.wav');
+    var sampler = new Sampler(ac, 'samples/'+drum.name+'.wav');
     sampler.connect(ac.destination);
     var drum = new Drum(sampler, drum);
     instruments.push(drum)
@@ -16,7 +16,7 @@ module.exports = function createInstruments(ac, drums, synths){
 
   synths.forEach(function(synth){
     var oscillator = new Oscillator(ac);
-    oscillator.type = synth;
+    oscillator.type = synth.type;
     oscillator.connect(ac.destination);
     var synthesizer = new Synth(oscillator, synth);
     instruments.push(synthesizer);

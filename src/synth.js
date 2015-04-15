@@ -1,9 +1,9 @@
 var createSynthUI = require('./UI').createSynthUI;
 var int2freq = require("int2freq");
 
-var Synth = function(oscillator, name){
+var Synth = function(oscillator, opts){
   this.oscillator = oscillator;
-  this.name = name;
+  this.name = opts.name;
   this.probs = [];
   this.notes = [];
   this.nexts = [];

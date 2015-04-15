@@ -1,8 +1,8 @@
 var createDrumUI = require('./UI').createDrumUI;
 
-var Drum = function(sampler, name){
+var Drum = function(sampler, opts){
   this.sampler = sampler;
-  this.name = name;
+  this.name = opts.name;
   this.probs = []
   this.nexts = [];
   for(var i = 0; i < 6; i++) {
