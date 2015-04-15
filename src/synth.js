@@ -4,6 +4,7 @@ var int2freq = require("int2freq");
 var Synth = function(oscillator, opts){
   this.oscillator = oscillator;
   this.name = opts.name;
+  this.type = opts.type;
   this.probs = [];
   this.notes = [];
   this.nexts = [];
@@ -91,6 +92,16 @@ Synth.prototype.loadRow = function(){
   document.querySelector('.'+this.name+' .nexts').value = this.nexts[this.current].join(",");
   document.querySelector('.'+this.name+' select').value = this.current;
 };
+
+Synth.prototype.exportRows = function(){
+  return {
+    name: this.name,
+    type: this.type,
+    probs: this.probs,
+    notes: this.notes,
+    nexts: this.nexts
+  }
+}
 
 Synth.prototype.toggleMute = function(){
   this.mute = !this.mute;

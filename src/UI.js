@@ -17,6 +17,28 @@ function createSaveLoadButtons(that){
     })
   })
   document.body.appendChild(loadBtn);
+
+  var exportBtn = document.createElement("button");
+  exportBtn.textContent = "export junk";
+  exportBtn.addEventListener("click", function(){
+    var instruments = [];
+    that.instruments.forEach(function(instrument){
+      instruments.push(instrument.exportRows());
+    })
+
+    var state = {
+      instruments: instruments,
+      bpm: that.bpm,
+      key: that.key
+    }
+
+    var download = document.createElement('a');
+    download.textContent = "X";
+    var data = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state));
+    download.setAttribute('href', data)
+    document.body.appendChild(download)
+  })
+  document.body.appendChild(exportBtn);
 }
 
 function createMarkers(that){

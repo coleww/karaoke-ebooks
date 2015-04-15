@@ -68,6 +68,14 @@ Drum.prototype.saveRows = function(){
   localStorage.setItem(this.name+"-nexts", nexts.join("$"));
 }
 
+Drum.prototype.exportRows = function(){
+  return {
+    name: this.name,
+    probs: this.probs,
+    nexts: this.nexts
+  }
+}
+
 Drum.prototype.toggleMute = function(){
   this.mute = !this.mute;
 }
