@@ -49,10 +49,14 @@ function createSlider(that){
   bpmSlider.setAttribute("value", that.bpm);
   bpmSlider.setAttribute("max", 150);
   bpmSlider.oninput = function updateBPM(e){
-    window.clearInterval(that.interval);
     that.bpm = e.target.valueAsNumber;
     bpmInfo.textContent = that.bpm + 'bpm';
-    that.run();
+
+    var wasPlaying = !!that.interval;
+    if(wasPlaying) {
+      window.clearInterval(that.interval);
+      that.run();
+    }
   };
   slider.appendChild(bpmSlider);
   slider.appendChild(bpmInfo);
