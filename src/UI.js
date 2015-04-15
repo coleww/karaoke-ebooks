@@ -164,8 +164,66 @@ function createDefaultInstrumentUI(that, container){
   container.appendChild(nextInput);
 }
 
+function createSynthUI(that){
+  var synth = document.createElement("div");
+  synth.setAttribute("class", that.name);
+
+  var synthProbs = document.createElement("div");
+  synthProbs.setAttribute("class", "synth-probs");
+  for(var i = 0; i < that.probs[that.current].length; i++){
+    var cell = document.createElement("input");
+    cell.setAttribute("type", "text")
+    cell.setAttribute("class", "prob")
+    cell.setAttribute("data-index", i);
+    cell.addEventListener("keyup", function updateProbz(e){
+      that.probs[that.current][~~e.target.dataset.index] = parseFloat(e.target.value);
+    });
+    synthProbs.appendChild(cell);
+  }
+
+  var clearFix = document.createElement("div");
+  clearFix.setAttribute("class", "cf");
+  synthProbs.appendChild(clearFix);
+
+  for(var i = 0; i < that.notes[that.current].length; i++){
+    var cell = document.createElement("input");
+    cell.setAttribute("type", "text")
+    cell.setAttribute("class", "notes")
+    cell.setAttribute("data-index", i);
+    cell.addEventListener("keyup", function updateProbz(e){
+      that.notes[that.current][~~e.target.dataset.index] = e.target.value.split(",");
+    });
+    synthProbs.appendChild(cell);
+  }
+
+  synth.appendChild(synthProbs)
+  createDefaultInstrumentUI(that, synth);
+  return synth;
+}
+
+function createDrumUI(that){
+  var drum = document.createElement("div");
+  drum.setAttribute("class", that.name);
+
+  for(var i = 0; i < that.probs[that.current].length; i++){
+    var cell = document.createElement("input");
+    cell.setAttribute("type", "text")
+    cell.setAttribute("class", "prob")
+    cell.setAttribute("data-index", i);
+    cell.addEventListener("keyup", function updateProbz(e){
+      that.probs[that.current][~~e.target.dataset.index] = parseFloat(e.target.value);
+    });
+    drum.appendChild(cell);
+  }
+
+  createDefaultInstrumentUI(that, drum);
+  return drum;
+}
+
 module.exports = {
   updateMarkers: updateMarkers,
   createSeqUI: createSeqUI,
-  createDefaultInstrumentUI: createDefaultInstrumentUI
+  createDefaultInstrumentUI: createDefaultInstrumentUI,
+  createSynthUI: createSynthUI,
+  createDrumUI: createDrumUI
 }

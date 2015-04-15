@@ -1,4 +1,4 @@
-var createDefaultInstrumentUI = require('./UI').createDefaultInstrumentUI;
+var createDrumUI = require('./UI').createDrumUI;
 
 var Drum = function(sampler, name){
   this.sampler = sampler;
@@ -21,23 +21,7 @@ Drum.prototype.play = function(pos){
 }
 
 Drum.prototype.installRow = function(){
-  var that = this;
-
-  var drum = document.createElement("div");
-  drum.setAttribute("class", this.name);
-
-  for(var i = 0; i < this.probs[this.current].length; i++){
-    var cell = document.createElement("input");
-    cell.setAttribute("type", "text")
-    cell.setAttribute("class", "prob")
-    cell.setAttribute("data-index", i);
-    cell.addEventListener("keyup", function updateProbz(e){
-      that.probs[that.current][~~e.target.dataset.index] = parseFloat(e.target.value);
-    });
-    drum.appendChild(cell);
-  }
-
-  createDefaultInstrumentUI(this, drum);
+  var drum = createDrumUI(this);
 
   document.body.appendChild(drum);
 }
