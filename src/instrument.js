@@ -8,13 +8,15 @@ var Instrument = function(player, opts, gain, filter){
   this.filter = filter;
   this.name = opts.name;
   this.type = opts.type;
-  this.probs = [];
-  this.notes = [];
-  this.nexts = [];
-  for(var i = 0; i < 6; i++) {
-    this.probs.push(Array(16));
-    this.notes.push(Array(16));
-    this.nexts.push([i]);
+  this.probs = opts.probs || [];
+  this.notes = opts.notes || [];
+  this.nexts = opts.nexts || [];
+  if(!this.probs.length){
+    for(var i = 0; i < 6; i++) {
+      this.probs.push(Array(16));
+      this.notes.push(Array(16));
+      this.nexts.push([i]);
+    }
   }
   this.current = 0;
   this.playing = false;
