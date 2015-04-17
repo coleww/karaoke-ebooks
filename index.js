@@ -1,4 +1,4 @@
-var drums = [
+var instrumentData = [
   {
     name: 'clap',
     type: 'drum'
@@ -18,9 +18,7 @@ var drums = [
   {
     name: 'kick',
     type: 'drum'
-  }
-];
-var synths = [
+  },
   {
     name: 'tri',
     type: 'triangle'
@@ -41,7 +39,7 @@ var BPM = 120;
 
 var ac = new AudioContext();
 var createInstruments = require('./src/instruments');
-var instruments = createInstruments(ac, drums, synths);
+var instruments = createInstruments(ac, instrumentData);
 
 var updateMarkers = require('./src/UI').updateMarkers;
 var Sequencer = require('./src/sequencer');
