@@ -29,20 +29,21 @@ var instrumentData = [
   }
 ];
 
+
+var BPM = 120;
+
+var STEPS = 16;
+
 var key = {
   tonic: 'C3',
   scale: 'major'
 };
 
-var STEPS = 16;
-var BPM = 120;
-
-var ac = new AudioContext();
-var createInstruments = require('./src/instruments');
-var instruments = createInstruments(ac, instrumentData);
 
 var updateMarkers = require('./src/UI').updateMarkers;
+
 var Sequencer = require('./src/sequencer');
-var seq = new Sequencer(instruments, ac, BPM, STEPS, key, updateMarkers)
+var seq = new Sequencer(instrumentData, BPM, STEPS, key, updateMarkers)
+
 var createSeqUI = require('./src/UI').createSeqUI;
 createSeqUI(seq);

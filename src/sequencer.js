@@ -1,11 +1,13 @@
+var createInstruments = require('./instruments');
+
 function getTick(bpm){
   return ((60 * 1000) / bpm) / 4;
 }
 
-var Sequencer = function(instruments, ac, bpm, steps, key, updateUI){
-  this.ac = ac;
+var Sequencer = function(instrumentData, bpm, steps, key, updateUI){
+  this.ac = new AudioContext();
   this.bpm = bpm;
-  this.instruments = instruments;
+  this.instruments = createInstruments(this.ac, instrumentData);
   this.interval = null;
   this.key = key;
   this.position = 0;
