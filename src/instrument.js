@@ -21,6 +21,12 @@ var Instrument = function(player, opts, gain, filter){
   this.current = 0;
   this.playing = false;
   this.installRow();
+  if(opts.gain){
+    this.updateVolume(opts.gain);
+  }
+  if(opts.freq){
+    this.updateFilter(opts.freq);
+  }
 }
 
 Instrument.prototype.play = function(pos, ac, key){
