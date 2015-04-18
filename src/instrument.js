@@ -73,6 +73,9 @@ Instrument.prototype.saveRows = function(){
     return next.join(",");
   });
   localStorage.setItem(this.name+"-nexts", nexts.join("$"));
+
+  localStorage.setItem(this.name+"-gain", this.gain.gain.value);
+  localStorage.setItem(this.name+"-freq", this.filter.frequency.value);
 }
 
 Instrument.prototype.loadRows = function(){
@@ -99,6 +102,9 @@ Instrument.prototype.loadRows = function(){
     return row.split(",");
   });
 
+  this.updateVolume(localStorage.getItem(this.name+"-gain"));
+  this.updateFilter(localStorage.getItem(this.name+"-freq"));
+
   this.loadRow();
 };
 
@@ -116,6 +122,8 @@ Instrument.prototype.loadRow = function(){
 
   document.querySelector('.'+this.name+' .nexts').value = this.nexts[this.current].join(",");
   document.querySelector('.'+this.name+' select').value = this.current;
+  document.querySelector('.'+this.name+' .volume').value = this.gain.gain.value;
+  document.querySelector('.'+this.name+' .filter').value = this.filter.frequency.value;
 };
 
 Instrument.prototype.exportRows = function(){
