@@ -3,7 +3,8 @@ var Sampler = require('./sampler');
 var Oscillator = require('openmusic-oscillator');
 var Instrument = require('./instrument');
 
-module.exports = function createInstruments(ac, instrumentData){
+
+module.exports = function createInstruments(ac, instrumentData, updateUI){
   var instruments = [];
 
   instrumentData.forEach(function(data){
@@ -25,7 +26,7 @@ module.exports = function createInstruments(ac, instrumentData){
     gainNode.connect(filter);
     filter.connect(ac.destination);
 
-    var instrument = new Instrument(player, data, gainNode, filter);
+    var instrument = new Instrument(player, data, gainNode, filter, updateUI);
     instruments.push(instrument)
   });
 

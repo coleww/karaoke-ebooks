@@ -1,8 +1,6 @@
-var createSynthUI = require('./UI').createSynthUI;
-var createDrumUI = require('./UI').createDrumUI;
 var int2freq = require("int2freq");
 
-var Instrument = function(player, opts, gain, filter){
+var Instrument = function(player, opts, gain, filter, updateUI){
   this.player = player;
   this.gain = gain;
   this.filter = filter;
@@ -20,7 +18,7 @@ var Instrument = function(player, opts, gain, filter){
   }
   this.current = 0;
   this.playing = false;
-  this.installRow();
+  this.updateUI = updateUI.bind(this);
   if(opts.gain){
     this.updateVolume(opts.gain);
   }
@@ -47,12 +45,6 @@ Instrument.prototype.play = function(pos, ac, key){
       this.playing = false
     }
   }
-}
-
-Instrument.prototype.installRow = function(){
-  inst = this.type !== "drum" ? createSynthUI(this) : createDrumUI(this);
-
-  document.body.appendChild(inst);
 }
 
 Instrument.prototype.saveRows = function(){
@@ -105,25 +97,7 @@ Instrument.prototype.loadRows = function(){
   this.updateVolume(localStorage.getItem(this.name+"-gain"));
   this.updateFilter(localStorage.getItem(this.name+"-freq"));
 
-  this.loadRow();
-};
-
-Instrument.prototype.loadRow = function(){
-  var that = this;
-  this.probs[this.current].forEach(function(val, i){
-    document.querySelector('.'+that.name+' input[data-index="'+i+'"].prob').value = val;
-  });
-
-  if(this.type !== "drum"){
-    this.notes[this.current].forEach(function(val, i){
-      document.querySelector('.'+that.name+' input[data-index="'+i+'"].notes').value = val.join(",");
-    });
-  }
-
-  document.querySelector('.'+this.name+' .nexts').value = this.nexts[this.current].join(",");
-  document.querySelector('.'+this.name+' select').value = this.current;
-  document.querySelector('.'+this.name+' .volume').value = this.gain.gain.value;
-  document.querySelector('.'+this.name+' .filter').value = this.filter.frequency.value;
+  this.updateUI();
 };
 
 Instrument.prototype.exportRows = function(){
@@ -152,7 +126,7 @@ Instrument.prototype.next = function(){
   var next = nexts[~~(Math.random() * nexts.length)];
   var same = next === this.current;
   this.current = next;
-  if(!same) this.loadRow();
+  if(!same) this.updateUI();
 };
 
 module.exports = Instrument;

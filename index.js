@@ -37,11 +37,11 @@ var data = {
   steps: 16
 };
 
-
-var updateMarkers = require('./src/UI').updateMarkers;
+var UI = require('./src/UI');
+var updateSeqUI = UI.updateSeqUI;
+var updateInstrumentUI = UI.updateInstrumentUI;
+var createUI = UI.createUI;
 
 var Sequencer = require('./src/sequencer');
-var seq = new Sequencer(data, updateMarkers);
-
-var createSeqUI = require('./src/UI').createSeqUI;
-createSeqUI(seq);
+var seq = new Sequencer(data, updateSeqUI, updateInstrumentUI);
+createUI(seq);

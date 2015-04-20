@@ -1,3 +1,47 @@
+function createUI(that){
+  createInstrumentUI(that)
+  createMarkers(that);
+  createSlider(that);
+  createKeySelect(that);
+  createPowerButton(that);
+  createSaveLoadButtons(that);
+}
+
+function updateSeqUI(position, steps){
+  lastPosition = position - 1;
+  if(lastPosition < 0){
+    lastPosition = steps - 1;
+  }
+  document.querySelector('.marker[data-index="'+lastPosition+'"]').classList.remove('active');
+
+  document.querySelector('.marker[data-index="'+position+'"]').classList.add('active');
+}
+
+function updateInstrumentUI(){
+  var that = this;
+  that.probs[that.current].forEach(function(val, i){
+    document.querySelector('.'+that.name+' input[data-index="'+i+'"].prob').value = val;
+  });
+
+  if(that.type !== "drum"){
+    that.notes[that.current].forEach(function(val, i){
+      document.querySelector('.'+that.name+' input[data-index="'+i+'"].notes').value = val.join(",");
+    });
+  }
+
+  document.querySelector('.'+that.name+' .nexts').value = that.nexts[that.current].join(",");
+  document.querySelector('.'+that.name+' select').value = that.current;
+  document.querySelector('.'+that.name+' .volume').value = that.gain.gain.value;
+  document.querySelector('.'+that.name+' .filter').value = that.filter.frequency.value;
+}
+
+function createInstrumentUI(that){
+  that.instruments.forEach(function(instrument){
+    inst = instrument.type !== "drum" ? createSynthUI(instrument) : createDrumUI(instrument);
+    document.body.appendChild(inst);
+  });
+}
+
 function createSaveLoadButtons(that){
   var saveBtn = document.createElement("button");
   saveBtn.textContent = "save";
@@ -125,23 +169,7 @@ function createPowerButton(that){
   document.body.appendChild(powerBtn);
 }
 
-function updateMarkers(position, steps){
-  lastPosition = position - 1;
-  if(lastPosition < 0){
-    lastPosition = steps - 1;
-  }
-  document.querySelector('.marker[data-index="'+lastPosition+'"]').classList.remove('active');
 
-  document.querySelector('.marker[data-index="'+position+'"]').classList.add('active');
-}
-
-function createSeqUI(that){
-  createMarkers(that);
-  createSlider(that);
-  createKeySelect(that);
-  createPowerButton(that);
-  createSaveLoadButtons(that);
-}
 
 function createDefaultInstrumentUI(that, container){
   var label = document.createElement("span");
@@ -254,9 +282,7 @@ function createDrumUI(that){
 }
 
 module.exports = {
-  updateMarkers: updateMarkers,
-  createSeqUI: createSeqUI,
-  createDefaultInstrumentUI: createDefaultInstrumentUI,
-  createSynthUI: createSynthUI,
-  createDrumUI: createDrumUI
+  updateSeqUI: updateSeqUI,
+  updateInstrumentUI: updateInstrumentUI,
+  createUI: createUI
 }
