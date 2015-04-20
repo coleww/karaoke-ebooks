@@ -47,59 +47,6 @@ Instrument.prototype.play = function(pos, ac, key){
   }
 }
 
-Instrument.prototype.saveRows = function(){
-  var probs = this.probs.map(function(prob){
-    return prob.join(",");
-  });
-  localStorage.setItem(this.name+"-probs", probs.join("$"));
-
-  if(this.type !== "drum"){
-    var notes = this.notes.map(function(note){
-      return note.join("|");
-    });
-
-    localStorage.setItem(this.name+"-notes", notes.join("$"));
-  }
-
-  var nexts = this.nexts.map(function(next){
-    return next.join(",");
-  });
-  localStorage.setItem(this.name+"-nexts", nexts.join("$"));
-
-  localStorage.setItem(this.name+"-gain", this.gain.gain.value);
-  localStorage.setItem(this.name+"-freq", this.filter.frequency.value);
-}
-
-Instrument.prototype.loadRows = function(){
-  var that = this;
-  var probString = localStorage.getItem(this.name+"-probs");
-  if(!probString) return;
-  this.probs = probString.split("$").map(function(row){
-    return row.split(",");
-  });
-
-  if(this.type !== "drum"){
-    var notesString = localStorage.getItem(this.name+"-notes");
-    if(!notesString) return;
-    this.notes = notesString.split("$").map(function(row){
-      return row.split("|").map(function(cell){
-        return cell.split(",");
-      });
-    });
-  }
-
-  var nextString = localStorage.getItem(this.name+"-nexts");
-  if(!nextString) return;
-  this.nexts = nextString.split("$").map(function(row){
-    return row.split(",");
-  });
-
-  this.updateVolume(localStorage.getItem(this.name+"-gain"));
-  this.updateFilter(localStorage.getItem(this.name+"-freq"));
-
-  this.updateUI();
-};
-
 Instrument.prototype.exportRows = function(){
   return {
     name: this.name,

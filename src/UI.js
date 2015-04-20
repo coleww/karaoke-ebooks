@@ -47,7 +47,26 @@ function createSaveLoadButtons(that){
   saveBtn.textContent = "save";
   saveBtn.addEventListener("click", function(){
     that.instruments.forEach(function(instrument){
-      instrument.saveRows();
+      var probs = instrument.probs.map(function(prob){
+        return prob.join(",");
+      });
+      localStorage.setItem(instrument.name+"-probs", probs.join("$"));
+
+      if(instrument.type !== "drum"){
+        var notes = instrument.notes.map(function(note){
+          return note.join("|");
+        });
+
+        localStorage.setItem(instrument.name+"-notes", notes.join("$"));
+      }
+
+      var nexts = instrument.nexts.map(function(next){
+        return next.join(",");
+      });
+      localStorage.setItem(instrument.name+"-nexts", nexts.join("$"));
+
+      localStorage.setItem(instrument.name+"-gain", instrument.gain.gain.value);
+      localStorage.setItem(instrument.name+"-freq", instrument.filter.frequency.value);
     })
   })
   document.body.appendChild(saveBtn);
@@ -57,7 +76,32 @@ function createSaveLoadButtons(that){
   loadBtn.addEventListener("click", function(){
     loadBtn.setAttribute("disabled", true);
     that.instruments.forEach(function(instrument){
-      instrument.loadRows();
+      var probString = localStorage.getItem(instrument.name+"-probs");
+      if(!probString) return;
+      instrument.probs = probString.split("$").map(function(row){
+        return row.split(",");
+      });
+
+      if(instrument.type !== "drum"){
+        var notesString = localStorage.getItem(instrument.name+"-notes");
+        if(!notesString) return;
+        instrument.notes = notesString.split("$").map(function(row){
+          return row.split("|").map(function(cell){
+            return cell.split(",");
+          });
+        });
+      }
+
+      var nextString = localStorage.getItem(instrument.name+"-nexts");
+      if(!nextString) return;
+      instrument.nexts = nextString.split("$").map(function(row){
+        return row.split(",");
+      });
+
+      instrument.updateVolume(localStorage.getItem(instrument.name+"-gain"));
+      instrument.updateFilter(localStorage.getItem(instrument.name+"-freq"));
+
+      instrument.updateUI();
     })
   })
   document.body.appendChild(loadBtn);
