@@ -4,7 +4,7 @@ function createUI(that){
   createSlider(that);
   createKeySelect(that);
   createPowerButton(that);
-  createSaveLoadButtons(that);
+  createImportExportButtons(that);
 }
 
 function updateSeqUI(position, steps){
@@ -42,69 +42,19 @@ function createInstrumentUI(that){
   });
 }
 
-function createSaveLoadButtons(that){
-  var saveBtn = document.createElement("button");
-  saveBtn.textContent = "save";
-  saveBtn.addEventListener("click", function(){
-    that.instruments.forEach(function(instrument){
-      var probs = instrument.probs.map(function(prob){
-        return prob.join(",");
-      });
-      localStorage.setItem(instrument.name+"-probs", probs.join("$"));
+function createImportExportButtons(that){
+  var importInput = document.createElement("input");
+  importInput.setAttribute("type", "text");
+  importInput.setAttribute("class", "import")
+  document.body.appendChild(importInput);
 
-      if(instrument.type !== "drum"){
-        var notes = instrument.notes.map(function(note){
-          return note.join("|");
-        });
-
-        localStorage.setItem(instrument.name+"-notes", notes.join("$"));
-      }
-
-      var nexts = instrument.nexts.map(function(next){
-        return next.join(",");
-      });
-      localStorage.setItem(instrument.name+"-nexts", nexts.join("$"));
-
-      localStorage.setItem(instrument.name+"-gain", instrument.gain.gain.value);
-      localStorage.setItem(instrument.name+"-freq", instrument.filter.frequency.value);
-    })
+  var importBtn = document.createElement("button");
+  importBtn.textContent = "import";
+  importBtn.addEventListener("click", function(){
+    var data = JSON.parse(importInput.value);
+    that.loadData(data);
   })
-  document.body.appendChild(saveBtn);
-
-  var loadBtn = document.createElement("button");
-  loadBtn.textContent = "load";
-  loadBtn.addEventListener("click", function(){
-    loadBtn.setAttribute("disabled", true);
-    that.instruments.forEach(function(instrument){
-      var probString = localStorage.getItem(instrument.name+"-probs");
-      if(!probString) return;
-      instrument.probs = probString.split("$").map(function(row){
-        return row.split(",");
-      });
-
-      if(instrument.type !== "drum"){
-        var notesString = localStorage.getItem(instrument.name+"-notes");
-        if(!notesString) return;
-        instrument.notes = notesString.split("$").map(function(row){
-          return row.split("|").map(function(cell){
-            return cell.split(",");
-          });
-        });
-      }
-
-      var nextString = localStorage.getItem(instrument.name+"-nexts");
-      if(!nextString) return;
-      instrument.nexts = nextString.split("$").map(function(row){
-        return row.split(",");
-      });
-
-      instrument.updateVolume(localStorage.getItem(instrument.name+"-gain"));
-      instrument.updateFilter(localStorage.getItem(instrument.name+"-freq"));
-
-      instrument.updateUI();
-    })
-  })
-  document.body.appendChild(loadBtn);
+  document.body.appendChild(importBtn);
 
   var exportBtn = document.createElement("button");
   exportBtn.textContent = "export";

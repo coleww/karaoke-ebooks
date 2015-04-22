@@ -12,6 +12,7 @@ var Sequencer = function(data, updateUI, updateInstrumentUI){
   this.key = data.key;
   this.position = 0;
   this.updateUI = updateUI;
+  this.updateInstrumentUI = updateInstrumentUI;
   this.steps = data.steps;
 };
 
@@ -33,6 +34,10 @@ Sequencer.prototype.run = function(){
   }, tick);
 };
 
+Sequencer.prototype.stop = function(){
+  window.clearInterval(this.interval);
+};
+
 Sequencer.prototype.getState = function(){
   var instruments = [];
   this.instruments.forEach(function(instrument){
@@ -45,6 +50,17 @@ Sequencer.prototype.getState = function(){
     key: this.key,
     steps: this.steps
   }
+}
+
+Sequencer.prototype.loadData = function(data){
+  this.stop();
+  this.bpm = data.bpm;
+  this.instruments = createInstruments(this.ac, data.instruments, this.updateInstrumentUI);
+  this.key = data.key;
+  this.steps = data.steps;
+  this.instruments.forEach(function(instrument){
+    instrument.updateUI();
+  })
 }
 
 module.exports = Sequencer;
