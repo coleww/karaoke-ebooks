@@ -61,6 +61,12 @@ Sequencer.prototype.loadData = function(data){
   this.instruments.forEach(function(instrument){
     instrument.updateUI();
   })
+  //TODO: move this somewhere more better....
+  var keyUi = document.querySelectorAll('.key-select select');
+  keyUi.item(0).value = data.key.tonic.slice(0, - 1);
+  keyUi.item(1).value = data.key.scale;
+  document.querySelector('.bpm-slider input').value = data.bpm;
+  document.querySelector('.bpm-info').textContent = data.bpm + 'bpm;'
 }
 
 module.exports = Sequencer;
