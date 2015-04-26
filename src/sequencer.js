@@ -52,14 +52,21 @@ Sequencer.prototype.getState = function(){
 
 Sequencer.prototype.loadData = function(data){
   this.stop();
-  this.bpm = data.bpm;
-  this.instruments = createInstruments(this.ac, data.instruments, this.updateInstrumentUI);
-  this.key = data.key;
-  this.steps = data.steps;
-  this.instruments.forEach(function(instrument){
-    instrument.updateUI();
+  document.body.innerHTML = ""
+
+  // THIS IS DOWNRIGHT AWFUL...BUT IT WORKS...¯\_(ツ)_/¯
+
+  var UI = require('./UI');
+  var updateInstrumentUI = UI.updateInstrumentUI;
+  var createUI = UI.createUI;
+
+  var Sequencer = require('./sequencer');
+  var seq = new Sequencer(data, updateInstrumentUI);
+  createUI(seq);
+  seq.instruments.forEach(function(inst){
+    inst.updateUI();
   })
-  //TODO: move this somewhere more better....
+
   var keyUi = document.querySelectorAll('.key-select select');
   keyUi.item(0).value = data.key.tonic.slice(0, - 1);
   keyUi.item(1).value = data.key.scale;
