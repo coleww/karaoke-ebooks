@@ -38,10 +38,9 @@ var data = {
 };
 
 var UI = require('./src/UI');
-var updateSeqUI = UI.updateSeqUI;
 var updateInstrumentUI = UI.updateInstrumentUI;
 var createUI = UI.createUI;
 
 var Sequencer = require('./src/sequencer');
-var seq = new Sequencer(data, updateSeqUI, updateInstrumentUI);
+var seq = new Sequencer(data, updateInstrumentUI);
 createUI(seq);
