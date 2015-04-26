@@ -1,30 +1,23 @@
 function createUI(that){
   createInstrumentUI(that)
-  createMarkers(that);
   createSlider(that);
   createKeySelect(that);
   createPowerButton(that);
   createImportExportButtons(that);
 }
 
-function updateSeqUI(position, steps){
-  lastPosition = position - 1;
-  if(lastPosition < 0){
-    lastPosition = steps - 1;
-  }
-  document.querySelector('.marker[data-index="'+lastPosition+'"]').classList.remove('active');
-
-  document.querySelector('.marker[data-index="'+position+'"]').classList.add('active');
-}
-
 function updateInstrumentUI(){
   var that = this;
+  console.log(that);
   that.probs[that.current].forEach(function(val, i){
+    console.log(val)
     document.querySelector('.'+that.name+' input[data-index="'+i+'"].prob').value = val;
   });
 
   if(that.type !== "drum"){
+    console.log('ym')
     that.notes[that.current].forEach(function(val, i){
+      // console.log(document.querySelector('.'+that.name+' input[data-index="'+i+'"].notes'))
       document.querySelector('.'+that.name+' input[data-index="'+i+'"].notes').value = val.join(",");
     });
   }
@@ -69,24 +62,6 @@ function createImportExportButtons(that){
   })
   document.body.appendChild(exportBtn);
 }
-
-function createMarkers(that){
-  var markerRow = document.createElement("div")
-  markerRow.setAttribute("class", "beat-markers");
-
-  for(var i = 0; i < that.steps; i++){
-    var marker = document.createElement("div");
-    marker.setAttribute("class", "marker");
-    if(i % 4 === 0) marker.setAttribute("class", "marker one-beat");
-    marker.setAttribute("data-index", i);
-    markerRow.appendChild(marker);
-  }
-
-  document.body.appendChild(markerRow);
-  var clearFix = document.createElement("div");
-  clearFix.setAttribute("class", "cf");
-  document.body.appendChild(clearFix);
-};
 
 function createSlider(that){
   var slider = document.createElement("div");
@@ -166,6 +141,11 @@ function createPowerButton(that){
 
 
 function createDefaultInstrumentUI(that, container){
+
+  var clearFix = document.createElement("div");
+  clearFix.setAttribute("class", "cf");
+  container.appendChild(clearFix);
+
   var label = document.createElement("span");
   label.setAttribute("class", "label")
   label.textContent = that.name;
@@ -174,7 +154,10 @@ function createDefaultInstrumentUI(that, container){
   var currentSelect = document.createElement("select");
   currentSelect.addEventListener("change", function updateProbz(e){
     that.current = ~~e.target.value;
-    that.loadRow();
+
+    // THIS is still bound to the old `that`
+
+    that.updateUI();
   });
   for(var i = 0; i < 6; i++){
     var opt = document.createElement("option");
@@ -192,6 +175,12 @@ function createDefaultInstrumentUI(that, container){
   });
   container.appendChild(nextInput);
 
+  var label = document.createElement("span");
+  label.setAttribute("class", "label")
+  label.textContent = 'gain';
+  container.appendChild(label);
+
+
   var volSlider = document.createElement("input");
   volSlider.setAttribute("type", "range");
   volSlider.setAttribute("class", "volume");
@@ -204,6 +193,11 @@ function createDefaultInstrumentUI(that, container){
   };
   container.appendChild(volSlider);
 
+  var label = document.createElement("span");
+  label.setAttribute("class", "label")
+  label.textContent = 'filter';
+  container.appendChild(label);
+
   var filterSlider = document.createElement("input");
   filterSlider.setAttribute("type", "range");
   filterSlider.setAttribute("class", "filter");
@@ -214,6 +208,8 @@ function createDefaultInstrumentUI(that, container){
     that.updateFilter(e.target.valueAsNumber);
   };
   container.appendChild(filterSlider);
+
+  container.appendChild(document.createElement("hr"));
 }
 
 function createSynthUI(that){
@@ -276,7 +272,6 @@ function createDrumUI(that){
 }
 
 module.exports = {
-  updateSeqUI: updateSeqUI,
   updateInstrumentUI: updateInstrumentUI,
   createUI: createUI
 }

@@ -6,10 +6,12 @@ var Instrument = function(player, opts, gain, filter, updateUI){
   this.filter = filter;
   this.name = opts.name;
   this.type = opts.type;
+  // console.log(opts)
   this.probs = opts.probs || [];
   this.notes = opts.notes || [];
   this.nexts = opts.nexts || [];
   if(!this.probs.length){
+    // console.log("burp")
     for(var i = 0; i < 6; i++) {
       this.probs.push(Array(16));
       this.notes.push(Array(16));
@@ -18,7 +20,7 @@ var Instrument = function(player, opts, gain, filter, updateUI){
   }
   this.current = 0;
   this.playing = false;
-  this.updateUI = updateUI.bind(this);
+  this.updateUI = updateUI;//.bind(this);
   if(opts.gain){
     this.updateVolume(opts.gain);
   }

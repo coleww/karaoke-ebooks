@@ -1,3 +1,4 @@
+
 .prob {
   width: 20px;
   margin: 0 10px 0 10px;
@@ -6,11 +7,6 @@
 
 .notes {
   width: 40px;
-  height: 20px;
-}
-
-.nexts {
-  width: 60px;
   height: 20px;
 }
 
@@ -24,18 +20,8 @@
   display: inline-block;
 }
 
-.marker {
-  width: 40px;
-  height: 20px;
-  float: left;
-  border: 0;
-  border-bottom: 2px inset;
-  padding: 1px;
-}
-
 input {
-  border: 0;
-  border-bottom: 1px solid black;
+  border: 1px solid black;
 }
 
 .bpm-slider {
@@ -50,15 +36,6 @@ input {
 
 .one-beat {
   background-color: lightgray;
-}
-
-.active {
-  background-color: lightgreen;
-}
-
-.inactive {
-  color: white;
-  background-color: maroon;
 }
 
 .cf {

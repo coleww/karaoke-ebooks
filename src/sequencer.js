@@ -4,14 +4,13 @@ function getTick(bpm){
   return ((60 * 1000) / bpm) / 4;
 }
 
-var Sequencer = function(data, updateUI, updateInstrumentUI){
+var Sequencer = function(data, updateInstrumentUI){
   this.ac = new AudioContext();
   this.bpm = data.bpm;
   this.instruments = createInstruments(this.ac, data.instruments, updateInstrumentUI);
   this.interval = null;
   this.key = data.key;
   this.position = 0;
-  this.updateUI = updateUI;
   this.updateInstrumentUI = updateInstrumentUI;
   this.steps = data.steps;
 };
@@ -20,7 +19,6 @@ Sequencer.prototype.run = function(){
   var that = this;
   var tick = getTick(that.bpm);
   this.interval = window.setInterval(function(){
-    that.updateUI(that.position, that.steps);
     that.instruments.forEach(function(instrument){
       instrument.play(that.position, that.ac, that.key);
     })
@@ -54,13 +52,26 @@ Sequencer.prototype.getState = function(){
 
 Sequencer.prototype.loadData = function(data){
   this.stop();
-  this.bpm = data.bpm;
-  this.instruments = createInstruments(this.ac, data.instruments, this.updateInstrumentUI);
-  this.key = data.key;
-  this.steps = data.steps;
-  this.instruments.forEach(function(instrument){
-    instrument.updateUI();
+  document.body.innerHTML = ""
+
+  // THIS IS DOWNRIGHT AWFUL...BUT IT WORKS...¯\_(ツ)_/¯
+
+  var UI = require('./UI');
+  var updateInstrumentUI = UI.updateInstrumentUI;
+  var createUI = UI.createUI;
+
+  var Sequencer = require('./sequencer');
+  var seq = new Sequencer(data, updateInstrumentUI);
+  createUI(seq);
+  seq.instruments.forEach(function(inst){
+    inst.updateUI();
   })
+
+  var keyUi = document.querySelectorAll('.key-select select');
+  keyUi.item(0).value = data.key.tonic.slice(0, - 1);
+  keyUi.item(1).value = data.key.scale;
+  document.querySelector('.bpm-slider input').value = data.bpm;
+  document.querySelector('.bpm-info').textContent = data.bpm + 'bpm;'
 }
 
 module.exports = Sequencer;
