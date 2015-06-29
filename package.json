@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "int2freq": "^1.0.0",
+    "load-sample-2-buff": "^1.0.1",
     "openmusic-oscillator": "^1.3.0",
     "openmusic-sample-player": "^1.3.1"
   }
