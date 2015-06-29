@@ -1,9 +1,9 @@
 function createUI(that){
-  createInstrumentUI(that)
-  createSlider(that);
-  createKeySelect(that);
-  createPowerButton(that);
-  createImportExportButtons(that);
+  var container = document.createElement("div");
+  container.setAttribute("class", "container");
+  createInstrumentUI(that, container)
+  createControls(that, container)
+  document.body.appendChild(container)
 }
 
 function updateInstrumentUI(){
@@ -22,18 +22,28 @@ function updateInstrumentUI(){
   document.querySelector('.'+that.name+' select').value = that.current;
 }
 
-function createInstrumentUI(that){
+function createInstrumentUI(that, container){
   that.instruments.forEach(function(instrument){
     inst = instrument.type !== "drum" ? createSynthUI(instrument) : createDrumUI(instrument);
-    document.body.appendChild(inst);
+    container.appendChild(inst);
   });
 }
 
-function createImportExportButtons(that){
+function createControls(that, papaContainer){
+  var container = document.createElement("div");
+  container.setAttribute("class", "row controls");
+  createSlider(that, container);
+  createKeySelect(that, container);
+  createPowerButton(that, container);
+  createImportExportButtons(that, container);
+  papaContainer.appendChild(container)
+}
+
+function createImportExportButtons(that, container){
   var importInput = document.createElement("input");
   importInput.setAttribute("type", "text");
   importInput.setAttribute("class", "import")
-  document.body.appendChild(importInput);
+  container.appendChild(importInput);
 
   var importBtn = document.createElement("button");
   importBtn.textContent = "import";
@@ -41,7 +51,7 @@ function createImportExportButtons(that){
     var data = JSON.parse(importInput.value);
     that.loadData(data);
   })
-  document.body.appendChild(importBtn);
+  container.appendChild(importBtn);
 
   var exportBtn = document.createElement("button");
   exportBtn.textContent = "export";
@@ -52,12 +62,12 @@ function createImportExportButtons(that){
     download.textContent = "X";
     var data = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state));
     download.setAttribute('href', data)
-    document.body.appendChild(download)
+    container.appendChild(download)
   })
-  document.body.appendChild(exportBtn);
+  container.appendChild(exportBtn);
 }
 
-function createSlider(that){
+function createSlider(that, container){
   var slider = document.createElement("div");
   slider.setAttribute("class", "bpm-slider");
   var bpmInfo = document.createElement("span");
@@ -80,10 +90,10 @@ function createSlider(that){
   };
   slider.appendChild(bpmSlider);
   slider.appendChild(bpmInfo);
-  document.body.appendChild(slider);
+  container.appendChild(slider);
 }
 
-function createKeySelect(that){
+function createKeySelect(that, container){
   var keySelect = document.createElement("div");
   keySelect.setAttribute("class", "key-select")
   var tonic = document.createElement("select");
@@ -113,10 +123,10 @@ function createKeySelect(that){
 
   keySelect.appendChild(key);
 
-  document.body.appendChild(keySelect);
+  container.appendChild(keySelect);
 }
 
-function createPowerButton(that){
+function createPowerButton(that, container){
   var powerBtn = document.createElement("button");
   powerBtn.textContent = "|>";
   powerBtn.addEventListener("click", function(){
@@ -129,13 +139,13 @@ function createPowerButton(that){
       powerBtn.textContent = "| |";
     }
   })
-  document.body.appendChild(powerBtn);
+container.appendChild(powerBtn);
 }
 
 function createDefaultInstrumentUI(that, container){
-  var clearFix = document.createElement("div");
-  clearFix.setAttribute("class", "cf");
-  container.appendChild(clearFix);
+  // var clearFix = document.createElement("div");
+  // clearFix.setAttribute("class", "cf");
+  // container.appendChild(clearFix);
 
   var label = document.createElement("span");
   label.setAttribute("class", "label")
@@ -169,7 +179,7 @@ function createDefaultInstrumentUI(that, container){
 
 function createSynthUI(that){
   var synth = document.createElement("div");
-  synth.setAttribute("class", that.name);
+  synth.setAttribute("class", 'row ' + that.name);
 
   var synthProbs = document.createElement("div");
   synthProbs.setAttribute("class", "synth-probs");
@@ -208,7 +218,7 @@ function createSynthUI(that){
 
 function createDrumUI(that){
   var drum = document.createElement("div");
-  drum.setAttribute("class", that.name);
+  drum.setAttribute("class", 'row ' + that.name);
 
   for(var i = 0; i < that.probs[that.current].length; i++){
     var cell = document.createElement("input");

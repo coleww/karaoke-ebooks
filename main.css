@@ -1,4 +1,12 @@
-
+.container{
+  margin: 50px;
+  border: 1px solid purple;
+  padding: 25px;
+  width: 75%;
+}
+.row {
+  padding: 5px;
+}
 .prob {
   width: 20px;
   margin: 0 10px 0 10px;
@@ -22,6 +30,8 @@
 
 input {
   border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 5px;
 }
 
 .bpm-slider {
