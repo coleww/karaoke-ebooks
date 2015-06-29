@@ -29,7 +29,7 @@ module.exports = function createInstruments(ac, instrumentData, updateUI){
     gainNode.connect(filter);
     filter.connect(ac.destination);
 
-    var instrument = new Instrument(player, data, gainNode, filter, updateUI);
+    var instrument = new Instrument(player, data, updateUI);
     instruments.push(instrument)
   });
 

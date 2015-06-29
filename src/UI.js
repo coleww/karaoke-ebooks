@@ -20,8 +20,6 @@ function updateInstrumentUI(){
 
   document.querySelector('.'+that.name+' .nexts').value = that.nexts[that.current].join(",");
   document.querySelector('.'+that.name+' select').value = that.current;
-  document.querySelector('.'+that.name+' .volume').value = that.gain.gain.value;
-  document.querySelector('.'+that.name+' .filter').value = that.filter.frequency.value;
 }
 
 function createInstrumentUI(that){

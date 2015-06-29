@@ -1,9 +1,7 @@
 var int2freq = require("int2freq");
 
-var Instrument = function(player, opts, gain, filter, updateUI){
+var Instrument = function(player, opts, updateUI){
   this.player = player;
-  this.gain = gain;
-  this.filter = filter;
   this.name = opts.name;
   this.type = opts.type;
   // console.log(opts)
@@ -21,12 +19,6 @@ var Instrument = function(player, opts, gain, filter, updateUI){
   this.current = 0;
   this.playing = false;
   this.updateUI = updateUI;//.bind(this);
-  if(opts.gain){
-    this.updateVolume(opts.gain);
-  }
-  if(opts.freq){
-    this.updateFilter(opts.freq);
-  }
 }
 
 Instrument.prototype.play = function(pos, ac, key){
@@ -59,19 +51,8 @@ Instrument.prototype.exportRows = function(){
     type: this.type,
     probs: this.probs,
     notes: this.notes,
-    nexts: this.nexts,
-    gain: this.gain.gain.value,
-    freq: this.filter.frequency.value
+    nexts: this.nexts
   }
-}
-
-
-Instrument.prototype.updateVolume = function(val){
-  this.gain.gain.value = val;
-}
-
-Instrument.prototype.updateFilter = function(val){
-  this.filter.frequency.value = val;
 }
 
 Instrument.prototype.next = function(){
