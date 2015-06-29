@@ -35,6 +35,8 @@ Instrument.prototype.play = function(pos, ac, key){
       var noteInt = this.notes[this.current][pos][~~(Math.random() * this.notes[this.current][pos].length)]
       if(!noteInt) noteInt = 0;
       var freq = int2freq(~~noteInt, key);
+      // TODO:
+      // WRAP THIS BUSINESS?
       this.player.frequency.setValueAtTime(freq, ac.currentTime);
       this.player.start();
       this.playing = true;
@@ -43,6 +45,8 @@ Instrument.prototype.play = function(pos, ac, key){
     }
   } else {
     if(this.type !== "drum"){
+      // TODO:
+      // ADSR?
       if(this.playing) this.player.stop(ac.currentTime);
       this.playing = false
     }

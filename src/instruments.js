@@ -16,6 +16,9 @@ module.exports = function createInstruments(ac, instrumentData, updateUI){
       player.type = data.type;
     }
 
+    // TODO:
+    // do some magic here to build custom inst nodes easily?
+
     var gainNode = ac.createGain();
 
     var filter = ac.createBiquadFilter();
