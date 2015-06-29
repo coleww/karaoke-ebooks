@@ -134,10 +134,7 @@ function createPowerButton(that){
   document.body.appendChild(powerBtn);
 }
 
-
-
 function createDefaultInstrumentUI(that, container){
-
   var clearFix = document.createElement("div");
   clearFix.setAttribute("class", "cf");
   container.appendChild(clearFix);
@@ -170,42 +167,6 @@ function createDefaultInstrumentUI(that, container){
     that.nexts[that.current] = e.target.value.split(",");
   });
   container.appendChild(nextInput);
-
-  var label = document.createElement("span");
-  label.setAttribute("class", "label")
-  label.textContent = 'gain';
-  container.appendChild(label);
-
-
-  var volSlider = document.createElement("input");
-  volSlider.setAttribute("type", "range");
-  volSlider.setAttribute("class", "volume");
-  volSlider.setAttribute("min", 0);
-  volSlider.setAttribute("value", that.gain.gain.value);
-  volSlider.setAttribute("step", 0.05);
-  volSlider.setAttribute("max", 1);
-  volSlider.oninput = function updateVolume(e){
-    that.updateVolume(e.target.valueAsNumber);
-  };
-  container.appendChild(volSlider);
-
-  var label = document.createElement("span");
-  label.setAttribute("class", "label")
-  label.textContent = 'filter';
-  container.appendChild(label);
-
-  var filterSlider = document.createElement("input");
-  filterSlider.setAttribute("type", "range");
-  filterSlider.setAttribute("class", "filter");
-  filterSlider.setAttribute("min", 0);
-  filterSlider.setAttribute("value", 350);
-  filterSlider.setAttribute("max", 10000);
-  filterSlider.oninput = function updateFilter(e){
-    that.updateFilter(e.target.valueAsNumber);
-  };
-  container.appendChild(filterSlider);
-
-  container.appendChild(document.createElement("hr"));
 }
 
 function createSynthUI(that){
