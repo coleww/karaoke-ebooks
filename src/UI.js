@@ -8,17 +8,13 @@ function createUI(that){
 
 function updateInstrumentUI(){
   var that = this;
-  console.log(that);
   that.probs[that.current].forEach(function(val, i){
-    console.log(val)
     document.querySelector('.'+that.name+' input[data-index="'+i+'"].prob').value = val;
   });
 
   if(that.type !== "drum"){
-    console.log('ym')
     that.notes[that.current].forEach(function(val, i){
-      // console.log(document.querySelector('.'+that.name+' input[data-index="'+i+'"].notes'))
-      document.querySelector('.'+that.name+' input[data-index="'+i+'"].notes').value = val.join(",");
+      if(val) document.querySelector('.'+that.name+' input[data-index="'+i+'"].notes').value = val.join(",");
     });
   }
 

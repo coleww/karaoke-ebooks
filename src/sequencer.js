@@ -68,7 +68,7 @@ Sequencer.prototype.loadData = function(data){
   })
 
   var keyUi = document.querySelectorAll('.key-select select');
-  keyUi.item(0).value = data.key.tonic.slice(0, - 1);
+  keyUi.item(0).value = data.key.tonic.slice(0, -1);
   keyUi.item(1).value = data.key.scale;
   document.querySelector('.bpm-slider input').value = data.bpm;
   document.querySelector('.bpm-info').textContent = data.bpm + 'bpm;'
