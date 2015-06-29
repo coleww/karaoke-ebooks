@@ -6,7 +6,7 @@ module.exports = function(ac, path){
 
   loadSample2Buff(ac, path, function(buffer){
     player.buffer = buffer
-  }))
+  })
 
   return player;
 }
