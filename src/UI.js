@@ -8,14 +8,16 @@ function createUI(that){
 
 function updateInstrumentUI(){
   var that = this;
-  that.probs[that.current].forEach(function(val, i){
+  for(var i = 0; i < that.probs[that.current].length; i++){
+    var val = that.probs[that.current][i] || ''
     document.querySelector('.'+that.name+' input[data-index="'+i+'"].prob').value = val;
-  });
+  }
 
   if(that.type !== "drum"){
-    that.notes[that.current].forEach(function(val, i){
-      if(val) document.querySelector('.'+that.name+' input[data-index="'+i+'"].notes').value = val.join(",");
-    });
+    for(var i = 0; i < that.notes[that.current].length; i++){
+      var val = that.notes[that.current][i] || []
+      document.querySelector('.'+that.name+' input[data-index="'+i+'"].notes').value = val.join(",")
+    }
   }
 
   document.querySelector('.'+that.name+' .nexts').value = that.nexts[that.current].join(",");
