@@ -6,31 +6,46 @@ body {
 .container{
   background-color: white;
   margin: 50px;
-  border: 1px solid white;
-  border-bottom: 1px solid black;
   border-radius: 5px;
   padding: 25px;
-  /*width: 75%;*/
 }
+
 .row {
   padding: 5px;
+  margin-bottom: 5px;
 }
+
+
+
+
+
+input {
+  background-color: white;
+  border: 1px solid white;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  border-radius: 5px;
+  margin-top: 5px;
+  height: 20px;
+}
+
 .prob {
   width: 30px;
   margin: 0 10px 0 10px;
-  height: 20px;
-  border: 1px solid white;
-  border-bottom: 1px solid black;
-  /*margin-left: 12px;*/
 }
 
 .notes {
   width: 50px;
-  height: 20px;
-  border: 1px solid white;
-  border-bottom: 1px solid black;
-  /*margin-right: 5px;*/
 }
+
+.nexts, .import {
+  width: 75px;
+  margin: 5px;
+}
+
+
+
+
 
 .label {
   display: inline-block;
@@ -38,28 +53,8 @@ body {
   width: 60px;
 }
 
-.row {
-  margin-bottom: 5px;
-}
-
-.nexts {
-
-  border: 1px solid white;
-  border-bottom: 1px solid black;
-  width: 75px;
-  margin: 5px;
-}
-
 .synth-probs {
   display: inline-block;
-}
-
-input {
-  border: 1px solid black;
-  border-radius: 5px;
-  margin-top: 5px;
-  background-color: white;
-  /*margin-left: 5px;*/
 }
 
 .bpm-slider {
@@ -74,15 +69,8 @@ input {
 
 .one-beat {
   /*background-color: lightgreen;*/
-  border-top: 1px solid black;
 }
 
 .cf {
   clear: both;
-}
-
-.import {
-
-  border: 1px solid white;
-  border-bottom: 1px solid black;
 }
