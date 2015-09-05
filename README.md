@@ -7,7 +7,8 @@
 
 
 
-
+needs an "intro"
+needs to hold on the intro beat until twitter data has loaded.
 
 
 

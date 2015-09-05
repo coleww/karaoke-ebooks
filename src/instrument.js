@@ -35,6 +35,9 @@ Instrument.prototype.play = function(pos, ac, key, section, tick){
           // WRAP that BUSINESS?
           that.player.frequency.setValueAtTime(freq2, ac.currentTime);
           that.player.start();
+          window.setTimeout(function() {
+            that.player.stop(0)
+          }, tick / 2.0)
           that.playing = true;
         }, tick / 2.0)
       }
@@ -44,7 +47,7 @@ Instrument.prototype.play = function(pos, ac, key, section, tick){
         var freq3 = int2freq(noteInt + 7, key) // up an 8v
         window.setTimeout(function(){
           that.player.frequency.setValueAtTime(freq3, ac.currentTime);
-          that.player.start();
+          // that.player.start();
           that.playing = true;
         }, tick / 2.0)
       }
@@ -58,7 +61,7 @@ Instrument.prototype.play = function(pos, ac, key, section, tick){
     if(this.type !== "drum"){
       // TODO:
       // ADSR?
-      if(this.playing) this.player.stop(ac.currentTime);
+      if(this.playing) this.player.stop(0);
       this.playing = false
     }
   }

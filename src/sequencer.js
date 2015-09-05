@@ -41,9 +41,9 @@ Sequencer.prototype.run = function(){
 
 
       if(!that.section) {
-        that.stop()
+        that.stop(0)
         that.instruments.forEach(function(i){
-          if(i.type == 'drum') i.player.stop()
+          if(i.type !== 'drum') i.player.stop(0)
         })
       }
     }

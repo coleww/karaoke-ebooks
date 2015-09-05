@@ -25,7 +25,7 @@ module.exports = function createInstruments(ac, instrumentData, updateUI){
 
     var filter = ac.createBiquadFilter();
     filter.type = 'lowpass';
-    filter.frequency.value = 1000;
+    filter.frequency.value = 800;
 
     player.connect(gainNode);
     gainNode.connect(filter);
