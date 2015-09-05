@@ -1,46 +1,15 @@
-var data = {
-  instruments: [
-    {
-      name: 'clap',
-      type: 'drum'
-    },
-    {
-      name: 'cym',
-      type: 'drum'
-    },
-    {
-      name: 'hat',
-      type: 'drum'
-    },
-    {
-      name: 'snare',
-      type: 'drum'
-    },
-    {
-      name: 'kick',
-      type: 'drum'
-    },
-    {
-      name: 'tri',
-      type: 'triangle'
-    },
-    {
-      name: 'sin',
-      type: 'sine'
-    }
-  ],
-  key: {
-    tonic: 'C3',
-    scale: 'major'
-  },
-  bpm: 120,
-  steps: 16
-};
+var data = require('./data');
 
-var UI = require('./src/UI');
-var updateInstrumentUI = UI.updateInstrumentUI;
-var createUI = UI.createUI;
+var updateInstrumentUI = function(){
+  // umm make a wavy animation
+}
+var createUI = function(seq) {
+// umm build the buttons? oh gotta add a tweety module too. err, thats on the backend? input and start button, maybe a checkbox for adding in other flavor
+
+// OH either you can do 50s ice cream changes or 80s blue monday
+}
+
 
 var Sequencer = require('./src/sequencer');
 var seq = new Sequencer(data, updateInstrumentUI);
-createUI(seq);
+seq.run()

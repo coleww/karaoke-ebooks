@@ -12,6 +12,8 @@ module.exports = function createInstruments(ac, instrumentData, updateUI){
     if(data.type == 'drum'){
       player = new Sampler(ac, 'samples/'+data.name+'.wav');
     } else {
+
+      // ahh so like use the modules here? hmm.
       player = new Oscillator(ac);
       player.type = data.type;
     }

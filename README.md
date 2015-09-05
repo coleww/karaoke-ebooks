@@ -1,4 +1,24 @@
-# PROBLUMZ
+# KARAOKE EBOOKS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 :notes: [a probabilistic audio sequencer](http://coleww.github.io/problumz/) :speaker:
 

@@ -4,27 +4,16 @@ var Instrument = function(player, opts, updateUI){
   this.player = player;
   this.name = opts.name;
   this.type = opts.type;
-  // console.log(opts)
-  this.probs = opts.probs || [];
-  this.notes = opts.notes || [];
-  this.nexts = opts.nexts || [];
-  if(!this.probs.length){
-    // console.log("burp")
-    for(var i = 0; i < 6; i++) {
-      this.probs.push(Array(16));
-      this.notes.push(Array(16));
-      this.nexts.push([i]);
-    }
-  }
+  this.sections = opts.sections
   this.current = 0;
   this.playing = false;
-  this.updateUI = updateUI;//.bind(this);
+  this.updateUI = updateUI;
 }
 
-Instrument.prototype.play = function(pos, ac, key){
-  if(Math.random() < this.probs[this.current][pos]){
+Instrument.prototype.play = function(pos, ac, key, section, tick){
+  if(Math.random() < this.sections[section].probs[this.current][pos]){
     if(this.type !== "drum"){
-      var noteInt = this.notes[this.current][pos][~~(Math.random() * this.notes[this.current][pos].length)]
+      var noteInt = this.sections[section].notes[this.current][pos][~~(Math.random() * this.sections[section].notes[this.current][pos].length)]
       if(!noteInt) noteInt = 0;
       var freq = int2freq(~~noteInt, key);
       // TODO:
@@ -32,6 +21,36 @@ Instrument.prototype.play = function(pos, ac, key){
       this.player.frequency.setValueAtTime(freq, ac.currentTime);
       this.player.start();
       this.playing = true;
+      var that = this
+
+
+      if(this.name == 'solo' && Math.random() < this.sections[section].probs[this.current][pos]){
+        window.setTimeout(function(){
+          var noteInt2 = that.sections[section].notes[that.current][pos][~~(Math.random() * that.sections[section].notes[that.current][pos].length)]
+          if(!noteInt2) noteInt2 = 0;
+          var freq2 = int2freq(~~noteInt2, key);
+
+
+          // TODO:
+          // WRAP that BUSINESS?
+          that.player.frequency.setValueAtTime(freq2, ac.currentTime);
+          that.player.start();
+          that.playing = true;
+        }, tick / 2.0)
+      }
+
+
+      if(this.name == 'bounce'){
+        var freq3 = int2freq(noteInt + 7, key) // up an 8v
+        window.setTimeout(function(){
+          that.player.frequency.setValueAtTime(freq3, ac.currentTime);
+          that.player.start();
+          that.playing = true;
+        }, tick / 2.0)
+      }
+
+
+
     } else {
       this.player.start();
     }
@@ -45,22 +64,15 @@ Instrument.prototype.play = function(pos, ac, key){
   }
 }
 
-Instrument.prototype.exportRows = function(){
-  return {
-    name: this.name,
-    type: this.type,
-    probs: this.probs,
-    notes: this.notes,
-    nexts: this.nexts
+Instrument.prototype.next = function(section){
+  if(this.name !== 'solo'){
+    var nexts = this.sections[section].nexts[this.current];
+    var next = nexts[~~(Math.random() * nexts.length)];
+    var same = next === this.current;
+    this.current = next;
+    if(!same) this.updateUI(section);
   }
-}
 
-Instrument.prototype.next = function(){
-  var nexts = this.nexts[this.current];
-  var next = nexts[~~(Math.random() * nexts.length)];
-  var same = next === this.current;
-  this.current = next;
-  if(!same) this.updateUI();
 };
 
 module.exports = Instrument;
