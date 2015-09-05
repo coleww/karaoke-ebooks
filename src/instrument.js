@@ -1,13 +1,12 @@
 var int2freq = require("int2freq");
 
-var Instrument = function(player, opts, updateUI){
+var Instrument = function(player, opts){
   this.player = player;
   this.name = opts.name;
   this.type = opts.type;
   this.sections = opts.sections
   this.current = 0;
   this.playing = false;
-  this.updateUI = updateUI;
 }
 
 Instrument.prototype.play = function(pos, ac, key, section, tick){
@@ -73,9 +72,7 @@ Instrument.prototype.next = function(section){
     var next = nexts[~~(Math.random() * nexts.length)];
     var same = next === this.current;
     this.current = next;
-    if(!same) this.updateUI(section);
   }
-
 };
 
 module.exports = Instrument;

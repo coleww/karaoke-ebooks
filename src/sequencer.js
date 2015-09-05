@@ -4,16 +4,16 @@ function getTick(bpm){
   return ((60 * 1000) / bpm) / 4;
 }
 
-var Sequencer = function(data, updateInstrumentUI){
+var Sequencer = function(data, lines){
   this.ac = new AudioContext();
   this.bpm = data.bpm;
-  this.instruments = createInstruments(this.ac, data.instruments, updateInstrumentUI);
+  this.instruments = createInstruments(this.ac, data.instruments);
   this.interval = null;
   this.key = data.key;
+  this.lines = lines
   this.section = data.section || "verse"
   this.sections = data.sections || ["verse", "verse", "verse", "verse", "chorus", "chorus"]
   this.position = 0;
-  this.updateInstrumentUI = updateInstrumentUI;
   this.steps = data.steps;
 };
 
