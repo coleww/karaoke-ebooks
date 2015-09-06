@@ -38,9 +38,7 @@ function gimmeSomeOoohs () {
   var oohs = [["whooooa oooooooh ooooohhhh yeahhh!", "mmmhmmmmmmmmm yeahhhhh!"], ["ooooooooooooooooo", "oooooooEEEEEEEEooooooooo"], ["mmmmmmmmmmmmmm", "mmmmmmmmmmMMMMMMMMMmmmmmmm"], ["ugh ugh what yeah ugh check it out", "*whispers 'MAYBACH MUSIC'*"], ["DANG SON WHERE'D U FIND THIS?", "*AIR RAID SIREN*"], ["uh huh ugh yeah", "cmon check it out"], ["YOUNG MOOLAH BAY BEE", "ok im going back in:"]]
   var vox = []
   var oo = sample(oohs)
-  vox.push(oo[0])
-  vox.push(oo[1])
-  return vox
+  return oo
 }
 
 function makeADamnSong (m) {
