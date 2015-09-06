@@ -36,8 +36,9 @@ document.getElementById('doit').addEventListener('click', function (){
       constructForMeASongPlease(linesToAdd, function (lines) {
         var then = new Date().getTime()
         console.log('WOW that only took ', then - now)
-        // document.getElementById('loading').style.display = "none"
+        document.getElementById('loading').style.display = "none"
         var stype = document.querySelector('input[name="songtype"]:checked').value
+      // var lines = ['foo', 'bar']
         var data = (stype == '50s') ? data50s : data80s
         var seq = new Sequencer(data, lines);
         seq.run()
