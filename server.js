@@ -52,6 +52,9 @@ var server = http.createServer(function (req, res) {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify({data: data}));
     })
+  } else {
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end("HEYYYYYYYYYYYYYSSSSSSSUP? WHAT U DOING HERE?"));
   }
 })
 
