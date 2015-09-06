@@ -239,10 +239,10 @@
       }
     }
   ],
-  "bpm":73,
+  "bpm":63,
   "key":{
     "tonic":"D2",
     "scale":"pentMin"},
   "steps":16,
-  "sections": ["verse", "verse", "verse", "verse", "verse", "verse", "chorus", "chorus", "chorus", "chorus", "verse", "verse", "verse", "verse", "chorus", "chorus", "chorus", "chorus", "bridge", "bridge", "bridge", "bridge", "bridge", "bridge", "chorus", "chorus", "chorus", "chorus", "chorus", "chorus", "chorus"]
+  "sections": ["verse", "verse", "verse", "verse", "verse", "chorus", "chorus", "chorus", "chorus", "verse", "verse", "verse", "verse", "chorus", "chorus", "chorus", "chorus", "bridge", "bridge", "bridge", "bridge", "bridge", "bridge", "chorus", "chorus", "chorus", "chorus", "chorus", "chorus", "chorus"]
 }
