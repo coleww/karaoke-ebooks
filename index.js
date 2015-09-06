@@ -13,12 +13,15 @@ var constructForMeASongPlease = require('./makeASong')
 
 var Sequencer = require('./src/sequencer');
 
+var host = 'http://karaoke-ebooks.herokuapp.com' //
+// var host = 'http://localhost:8000'
+
 document.getElementById('doit').addEventListener('click', function (){
   // HIDE THE ONBOARDING!
   document.getElementById('onboarding').style.display = "none"
   document.getElementById('loading').style.display = "block"
   var username = document.getElementById('uname').value
-  xhr({uri: "http://localhost:8000/@" + username, headers: {  }}, function (err, resp, body) {
+  xhr({uri: host + "/@" + username, headers: {  }}, function (err, resp, body) {
     if(err){
       throw err
     } else {
