@@ -28,7 +28,7 @@ module.exports = function(lines, cb){
 
 function gimmeOne (m) {
   var poem
-  while(!poem /*|| repeater(poem) || boring(poem) || hasStops(poem)*/ || isNotOk(poem)){
+  while(!poem || repeater(poem) || boring(poem) || hasStops(poem) || isNotOk(poem)){
     poem = attemptAPoem(m)
   }
   return poem

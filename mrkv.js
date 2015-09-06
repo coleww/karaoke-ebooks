@@ -6,6 +6,7 @@ var Markov = function(n){
   this.chain = {}
   this.n = n
   this.keys = []
+  this.map = {}
 }
 
 Markov.prototype.seed = function(lines){
@@ -26,8 +27,10 @@ Markov.prototype.seed = function(lines){
       var key = marklet.slice(0, that.n).join("|")
       if(!that.chain[key]) that.chain[key] = []
       that.chain[key].push(marklet[marklet.length - 1])
+      that.map[marklet[marklet.length - 1]] = true
     })
   })
+
 }
 
 Markov.prototype.random = function(n){
@@ -73,10 +76,7 @@ Markov.prototype.fillBack = function(key, n){
 }
 
 Markov.prototype.search = function(key){
-  var that = this
-  return Object.keys(this.chain).some(function(k){
-    return that.chain[k].indexOf(key) !== -1
-  })
+  return this.map[key]
 }
 
 Markov.prototype.gimme = function(key, n){
