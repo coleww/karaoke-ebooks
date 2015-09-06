@@ -7,7 +7,7 @@ var levelup = require('level')
 
 var Twit = require('twit')
 
-var live = true
+var live = process.env.do_it
 
 if (live) {
   memjs = MemJS.create();
