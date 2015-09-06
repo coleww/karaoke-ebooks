@@ -23,7 +23,7 @@ module.exports = function(lines, cb){
 
 function gimmeOne (m) {
   var poem
-  while(!poem || poem.length > 100 || poem.split("/")[0].length > 55 || poem.split("/")[1].length > 55 || repeater(poem) || boring(poem) || hasStops(poem) || isNotOk(poem)){
+  while(!poem || repeater(poem) || boring(poem) || hasStops(poem) || isNotOk(poem)){
     poem = attemptAPoem(m)
   }
   return poem
@@ -39,12 +39,14 @@ function gimmeSomeOoohs () {
 }
 
 function makeADamnSong (m) {
+  console.log('making a damn song')
   var attempts = times(function(){return gimmeOne(m)}, 500)
-
+  console.log('i got 500 rhymes yo!')
   var theSong = []
 
   var matches = sortBy(groupTheMatches(attempts), 'length')
   var main = matches[0]
+  console.log('main', main.length)
   var chorus = []
   if(matches.length > 1) {
     chorus = findTheChorus(flatten(matches.slice(1)))
@@ -57,7 +59,7 @@ function makeADamnSong (m) {
        chorus = main
     }
  }
-
+ console.log('chor', chorus.length)
 
 
   // the intro
