@@ -3,3 +3,4 @@ node_modules
 bundle.js
 tooter.js
 tweetdb
+.divshot-cache

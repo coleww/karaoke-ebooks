@@ -14,7 +14,7 @@ var isCool = makeIsCool()
 var Markov = require('./mrkv')
 var times = require('call-n-times')
 var levenshtein = require('fast-levenshtein');
-var sample = require('array-sample')
+var sample = require('pick-random')
 var sortBy = require('sort-array')
 var flatten = require('flatten-array')
 var inRange = require('in-range');
@@ -49,11 +49,11 @@ function makeADamnSong (m) {
     var ting = gimmeOne(m)
     console.log(ting)
     return ting
-  }, 50)
+  }, 150)
   console.log('i got 500 rhymes yo!')
   var theSong = []
 
-  var matches = sortBy(groupTheMatches(attempts), 'length')
+  var matches = sortBy(groupTheMatches(attempts), 'length').reverse()
   var main = matches[0]
   console.log('main', main.length)
   var chorus = []
