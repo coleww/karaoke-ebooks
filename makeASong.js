@@ -93,7 +93,8 @@ function makeADamnSong (m) {
   var c2 = attempts.pop()
   var c3 = attempts.pop()
   var c4 = attempts.pop()
-  theSong.push("THIS ONE IS CALLED " + c1[0])
+  var c5 = attempts.pop()
+  theSong.push("THIS ONE IS CALLED " + c1.split("/")[0])
 
 
   // the intro
@@ -108,7 +109,7 @@ function makeADamnSong (m) {
   theSong.push(c1)
   theSong.push(c2)
     theSong.push(c1)
-  theSong.push(c2)
+  theSong.push(c3)
 
   theSong.push(attempts.pop())
   theSong.push(attempts.pop())
@@ -116,10 +117,10 @@ function makeADamnSong (m) {
   theSong.push(attempts.pop())
   theSong.push(attempts.pop())
   // SECOND CHORUS!
-  theSong.push(c1)
-  theSong.push(c2)
+  theSong.push(c5)
   theSong.push(c3)
   theSong.push(c4)
+  theSong.push(c2)
 
   // the bridge]
   theSong.push(gimmeSomeOoohs())
@@ -131,8 +132,8 @@ function makeADamnSong (m) {
   theSong.push(c3)
   theSong.push(c1)
   theSong.push(c4)
-  theSong.push(c3)
-  theSong.push(c2)
+  theSong.push(c5)
+  theSong.push(c4)
   theSong.push(c1[0])
 //   32! well, 6 for the bridge, 2 for the intro
 //   22!
