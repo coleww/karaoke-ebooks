@@ -7,7 +7,7 @@ var levelup = require('level')
 
 var Twit = require('twit')
 
-var live = true
+var live = false
 
 if (live) {
   memjs = MemJS.create();
@@ -54,7 +54,7 @@ var server = http.createServer(function (req, res) {
     })
   } else {
       res.writeHead(200, { "Content-Type": "application/json" });
-      res.end("HEYYYYYYYYYYYYYSSSSSSSUP? WHAT U DOING HERE?"));
+      res.end("HEYYYYYYYYYYYYYSSSSSSSUP? WHAT U DOING HERE?");
   }
 })
 
