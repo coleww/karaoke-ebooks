@@ -33,6 +33,8 @@ Sequencer.prototype.run = function(){
       }
     })
     that.position++;
+    document.getElementById("done").style.width = 100 - (that.position / that.steps) + "%"
+    document.getElementById("doing").style.width = (that.position / that.steps) + "%"
     if(that.position >= that.steps){
       that.instruments.forEach(function(instrument){
         instrument.next(that.section);
@@ -51,13 +53,12 @@ Sequencer.prototype.run = function(){
 
       var inter
       var ii = 0
-      inter = window.setInterval(function(){
-        document.getElementById("done").style.width = (100 - (++ii * 6.2)) - 12 + "%"
-        document.getElementById("doing").style.width = (ii * 6.2)  - 12 + "%"
+      // inter = window.setInterval(function(){
+
         // HMMM kill
-        console.log('.')
-        if(ii == 16) window.clearInterval(inter)
-      }, tick / 16.0)
+        // console.log('.')
+      //   if(ii == 16) window.clearInterval(inter)
+      // }, tick / 16.0)
       // ..../ hmm set interval to updat ethe progress bar, and then wipe it on next run?
 
 
