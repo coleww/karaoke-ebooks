@@ -4,8 +4,8 @@
   "description": "probability sequencer",
   "main": "index.js",
   "scripts": {
-    "build": "browserify index.js -o bundle.js",
-    "watch": "watchify index.js -o bundle.js --debug --verbose"
+    "build": "browserify index.js -t brfs -o bundle.js",
+    "watch": "watchify index.js -t brfs -o bundle.js --debug --verbose"
   },
   "author": "Cole Willsea <coleww@gmail.com> (http://colewillsea.com/)",
   "license": "MIT",
@@ -14,12 +14,22 @@
     "watchify": "^3.1.0"
   },
   "dependencies": {
+    "after": "^0.8.1",
+    "array-sample": "^0.1.0",
+    "array-shuffle": "^1.0.0",
+    "brfs": "^1.4.1",
+    "each-cons": "^1.0.0",
     "int2freq": "^1.0.0",
+    "iscool": "^1.1.7",
     "level": "^1.3.0",
     "load-sample-2-buff": "^1.0.1",
+    "markov": "coleww/node-markov",
     "openmusic-oscillator": "^1.3.0",
     "openmusic-sample-player": "^1.3.1",
+    "pronouncing": "aparrish/pronouncingjs",
+    "stopwords": "0.0.5",
     "twit": "^2.1.0",
+    "wordfilter": "^0.2.1",
     "xhr": "^2.0.4"
   }
 }

@@ -38,7 +38,7 @@ Sequencer.prototype.run = function(){
       that.section = that.sections.shift()
       // HERE IS WHERE YOU WOULD GRAB THE NEXT RHYME AND SHOVE IT ON?
 
-
+      document.getElementById("karaoke").textContent = that.lines.shift()
 
       if(!that.section) {
         that.stop(0)
