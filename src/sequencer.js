@@ -56,7 +56,7 @@ Sequencer.prototype.run = function(){
         document.getElementById("doing").style.width = (ii * 6.2)  - 12 + "%"
         // HMMM kill
         console.log('.')
-        if(ii == 10) window.clearInterval(inter)
+        if(ii == 16) window.clearInterval(inter)
       }, tick / 16.0)
       // ..../ hmm set interval to updat ethe progress bar, and then wipe it on next run?
 
