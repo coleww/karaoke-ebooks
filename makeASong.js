@@ -48,7 +48,9 @@ function makeADamnSong (m) {
     console.log(ting)
     document.body.getElementById('loading').textContent = document.body.getElementById('loading').textContent + '.'
     return ting
-  }, 10)
+  }, 20)
+
+  attempts = shuffle(arrayUnique(attempts))
   console.log('i got 20 rhymes yo!')
   var theSong = []
 
