@@ -68,7 +68,7 @@ function doThatThang(username, cb) {
               return !t.match('@Botgle') // lol
             }).map(function(t){
               return t.split(" ").filter(function(w){
-                return !w.match(/\.|@|#/)
+                return !w.match(/\.|@|#|RT/)
               }).join(" ")
             })
             memjs.set(username, dats.join("|||"))
