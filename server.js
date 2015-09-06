@@ -99,7 +99,7 @@ function doThatThang(username, cb) {
         }
       } else {
         console.log(value.length, typeof value)
-        cb(value.split("|||"))
+        cb(value.toString().split("|||"))
       }
     })
   }
