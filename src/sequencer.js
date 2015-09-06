@@ -48,6 +48,10 @@ Sequencer.prototype.run = function(){
 
       // EXCEPT NOT ON THE INTRO OR BRIDGE, PUT SOME LIKE "OHHHHH YEAHHH WHOOOO HOOOOO AT RANDOM THERE INSTEAD!"
       document.getElementById("karaoke").textContent = lik
+
+      // ..../ hmm set interval to updat ethe progress bar, and then wipe it on next run?
+
+
       // UMMM how to animate the singing...hmmm...there could be magic here...
       // OH SHIT A PROGRESS BAR DOES THIS EXACTLY! SET IT ON A TIMER FOR THE LENGTH OF THE THING, THEN DUMP IT.
       // FUCK YEAH FUCK YEAH SCIENCE

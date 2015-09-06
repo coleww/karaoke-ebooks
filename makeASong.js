@@ -47,15 +47,18 @@ function makeADamnSong (m) {
     var ting = gimmeOne(m)
     console.log(ting)
     return ting
-  }, 150)
-  console.log('i got 500 rhymes yo!')
+  }, 100)
+  console.log('i got 100 rhymes yo!')
   var theSong = []
 
   var matches = sortBy(groupTheMatches(attempts), 'length').reverse()
   var main = matches[0]
 
   if(main.length < 4){
-    main = main.concat(matches.shift())
+    main = shuffle(main.concat(matches.shift()))
+  }
+  if(main.length < 8){
+    main = shuffle(main.concat(matches.shift()))
   }
   console.log('main', main.length)
 
@@ -72,7 +75,10 @@ function makeADamnSong (m) {
     }
  }
  if(chorus.length < 4){
-   chorus = chorus.concat(matches.shift())
+   chorus = shuffle(chorus.concat(matches.shift()))
+ }
+ if(chorus.length < 8){
+   chorus = shuffle(chorus.concat(matches.shift()))
  }
  console.log('chor', chorus.length)
 
