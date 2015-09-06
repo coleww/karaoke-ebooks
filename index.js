@@ -3,13 +3,13 @@ var data80s = require('./blue_mondata');
 var xhr = require('xhr')
 var constructForMeASongPlease = require('./makeASong')
 
-// var flavorStash = {
-//   'marx': require('./flavors/marx'),
-//   'smiths': require('./flavors/smiths'),
-//   'oldies': require('./flavors/oldies'),
-//   'punk': require('./flavors/punk'),
-//   'taylor': require('./flavors/taylor'),
-// }
+var flavorStash = {
+  'marx': require('./flavors/marx'),
+  'smiths': require('./flavors/smiths'),
+  'oldies': require('./flavors/oldies'),
+  'punk': require('./flavors/punk'),
+  'taylor': require('./flavors/taylor'),
+}
 
 var Sequencer = require('./src/sequencer');
 
@@ -30,7 +30,7 @@ document.getElementById('doit').addEventListener('click', function (){
       var flavors = document.querySelectorAll('input[name=flavors]:checked');
       for (var i = 0; i < flavors.length; i++){
         console.log(flavors[i].value)
-        // linesToAdd = linesToAdd.concat(flavorStash[flavors[i].value])
+        linesToAdd = linesToAdd.concat(flavorStash[flavors[i].value])
       }
       var now = new Date().getTime()
       constructForMeASongPlease(linesToAdd, function (lines) {

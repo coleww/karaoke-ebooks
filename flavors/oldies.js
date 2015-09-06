@@ -1,4 +1,4 @@
-module.exports =
+module.exports = [
 "Oh yeah, I'll tell you something",
 "I think you'll understand",
 "When I'll say that something",
