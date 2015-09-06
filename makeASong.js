@@ -40,7 +40,11 @@ function gimmeSomeOoohs () {
 
 function makeADamnSong (m) {
   console.log('making a damn song')
-  var attempts = times(function(){return gimmeOne(m)}, 500)
+  var attempts = times(function(){
+    var ting = gimmeOne(m)
+    console.log(ting)
+    return ting
+  }, 500)
   console.log('i got 500 rhymes yo!')
   var theSong = []
 
