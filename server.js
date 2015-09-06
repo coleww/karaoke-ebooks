@@ -1,12 +1,33 @@
 var http = require("http")
 var url = require("url")
+
+
+var MemJS = require("memjs").Client
 var levelup = require('level')
-var db = levelup('./tweetdb')
+
 var Twit = require('twit')
 
-var T = new Twit({
-  // CONFIG STUFF HERE YO!
-})
+var live = false
+
+if (live) {
+  memjs = MemJS.create();
+} else {
+  var db = levelup('./tweetdb')
+}
+
+
+var twit_configs
+if (live) {
+  twit_configs = {
+    "consumer_key": process.env.consumer_key,
+    "consumer_secret": process.env.consumer_secret,
+    "access_token": process.env.access_token,
+    "access_token_secret": process.env.access_token_secret
+  }
+} else {
+  twit_configs = require('./tooter')
+}
+var T = new Twit(twit_configs)
 
 var server = http.createServer(function (req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -39,26 +60,48 @@ server.listen(process.env.PORT || 8000)
 console.log('listening on: ', process.env.PORT || 8000)
 
 function doThatThang(username, cb) {
-  db.get(username, function (err, value) {
-    if (err) {
-      if (err.notFound) {
+  if (live) {
+    memjs.get(username, function(err, value) {
+      if (value) {
         hitTheTwitter(username, function (data) {
-          var dats = data.map(function(t){
-            return t.split(" ").filter(function(w){
-              return !w.match(/\.|@|#/)
-            }).join(" ")
+            var dats = data.filter(function(t){
+              return !t.match('@Botgle') // lol
+            }).map(function(t){
+              return t.split(" ").filter(function(w){
+                return !w.match(/\.|@|#/)
+              }).join(" ")
+            })
+            memjs.set(username, dats.join("|||"))
+            cb(dats)
           })
-          db.put(username, dats.join("|||"))
-          cb(dats)
-        })
       } else {
-        throw err
+        cb(value.split("|||"))
       }
-    } else {
-      console.log(value.length, typeof value)
-      cb(value.split("|||"))
-    }
-  })
+    })
+  } else {
+    db.get(username, function (err, value) {
+      if (err) {
+        if (err.notFound) {
+          hitTheTwitter(username, function (data) {
+            var dats = data.filter(function(t){
+              return !t.match('@Botgle') // lol
+            }).map(function(t){
+              return t.split(" ").filter(function(w){
+                return !w.match(/\.|@|#/)
+              }).join(" ")
+            })
+            db.put(username, dats.join("|||"))
+            cb(dats)
+          })
+        } else {
+          throw err
+        }
+      } else {
+        console.log(value.length, typeof value)
+        cb(value.split("|||"))
+      }
+    })
+  }
 }
 
 function hitTheTwitter(username, cb) {

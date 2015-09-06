@@ -16,7 +16,7 @@ var Sequencer = require('./src/sequencer');
 document.getElementById('doit').addEventListener('click', function (){
   // HIDE THE ONBOARDING!
   document.getElementById('onboarding').style.display = "none"
-  document.getElementById('loading').style.display = 'visible'
+  document.getElementById('loading').style.display = "block"
   var username = document.getElementById('uname').value
   xhr({uri: "http://localhost:8000/@" + username, headers: {  }}, function (err, resp, body) {
     if(err){
@@ -29,11 +29,15 @@ document.getElementById('doit').addEventListener('click', function (){
         console.log(flavors[i].value)
         // linesToAdd = linesToAdd.concat(flavorStash[flavors[i].value])
       }
+
       constructForMeASongPlease(linesToAdd, function (lines) {
+        document.getElementById('loading').style.display = "none"
         var stype = document.querySelector('input[name="songtype"]:checked').value
         var data = (stype == '50s') ? data50s : data80s
         var seq = new Sequencer(data, lines);
         seq.run()
+
+        document.getElementById('karaoke').style.display = "block"
       })
     }
   })

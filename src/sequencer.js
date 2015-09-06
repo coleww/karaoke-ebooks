@@ -11,6 +11,7 @@ var Sequencer = function(data, lines){
   this.interval = null;
   this.key = data.key;
   this.lines = lines
+  console.log('SNOW: ', this.lines.length)
   this.section = data.section || "verse"
   this.sections = data.sections || ["verse", "verse", "verse", "verse", "chorus", "chorus"]
   this.position = 0;
@@ -37,8 +38,9 @@ Sequencer.prototype.run = function(){
       that.position = 0;
       that.section = that.sections.shift()
       // HERE IS WHERE YOU WOULD GRAB THE NEXT RHYME AND SHOVE IT ON?
-
-      document.getElementById("karaoke").textContent = that.lines.shift()
+      var lik = that.lines.shift()
+      console.log(lik)
+      document.getElementById("karaoke").textContent = lik
 
       if(!that.section) {
         that.stop(0)

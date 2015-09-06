@@ -64,7 +64,6 @@ Markov.prototype.fillBack = function(key, n){
   while(res.length < n && !done){
     var next = this.backward(key)
     if(next){
-      console.log("BONG")
       res = next.concat(res)
     } else {
       done = true

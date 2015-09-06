@@ -1,0 +1,8 @@
+{
+  "name": "twit + memcachier",
+  "description": " hit /@some_twitter_name to get their twit texts ",
+  "repository": "https://github.com/coleww/",
+  "logo": "https://www.memcachier.com/assets/logo-large.png",
+  "keywords": ["nodejs", "node", "twit", "memcache", "memcachier", "caching" ],
+  "addons": [ "memcachier" ]
+}
