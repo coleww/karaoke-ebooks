@@ -35,7 +35,7 @@ function gimmeOne (m) {
 }
 
 function gimmeSomeOoohs () {
-  var oohs = [["whooooa oooooooh ooooohhhh yeahhh!", "mmmhmmmmmmmmm yeahhhhh!"], ["ooooooooooooooooo", "oooooooEEEEEEEEooooooooo"], ["mmmmmmmmmmmmmm", "mmmmmmmmmmMMMMMMMMMmmmmmmm"], ["ugh ugh what yeah ugh check it out", "*whispers 'MAYBACH MUSIC'*"], ["DANG SON WHERE'D U FIND THIS?", "*AIR RAID SIREN*"], ["uh huh ugh yeah", "cmon check it out"], ["YOUNG MOOLAH BAY BEE", "ok im going back in:"]]
+  var oohs = [["whooooa oooooooh ooooohhhh yeahhh!", "mmmhmmmmmmmmm yeahhhhh!"], ["ooooooooooooooooo", "oooooooEEEEEEEEooooooooo"], ["mmmmmmmmmmmmmm", "mmmmmmmmmmMMMMMMMMMmmmmmmm"], ["ugh ugh what yeah ugh check it out", "*whisper 'MAYBACH MUSIC'*"], ["DANG SON WHERE'D U FIND THIS?", "*AIR RAID SIREN*"], ["uh huh ugh yeah", "cmon check it out"], ["YOUNG MOOLAH BAY BEE", "ok im going back in:"]]
   var vox = []
   var oo = sample(oohs)
   return oo
@@ -43,12 +43,12 @@ function gimmeSomeOoohs () {
 
 function makeADamnSong (m) {
   console.log('making a damn song')
-  var attempts = times(function(){
+  var attempts = times(function(i){
     var ting = gimmeOne(m)
     console.log(ting)
-    document.getElementById('loading').textContent = document.getElementById('loading').textContent + '.'
+    document.getElementById('loadingdude').textContent = "LOADING" + i
     return ting
-  }, 20)
+  }, 25)
 
   attempts = shuffle(arrayUnique(attempts))
   console.log('i got 20 rhymes yo!')
@@ -90,10 +90,6 @@ function makeADamnSong (m) {
   console.log('oooooh', theSong)
 
   var c1 = attempts.pop()
-  var c2 = attempts.pop()
-  var c3 = attempts.pop()
-  var c4 = attempts.pop()
-  var c5 = attempts.pop()
   theSong.push("THIS ONE IS CALLED " + c1.split("/")[0])
 
 
@@ -106,10 +102,10 @@ function makeADamnSong (m) {
   theSong.push(attempts.pop())
   console.log('hmm', theSong)
   // FIRST CHORUS!
-  theSong.push(c1)
-  theSong.push(c2)
-    theSong.push(c1)
-  theSong.push(c3)
+  theSong.push(c1.split("/")[1])
+  theSong.push(attempts.pop())
+    theSong.push(attempts.pop())
+  theSong.push(attempts.pop())
 
   theSong.push(attempts.pop())
   theSong.push(attempts.pop())
@@ -117,10 +113,10 @@ function makeADamnSong (m) {
   theSong.push(attempts.pop())
   theSong.push(attempts.pop())
   // SECOND CHORUS!
-  theSong.push(c5)
-  theSong.push(c3)
-  theSong.push(c4)
-  theSong.push(c2)
+  theSong.push(c1.split("/")[0])
+  theSong.push(c1.split("/")[1])
+  theSong.push(attempts.pop())
+  theSong.push(attempts.pop())
 
   // the bridge]
   theSong.push(gimmeSomeOoohs())
@@ -128,13 +124,13 @@ function makeADamnSong (m) {
   theSong.push(gimmeSomeOoohs())
 
   // FINAL CHORUS!
-  theSong.push(c2)
-  theSong.push(c3)
-  theSong.push(c1)
-  theSong.push(c4)
-  theSong.push(c5)
-  theSong.push(c4)
-  theSong.push(c1[0])
+  theSong.push(c1.split("/")[0])
+  theSong.push(attempts.pop())
+  theSong.push(attempts.pop())
+  theSong.push(attempts.pop())
+  theSong.push(c1.split("/")[1])
+  theSong.push(attempts.pop())
+  theSong.push(c1.split("/")[0])
 //   32! well, 6 for the bridge, 2 for the intro
 //   22!
 //   in a b a b c b
@@ -192,7 +188,7 @@ function groupTheMatches (rhymes) {
 }
 
 function attemptAPoem(m){
-  var magic_num = (~~(Math.random() * 4))
+  var magic_num = (~~(Math.random() * 3))
   var first = m.random(5 + magic_num)
   var second
   var toTry = shuffle(pronouncing.rhymes(first[first.length - 1]))

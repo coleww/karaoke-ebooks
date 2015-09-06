@@ -47,7 +47,7 @@ Sequencer.prototype.run = function(){
       console.log(lik)
 
       // EXCEPT NOT ON THE INTRO OR BRIDGE, PUT SOME LIKE "OHHHHH YEAHHH WHOOOO HOOOOO AT RANDOM THERE INSTEAD!"
-      document.getElementById("karaoke").textContent = lik
+      document.getElementById("karaoke").textContent = lik.split("/").join("  /  ")
 
       // ..../ hmm set interval to updat ethe progress bar, and then wipe it on next run?
 
