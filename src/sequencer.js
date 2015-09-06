@@ -13,7 +13,7 @@ var Sequencer = function(data, lines){
   this.lines = lines
   console.log('SNOW: ', this.lines.length)
   console.log(this.lines)
-  this.section = data.section || "verse"
+  this.section = data.section || "intro"
   this.sections = data.sections || ["verse", "verse", "verse", "verse", "chorus", "chorus"]
   this.position = 0;
   this.steps = data.steps;
