@@ -39,7 +39,7 @@ function gimmeSomeOoohs () {
 }
 
 function makeADamnSong (m) {
-  var attempts = times(500, function(){return gimmeOne(m)})
+  var attempts = times(function(){return gimmeOne(m)}, 500)
 
   var theSong = []
 
