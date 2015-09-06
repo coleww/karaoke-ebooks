@@ -9,7 +9,10 @@ var isCool = makeIsCool()
 var Markov = require('./mrkv')
 var times = require('call-n-times')
 var levenshtein = require('fast-levenshtein');
-
+var sample = require('array-sample')
+var sortBy = require('sort-array')
+var flatten = require('flatten-array')
+var inRange = require('in-range');
 
 module.exports = function(lines, cb){
   var m = new Markov(3);
@@ -26,26 +29,97 @@ function gimmeOne (m) {
   return poem
 }
 
+function gimmeSomeOoohs () {
+  var oohs = [["whooooa oooooooh ooooohhhh yeahhh!", "mmmhmmmmmmmmm yeahhhhh!"], ["ooooooooooooooooo", "oooooooEEEEEEEEooooooooo"], ["mmmmmmmmmmmmmm", "mmmmmmmmmmMMMMMMMMMmmmmmmm"], ["ugh ugh what yeah ugh check it out", "*whispers 'MAYBACH MUSIC'*"], ["DANG SON WHERE'D U FIND THIS?", "*AIR RAID SIREN*"], ["uh huh ugh yeah", "cmon check it out"], ["YOUNG MOOLAH BAY BEE", "ok im going back in:"]]
+  var vox = []
+  var oo = sample(oohs)
+  vox.push(oo[0])
+  vox.push(oo[1])
+  return vox
+}
+
 function makeADamnSong (m) {
   var attempts = times(500, function(){return gimmeOne(m)})
 
   var theSong = []
 
-  groupTheMatches(attempts)
+  var matches = sortBy(groupTheMatches(attempts), 'length')
+  var main = matches[0]
+  var chorus = []
+  if(matches.length > 1) {
+    chorus = findTheChorus(flatten(matches.slice(1)))
+    if(!chorus.length) {
+       chorus = matches[1]
+    }
+ } else {
+    chorus = findTheChorus(main)
+    if(!chorus.length) {
+       chorus = main
+    }
+ }
 
-  // var distance = levenshtein.get('back', 'book');
-  // hmmm
+
+
+  // the intro
+  theSong.push(gimmeSomeOoohs())
 
 // TRY to find kinda similar strings FOR THE CHORUS!!!
 
 
+  var c1 = chorus.pop()
+  var c2 = chorus.pop()
+  var c3 = chorus.pop()
+
+
+
+  theSong.push(main.pop())
+  theSong.push(main.pop())
+
+  // FIRST CHORUS!
+  theSong.push(c1)
+  theSong.push(c2)
+
+  theSong.push(main.pop())
+  theSong.push(main.pop())
+
+  // SECOND CHORUS!
+  theSong.push(c1)
+  theSong.push(c3)
+
+  // the bridge]
+  theSong.push(gimmeSomeOoohs())
+  theSong.push(gimmeSomeOoohs())
+  theSong.push(gimmeSomeOoohs())
+
+  // FINAL CHORUS!
+  theSong.push(c2)
+  theSong.push(c3)
+  theSong.push(c1)
+  theSong.push(chorus.pop()[0])
 //   32! well, 6 for the bridge, 2 for the intro
 //   22!
 //   in a b a b c b
 // 2 4 4 4 4 6 6
 
 
-  return theSong
+  return flatten(theSong)
+}
+
+function findTheChorus (matches) {
+  // chorus defined as the set of things with the most levehnstein similarity.
+    // var distance = levenshtein.get('back', 'book');
+    // hmmm
+    var choruses = []
+
+  matches.forEach(function(m, i, arr) {
+    arr.slice(i).forEach(function(w){
+       if (inRange(levenshtein.get(w, m), 5, 12)){
+        choruses.push([w, m])
+       }
+    })
+  })
+
+    return choruses
 }
 
 function groupTheMatches (rhymes) {

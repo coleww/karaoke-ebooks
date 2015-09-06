@@ -181,5 +181,5 @@
     "tonic":"D2",
     "scale":"pentMin"},
   "steps":16,
-  "sections": ["intro", "intro", "verse", "verse", "verse", "verse", "chorus", "chorus", "chorus", "chorus", "verse", "verse", "verse", "verse", "chorus", "chorus", "chorus", "chorus", "bridge", "bridge", "bridge", "bridge", "bridge", "bridge", "chorus", "chorus", "chorus", "chorus", "chorus", "chorus"]
+  "sections": ["intro", "intro", "verse", "verse", "verse", "verse", "chorus", "chorus", "chorus", "chorus", "verse", "verse", "verse", "verse", "chorus", "chorus", "chorus", "chorus", "bridge", "bridge", "bridge", "bridge", "bridge", "bridge", "chorus", "chorus", "chorus", "chorus", "chorus", "chorus", "outro"]
 }

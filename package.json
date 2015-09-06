@@ -4,8 +4,8 @@
   "description": "probability sequencer",
   "main": "index.js",
   "scripts": {
-    "build": "browserify index.js -t brfs -o bundle.js",
-    "watch": "watchify index.js -t brfs -o bundle.js --debug --verbose"
+    "build": "browserify index.js -t brfs -o www/bundle.js",
+    "watch": "watchify index.js -t brfs -o www/bundle.js --debug --verbose"
   },
   "author": "Cole Willsea <coleww@gmail.com> (http://colewillsea.com/)",
   "license": "MIT",

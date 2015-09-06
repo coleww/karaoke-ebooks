@@ -37,10 +37,18 @@ Sequencer.prototype.run = function(){
       });
       that.position = 0;
       that.section = that.sections.shift()
+
+
+
       // HERE IS WHERE YOU WOULD GRAB THE NEXT RHYME AND SHOVE IT ON?
       var lik = that.lines.shift()
       console.log(lik)
+
+      // EXCEPT NOT ON THE INTRO OR BRIDGE, PUT SOME LIKE "OHHHHH YEAHHH WHOOOO HOOOOO AT RANDOM THERE INSTEAD!"
       document.getElementById("karaoke").textContent = lik
+      // UMMM how to animate the singing...hmmm...there could be magic here...
+      // OH SHIT A PROGRESS BAR DOES THIS EXACTLY! SET IT ON A TIMER FOR THE LENGTH OF THE THING, THEN DUMP IT.
+      // FUCK YEAH FUCK YEAH SCIENCE
 
       if(!that.section) {
         that.stop(0)

@@ -21,7 +21,7 @@ document.getElementById('doit').addEventListener('click', function (){
   document.getElementById('onboarding').style.display = "none"
   document.getElementById('loading').style.display = "block"
   var username = document.getElementById('uname').value
-  xhr({uri: host + "/@" + username, headers: {  }}, function (err, resp, body) {
+  xhr({uri: host + "/@" + username, headers: {  "Content-Type": "application/json" }}, function (err, resp, body) {
     if(err){
       throw err
     } else {
