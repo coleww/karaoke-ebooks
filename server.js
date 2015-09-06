@@ -22,7 +22,9 @@ var server = http.createServer(function (req, res) {
 
   // example.com/colewillsea
   // just use the desired username as the path
-  var username = url.parse(req.url).pathname.substr(1)
+  var uname = url.parse(req.url).pathname.substr(1)
+  var username = (uname.match(/^@/)) ? uname.substr(1) : ''
+
   console.log('request for: ', username)
   if(!!username) {
     doThatThang(username, function (data) {
@@ -41,14 +43,20 @@ function doThatThang(username, cb) {
     if (err) {
       if (err.notFound) {
         hitTheTwitter(username, function (data) {
-          db.put(username, data)
-          cb(data)
+          var dats = data.map(function(t){
+            return t.split(" ").filter(function(w){
+              return !w.match(/\.|@|#/)
+            }).join(" ")
+          })
+          db.put(username, dats.join("|||"))
+          cb(dats)
         })
       } else {
         throw err
       }
     } else {
-      cb(value)
+      console.log(value.length, typeof value)
+      cb(value.split("|||"))
     }
   })
 }
@@ -81,19 +89,3 @@ function collectSomeData (username, maxId, cb) {
     }
   })
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
