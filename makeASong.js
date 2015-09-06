@@ -46,8 +46,9 @@ function makeADamnSong (m) {
   var attempts = times(function(){
     var ting = gimmeOne(m)
     console.log(ting)
+    document.body.getElementById('loading').textContent = document.body.getElementById('loading').textContent + '.'
     return ting
-  }, 20)
+  }, 10)
   console.log('i got 20 rhymes yo!')
   var theSong = []
 
@@ -188,13 +189,14 @@ function groupTheMatches (rhymes) {
 }
 
 function attemptAPoem(m){
-  var first = m.random(5 + (~~(Math.random() * 4)))
+  var magic_num = (~~(Math.random() * 4))
+  var first = m.random(5 + magic_num)
   var second
   var toTry = shuffle(pronouncing.rhymes(first[first.length - 1]))
   toTry.every(function(rhyme){
     if(m.search(rhyme.toLowerCase())){
       // got that
-      second = m.fillBack(rhyme.toLowerCase(), 4 + (~~(Math.random() * 4)))
+      second = m.fillBack(rhyme.toLowerCase(), 4 + magic_num)
       // console.log(first.join(" "), second.join(" "))
       // console.log(toTry, first[first.length - 1], rhyme, second)
       return false
