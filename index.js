@@ -32,8 +32,10 @@ document.getElementById('doit').addEventListener('click', function (){
         console.log(flavors[i].value)
         // linesToAdd = linesToAdd.concat(flavorStash[flavors[i].value])
       }
-
+      var now = new Date().getTime()
       constructForMeASongPlease(linesToAdd, function (lines) {
+        var then = new Date().getTime()
+        console.log('WOW that only took ', then - now)
         document.getElementById('loading').style.display = "none"
         var stype = document.querySelector('input[name="songtype"]:checked').value
         var data = (stype == '50s') ? data50s : data80s
