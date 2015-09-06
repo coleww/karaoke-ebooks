@@ -75,6 +75,7 @@ function doThatThang(username, cb) {
             cb(dats)
           })
       } else {
+        console.log(value)
         cb(value.split("|||"))
       }
     })
