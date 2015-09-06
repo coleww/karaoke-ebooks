@@ -33,8 +33,8 @@ Sequencer.prototype.run = function(){
       }
     })
     that.position++;
-    document.getElementById("done").style.width = 100 - (that.position / that.steps) + "%"
-    document.getElementById("doing").style.width = (that.position / that.steps) + "%"
+    document.getElementById("done").style.width = 100 - (parseFloat(that.position) / that.steps) - 10 + "%"
+    document.getElementById("doing").style.width = (parseFloat(that.position) / that.steps) - 10 + "%"
     if(that.position >= that.steps){
       that.instruments.forEach(function(instrument){
         instrument.next(that.section);
