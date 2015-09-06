@@ -64,7 +64,7 @@ console.log('listening on: ', process.env.PORT || 8000)
 function doThatThang(username, cb) {
   if (live) {
     memjs.get(username, function(err, value) {
-      if (value) {
+      if (!value) {
         hitTheTwitter(username, function (data) {
             var dats = data.filter(function(t){
               return !t.match('@Botgle') // lol
