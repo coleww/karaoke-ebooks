@@ -23,12 +23,18 @@ var server = http.createServer(function (req, res) {
   // example.com/colewillsea
   // just use the desired username as the path
   var username = url.parse(req.url).pathname.substr(1)
-  doThatThang(username, function (data) {
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({data: data}));
-  })
+  console.log('request for: ', username)
+  if(!!username) {
+    doThatThang(username, function (data) {
+      console.log('got #: ', data.length)
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({data: data}));
+    })
+  }
 })
-server().listen(process.env.PORT || 8000)
+
+server.listen(process.env.PORT || 8000)
+console.log('listening on: ', process.env.PORT || 8000)
 
 function doThatThang(username, cb) {
   db.get(username, function (err, value) {
@@ -62,12 +68,16 @@ function hitTheTwitter(username, cb) {
 }
 
 function collectSomeData (username, maxId, cb) {
-  var max = maxId || 999999999999999999999999999
-  T.get('statuses/user_timeline', {screen_name: username, count: 200, max_id: max, trim_user: true}, function (err, datum, response) {
+  var dats =  {screen_name: username, count: 200, trim_user: true}
+  if(maxId) dats.max_id = maxId
+
+  T.get('statuses/user_timeline', dats, function (err, datum, response) {
     if (err) {
+      console.log("BORK", dats)
       throw err
     } else {
-      cb(datum.map(function(t){return t.text.split(" ").filter(function(w){return !w.match(/\./)}).join(" ")}), datum[datum.length - 1].id_str)
+      console.log(';ast one:', datum[datum.length - 1])
+      cb(datum.map(function(t){return t.text}), datum[datum.length - 1].id_str)
     }
   })
 }
