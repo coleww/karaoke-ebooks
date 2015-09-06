@@ -28,7 +28,7 @@ module.exports = function(lines, cb){
 
 function gimmeOne (m) {
   var poem
-  while(!poem || repeater(poem) || boring(poem) || hasStops(poem) || isNotOk(poem)){
+  while(!poem /*|| repeater(poem) || boring(poem) || hasStops(poem)*/ || isNotOk(poem)){
     poem = attemptAPoem(m)
   }
   return poem
@@ -58,7 +58,7 @@ function makeADamnSong (m) {
   console.log('main', main.length)
   var chorus = []
   if(matches.length > 1) {
-    chorus = []
+    chorus = findTheChorus(flatten(matches.slice(1)))
     if(!chorus.length) {
        chorus = matches[1]
     }
@@ -116,22 +116,22 @@ function makeADamnSong (m) {
   return flatten(theSong)
 }
 
-// function findTheChorus (matches) {
-//   // chorus defined as the set of things with the most levehnstein similarity.
-//     // var distance = levenshtein.get('back', 'book');
-//     // hmmm
-//     var choruses = []
+function findTheChorus (matches) {
+  // chorus defined as the set of things with the most levehnstein similarity.
+    // var distance = levenshtein.get('back', 'book');
+    // hmmm
+    var choruses = []
 
-//   matches.forEach(function(m, i, arr) {
-//     arr.slice(i).forEach(function(w){
-//        if (inRange(levenshtein.get(w, m), 5, 12)){
-//         choruses.push([w, m])
-//        }
-//     })
-//   })
+  matches.forEach(function(m, i, arr) {
+    arr.slice(i).forEach(function(w){
+       if (inRange(levenshtein.get(w, m), 5, 12)){
+        choruses.push([w, m])
+       }
+    })
+  })
 
-//     return choruses
-// }
+    return choruses
+}
 
 function groupTheMatches (rhymes) {
   var the_stack = rhymes
