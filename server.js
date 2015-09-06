@@ -1,17 +1,15 @@
 var http = require("http")
 var url = require("url")
 
-
-var MemJS = require("memjs").Client
-var levelup = require('level')
-
 var Twit = require('twit')
 
 var live = process.env.do_it
 
 if (live) {
+  var MemJS = require("memjs").Client
   memjs = MemJS.create();
 } else {
+  var levelup = require('level')
   var db = levelup('./tweetdb')
 }
 
