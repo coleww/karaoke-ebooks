@@ -45,7 +45,7 @@ function makeADamnSong (m) {
   console.log('making a damn song')
   var attempts = times(function(i){
     var ting = gimmeOne(m)
-    console.log(ting)
+    console.log(ting, i)
     document.getElementById('loadingdude').textContent = i
     document.getElementById('loadingdude').value = i
     return ting
