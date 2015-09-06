@@ -49,6 +49,14 @@ Sequencer.prototype.run = function(){
       // EXCEPT NOT ON THE INTRO OR BRIDGE, PUT SOME LIKE "OHHHHH YEAHHH WHOOOO HOOOOO AT RANDOM THERE INSTEAD!"
       document.getElementById("karaoke").textContent = lik.split("/").join("  /  ")
 
+      var inter
+      var ii = 0
+      inter = setInterval(function(){
+        document.getElementById("done").style.width = (100 - (++ii * 10)) - 12 + "%"
+        document.getElementById("doing").style.width = (ii * 10)  - 12 + "%"
+        // HMMM kill
+        if(ii == 10) clearInterval(inter)
+      }, tick / 10)
       // ..../ hmm set interval to updat ethe progress bar, and then wipe it on next run?
 
 

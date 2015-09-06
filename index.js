@@ -42,8 +42,8 @@ document.getElementById('doit').addEventListener('click', function (){
         var data = (stype == '50s') ? data50s : data80s
         var seq = new Sequencer(data, lines);
         seq.run()
-
-        document.getElementById('karaoke').style.display = "block"
+        document.getElementById('bruh').style.display = "inline-block"
+        document.getElementById('karaoke').style.display = "inline-block"
       })
     }
   })
