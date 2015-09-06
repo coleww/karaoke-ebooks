@@ -103,7 +103,7 @@ function makeADamnSong (m) {
   theSong.push(attempts.pop())
   console.log('hmm', theSong)
   // FIRST CHORUS!
-  theSong.push(c1.split("/")[1])
+  theSong.push(attempts.pop())
   theSong.push(attempts.pop())
     theSong.push(attempts.pop())
   theSong.push(attempts.pop())
@@ -114,8 +114,8 @@ function makeADamnSong (m) {
   theSong.push(attempts.pop())
   theSong.push(attempts.pop())
   // SECOND CHORUS!
-  theSong.push(c1.split("/")[0])
-  theSong.push(c1.split("/")[1])
+  theSong.push(attempts.pop())
+  theSong.push(attempts.pop())
   theSong.push(attempts.pop())
   theSong.push(attempts.pop())
 
@@ -125,11 +125,11 @@ function makeADamnSong (m) {
   theSong.push(gimmeSomeOoohs())
 
   // FINAL CHORUS!
-  theSong.push(c1.split("/")[0])
   theSong.push(attempts.pop())
   theSong.push(attempts.pop())
   theSong.push(attempts.pop())
-  theSong.push(c1.split("/")[1])
+  theSong.push(attempts.pop())
+  theSong.push(attempts.pop())
   theSong.push(attempts.pop())
   theSong.push(c1.split("/")[0])
 //   32! well, 6 for the bridge, 2 for the intro
