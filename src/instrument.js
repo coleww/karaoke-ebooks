@@ -10,6 +10,7 @@ var Instrument = function(player, opts){
 }
 
 Instrument.prototype.play = function(pos, ac, key, section, tick){
+  console.log(this.sections[section])
   if(Math.random() < this.sections[section].probs[this.current][pos]){
     if(this.type !== "drum"){
       var noteInt = this.sections[section].notes[this.current][pos][~~(Math.random() * this.sections[section].notes[this.current][pos].length)]
