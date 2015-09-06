@@ -44,7 +44,7 @@ function makeADamnSong (m) {
     var ting = gimmeOne(m)
     console.log(ting)
     return ting
-  }, 500)
+  }, 50)
   console.log('i got 500 rhymes yo!')
   var theSong = []
 
