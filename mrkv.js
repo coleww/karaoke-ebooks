@@ -51,6 +51,7 @@ Markov.prototype.backward = function(key){
   var that = this
   var next
   shuffle(Object.keys(this.chain)).every(function(k){
+
     if(that.chain[k].indexOf(key) !== -1){
       next = k.split("|")
       return false

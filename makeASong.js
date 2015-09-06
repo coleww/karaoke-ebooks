@@ -83,7 +83,7 @@ function makeADamnSong (m) {
   theSong.push(gimmeSomeOoohs())
 
 // TRY to find kinda similar strings FOR THE CHORUS!!!
-
+  console.log('oooooh', theSong)
 
   var c1 = chorus.pop()
   var c2 = chorus.pop()
@@ -93,7 +93,7 @@ function makeADamnSong (m) {
 
   theSong.push(main.pop())
   theSong.push(main.pop())
-
+  console.log('hmm', theSong)
   // FIRST CHORUS!
   theSong.push(c1)
   theSong.push(c2)

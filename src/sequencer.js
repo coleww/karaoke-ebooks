@@ -20,7 +20,7 @@ var Sequencer = function(data, lines){
 };
 
 Sequencer.prototype.run = function(){
-  document.getElementById("karaoke").textContent = that.lines.shift()
+  document.getElementById("karaoke").textContent = this.lines.shift()
   var that = this;
   var tick = getTick(that.bpm);
   this.interval = window.setInterval(function(){
