@@ -55,7 +55,12 @@ function makeADamnSong (m) {
 
   var matches = sortBy(groupTheMatches(attempts), 'length').reverse()
   var main = matches[0]
+
+  if(main.length < 4){
+    main = main.concat(matches.shift())
+  }
   console.log('main', main.length)
+
   var chorus = []
   if(matches.length > 1) {
     chorus = findTheChorus(flatten(matches.slice(1)))
@@ -67,6 +72,9 @@ function makeADamnSong (m) {
     if(!chorus.length) {
        chorus = main
     }
+ }
+ if(chorus.length < 4){
+   chorus = chorus.concat(matches.shift())
  }
  console.log('chor', chorus.length)
 
@@ -164,13 +172,13 @@ function groupTheMatches (rhymes) {
 }
 
 function attemptAPoem(m){
-  var first = m.random(5 + (~~(Math.random() * 3)))
+  var first = m.random(5 + (~~(Math.random() * 4)))
   var second
   var toTry = shuffle(pronouncing.rhymes(first[first.length - 1]))
   toTry.every(function(rhyme){
     if(m.search(rhyme.toLowerCase())){
       // got that
-      second = m.fillBack(rhyme.toLowerCase(), 4 + (~~(Math.random() * 3)))
+      second = m.fillBack(rhyme.toLowerCase(), 4 + (~~(Math.random() * 4)))
       // console.log(first.join(" "), second.join(" "))
       // console.log(toTry, first[first.length - 1], rhyme, second)
       return false

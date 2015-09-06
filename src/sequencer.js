@@ -12,6 +12,7 @@ var Sequencer = function(data, lines){
   this.key = data.key;
   this.lines = lines
   console.log('SNOW: ', this.lines.length)
+  console.log(this.lines)
   this.section = data.section || "verse"
   this.sections = data.sections || ["verse", "verse", "verse", "verse", "chorus", "chorus"]
   this.position = 0;
@@ -19,6 +20,7 @@ var Sequencer = function(data, lines){
 };
 
 Sequencer.prototype.run = function(){
+  document.getElementById("karaoke").textContent = that.lines.shift()
   var that = this;
   var tick = getTick(that.bpm);
   this.interval = window.setInterval(function(){
