@@ -1,4 +1,4 @@
-module.exports = [
+module.exports =
 
 It's time the tale were told
 of how you took a child
@@ -120,26 +120,26 @@ when the leather runs smooth on the passenger seat?
 
 I would go out tonight
 but I haven't got a stitch to wear
-this man said "It's gruesome
-that someone so handsome should care"
+this man said It's gruesome
+that someone so handsome should care
 
 A jumped-up pantry boy
 who never knew his place
-he said "return the rings"
+he said return the rings
 he knows so much about these things
 he knows so much about these things
 
 I would go out tonight
 but I haven't got a stitch to wear
-this man said "It's gruesome
-that someone so handsome should care"
+this man said It's gruesome
+that someone so handsome should care
 
 This charming man
 this charming man
 
 A jumped-up pantry boy
 who never knew his place
-he said "return the ring"
+he said return the ring
 he knows so much about these things
 he knows so much about these things
 he knows so much about these things
@@ -164,7 +164,7 @@ to people who don't care if I live or die
 
 What she asked of me at the end of the day
 Caligula would have blushed
-"You've been the house too long" she said
+You've been the house too long she said
 and I naturally fled
 
 In my life
@@ -173,7 +173,7 @@ at people who I'd much rather kick in the eye
 
 I was happy in the haze of a drunken hour
 but heaven knows I'm miserable now
-"You've been the house too long" she said
+You've been the house too long she said
 and I naturally fled
 
 In my life
@@ -240,4 +240,3 @@ There is a light and it never goes out
 There is a light and it never goes out
 There is a light and it never goes out
 
-]

@@ -47,59 +47,59 @@ function makeADamnSong (m) {
     var ting = gimmeOne(m)
     console.log(ting)
     return ting
-  }, 100)
-  console.log('i got 100 rhymes yo!')
+  }, 20)
+  console.log('i got 20 rhymes yo!')
   var theSong = []
 
-  var matches = sortBy(groupTheMatches(attempts), 'length').reverse()
-  var main = matches[0]
+ //  var matches = sortBy(groupTheMatches(attempts), 'length').reverse()
+ //  var main = matches[0]
 
-  if(main.length < 4){
-    main = shuffle(main.concat(matches.shift()))
-  }
-  if(main.length < 8){
-    main = shuffle(main.concat(matches.shift()))
-  }
-  console.log('main', main.length)
+ //  if(main.length < 4){
+ //    main = shuffle(main.concat(matches.shift()))
+ //  }
+ //  if(main.length < 8){
+ //    main = shuffle(main.concat(matches.shift()))
+ //  }
+ //  console.log('main', main.length)
 
-  var chorus = []
-  if(matches.length > 1) {
-    chorus = findTheChorus(flatten(matches.slice(1)))
-    if(!chorus.length) {
-       chorus = matches[1]
-    }
- } else {
-    chorus = findTheChorus(main)
-    if(!chorus.length) {
-       chorus = main
-    }
- }
- if(chorus.length < 4){
-   chorus = shuffle(chorus.concat(matches.shift()))
- }
- if(chorus.length < 8){
-   chorus = shuffle(chorus.concat(matches.shift()))
- }
- console.log('chor', chorus.length)
+ //  var chorus = []
+ //  if(matches.length > 1) {
+ //    chorus = findTheChorus(flatten(matches.slice(1)))
+ //    if(!chorus.length) {
+ //       chorus = matches[1]
+ //    }
+ // } else {
+ //    chorus = findTheChorus(main)
+ //    if(!chorus.length) {
+ //       chorus = main
+ //    }
+ // }
+ // if(chorus.length < 4){
+ //   chorus = shuffle(chorus.concat(matches.shift()))
+ // }
+ // if(chorus.length < 8){
+ //   chorus = shuffle(chorus.concat(matches.shift()))
+ // }
+ // console.log('chor', chorus.length)
 
-
-  // the intro
-  theSong.push(gimmeSomeOoohs())
 
 // TRY to find kinda similar strings FOR THE CHORUS!!!
   console.log('oooooh', theSong)
 
-  var c1 = chorus.pop()
-  var c2 = chorus.pop()
-  var c3 = chorus.pop()
-  var c4 = chorus.pop()
+  var c1 = attempts.pop()
+  var c2 = attempts.pop()
+  var c3 = attempts.pop()
+  var c4 = attempts.pop()
+  theSong.push("THIS ONE IS CALLED " + c1[0])
 
 
-  theSong.push(main.pop())
-  theSong.push(main.pop())
+  // the intro
+  theSong.push(gimmeSomeOoohs())
+  theSong.push(attempts.pop())
+  theSong.push(attempts.pop())
 
-  theSong.push(main.pop())
-  theSong.push(main.pop())
+  theSong.push(attempts.pop())
+  theSong.push(attempts.pop())
   console.log('hmm', theSong)
   // FIRST CHORUS!
   theSong.push(c1)
@@ -107,11 +107,11 @@ function makeADamnSong (m) {
     theSong.push(c1)
   theSong.push(c2)
 
-  theSong.push(main.pop())
-  theSong.push(main.pop())
+  theSong.push(attempts.pop())
+  theSong.push(attempts.pop())
 
-  theSong.push(main.pop())
-  theSong.push(main.pop())
+  theSong.push(attempts.pop())
+  theSong.push(attempts.pop())
   // SECOND CHORUS!
   theSong.push(c1)
   theSong.push(c2)

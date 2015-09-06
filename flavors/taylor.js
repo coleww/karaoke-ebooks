@@ -48,27 +48,27 @@ Hey
 
 Band-aids don't fix bullet holes
 You say sorry just for show
-If you live like that, you live with ghosts (ghosts)
-Band-aids don't fix bullet holes (hey)
-You say sorry just for show (hey)
-If you live like that, you live with ghosts (hey)
+If you live like that, you live with ghosts ghosts
+Band-aids don't fix bullet holes hey
+You say sorry just for show hey
+If you live like that, you live with ghosts hey
 Mhmmm
 If you love like that blood runs cold
 
 'Cause, baby, now we got bad blood
-You know it used to be mad love (mad love)
+You know it used to be mad love mad love
 So take a look what you've done
 'Cause, baby, now we got bad blood
 Hey
 Now we got problems
-And I don't think we can solve them (think we can solve them)
+And I don't think we can solve them think we can solve them
 You made a really deep cut
 And, baby, now we got bad blood
-(Hey)
+Hey
 
 'Cause, baby, now we got bad blood
 You know it used to be mad love
-So take a look what you've done (look what you've done)
+So take a look what you've done look what you've done
 'Cause, baby, now we got bad blood
 Hey
 Now we got problems
@@ -82,7 +82,7 @@ Got nothing in my brain
 That's what people say, mmm-mmm
 That's what people say, mmm-mmm
 
-I go on too many dates [chuckle]
+I go on too many dates chuckle
 But I can't make them stay
 At least that's what people say, mmm-mmm
 That's what people say, mmm-mmm
@@ -91,7 +91,7 @@ But I keep cruising
 Can't stop, won't stop moving
 It's like I got this music
 In my mind
-Saying, "It's gonna be alright."
+Saying, It's gonna be alright.
 
 'Cause the players gonna play, play, play, play, play
 And the haters gonna hate, hate, hate, hate, hate
@@ -107,8 +107,8 @@ I'm lightning on my feet
 And that's what they don't see, mmm-mmm
 That's what they don't see, mmm-mmm
 
-I'm dancing on my own (dancing on my own)
-I make the moves up as I go (moves up as I go)
+I'm dancing on my own dancing on my own
+I make the moves up as I go moves up as I go
 And that's what they don't know, mmm-mmm
 That's what they don't know, mmm-mmm
 
@@ -116,7 +116,7 @@ But I keep cruising
 Can't stop, won't stop grooving
 It's like I got this music
 In my mind
-Saying, "It's gonna be alright."
+Saying, It's gonna be alright.
 
 'Cause the players gonna play, play, play, play, play
 And the haters gonna hate, hate, hate, hate, hate
@@ -137,18 +137,18 @@ Just think while you've been getting down and out about the liars and the dirty,
 You could've been getting down to this sick beat.
 
 My ex-man brought his new girlfriend
-She's like "Oh, my god!" but I'm just gonna shake.
+She's like Oh, my god! but I'm just gonna shake.
 And to the fella over there with the hella good hair
 Won't you come on over, baby? We can shake, shake, shake
 
 Yeah ohhh
 
 'Cause the players gonna play, play, play, play, play
-And the haters gonna hate, hate, hate, hate, hate (haters gonna hate)
+And the haters gonna hate, hate, hate, hate, hate haters gonna hate
 I'm just gonna shake, shake, shake, shake, shake
 I shake it off, I shake it off
-Heart-breakers gonna break, break, break, break, break (mmmm)
-And the fakers gonna fake, fake, fake, fake, fake (and fake, and fake, and fake)
+Heart-breakers gonna break, break, break, break, break mmmm
+And the fakers gonna fake, fake, fake, fake, fake and fake, and fake, and fake
 Baby, I'm just gonna shake, shake, shake, shake, shake
 I shake it off, I shake it off
 
@@ -163,7 +163,7 @@ I, I, I shake it off, I shake it off,
 I, I, I shake it off, I shake it off
 
 Shake it off, I shake it off,
-I, I, I shake it off, I shake it off (you've got to),
+I, I, I shake it off, I shake it off you've got to,
 I, I, I shake it off, I shake it off,
 I, I, I shake it off, I shake it off
 Nice to meet you, where you been?
@@ -213,7 +213,7 @@ Screaming, crying, perfect storms
 I can make all the tables turn
 Rose garden filled with thorns
 Keep you second guessing like
-"Oh my God, who is she?"
+Oh my God, who is she?
 I get drunk on jealousy
 But you'll come back each time you leave
 'Cause, darling, I'm a nightmare dressed like a daydream
@@ -284,7 +284,7 @@ If we just keep dancing like we're
 
 It seems like one of those nights,
 This place is too crowded.
-Too many cool kids, uh uh, uh uh (who's Taylor Swift anyway, ew?)
+Too many cool kids, uh uh, uh uh who's Taylor Swift anyway, ew?
 It seems like one of those nights,
 We ditch the whole scene and end up dreaming
 Instead of sleeping.
@@ -296,16 +296,16 @@ Oh, yeah
 Tonight's the night when we forget about the heartbreaks
 It's time
 
-Uh oh! (hey!)
+Uh oh! hey!
 I don't know about you
 But I'm feeling 22
 Everything will be alright
 If you keep me next to you
 You don't know about me
 But I'll bet you want to
-Everything will be alright (alright)
+Everything will be alright alright
 If we just keep dancing like we're
-22, ooh-ooh (oh, oh, oh)
+22, ooh-ooh oh, oh, oh
 22, ooh-ooh
 I don't know about you
 22, ooh-ooh
@@ -322,11 +322,11 @@ I gotta have you.
 
 Ooh-ooh
 Ooh-ooh, ye-e-e-e-eah, hey
-I don't know about you (I don't know about you)
+I don't know about you I don't know about you
 But I'm feeling 22
 Everything will be alright
 If you keep me next to you
-You don't know about me (you don't know about me)
+You don't know about me you don't know about me
 But I'll bet you want to
 Everything will be alright
 If we just keep dancing like we're
@@ -344,13 +344,13 @@ You look like bad news,
 I gotta have you,
 I gotta have you.
 I remember when we broke up the first time
-Saying, "This is it, I've had enough," 'cause like
+Saying, This is it, I've had enough, 'cause like
 We hadn't seen each other in a month
-When you said you needed space. (What?)
+When you said you needed space. What?
 Then you come around again and say
-"Baby, I miss you and I swear I'm gonna change, trust me."
+Baby, I miss you and I swear I'm gonna change, trust me.
 Remember how that lasted for a day?
-I say, "I hate you," we break up, you call me, "I love you."
+I say, I hate you, we break up, you call me, I love you.
 
 Ooh, we called it off again last night
 But ooh, this time I'm telling you, I'm telling you
@@ -372,17 +372,17 @@ But ooh, this time I'm telling you, I'm telling you
 
 We are never, ever, ever getting back together
 We are never, ever, ever getting back together
-You go talk to your friends, talk to my friends, talk to me (talk to me)
+You go talk to your friends, talk to my friends, talk to me talk to me
 But we are never ever ever ever getting back together
 
 Ooh, yeah, ooh yeah, ooh yeah
 Oh oh oh
 
 I used to think that we were forever ever
-And I used to say, "Never say never..."
-Uggg... so he calls me up and he's like, "I still love you,"
-And I'm like... "I just... I mean this is exhausting, you know, like,
-We are never getting back together. Like, ever"
+And I used to say, Never say never...
+Uggg... so he calls me up and he's like, I still love you,
+And I'm like... I just... I mean this is exhausting, you know, like,
+We are never getting back together. Like, ever
 
 No!
 
@@ -394,9 +394,8 @@ But we are never ever ever ever getting back together
 We, ooh, getting back together, ohhh,
 We, ooh, getting back together
 
-You go talk to your friends, talk to my friends, talk to me (talk to me)
+You go talk to your friends, talk to my friends, talk to me talk to me
 But we are never ever ever ever getting back together
-
-
-
 ]
+
+

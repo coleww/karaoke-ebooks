@@ -1,4 +1,4 @@
-module.exports = [
+module.exports =
 Fuck the politically minded, here's something I want to say,
 About the state of nation, the way it treats us today.
 At school they give you shit, drop you in the pit,
@@ -1077,4 +1077,3 @@ Big man, big M.A.N. Big man, big M.A.N.
 Big man, J.O.K.E.
 Big man, what a fucking joke.
 
-]
