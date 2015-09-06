@@ -106,7 +106,7 @@ function makeADamnSong (m) {
   theSong.push(c2)
   theSong.push(c3)
   theSong.push(c1)
-  theSong.push(chorus.pop()[0])
+  theSong.push(c1[0])
 //   32! well, 6 for the bridge, 2 for the intro
 //   22!
 //   in a b a b c b
