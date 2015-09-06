@@ -76,7 +76,7 @@ function doThatThang(username, cb) {
           })
       } else {
         console.log(value)
-        cb(value.split("|||"))
+        cb(value.toString().split("|||"))
       }
     })
   } else {
