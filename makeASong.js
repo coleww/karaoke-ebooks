@@ -1,6 +1,11 @@
 var pronouncing = require('pronouncing');
 var fs = require('fs');
-var stops = require('stopwords').english;
+var sw = require('stopwords').english;
+
+var stops = sw.reduce(function(o, w){
+  o[w] = true
+  return o
+}, {})
 var wordfilter = require('wordfilter');
 
 var shuffle = require('array-shuffle')
@@ -199,13 +204,13 @@ function hasStops(poem){
     var pos = poem.split("/")
     return !pos.every(function(po){
         var ps = po.split(" ").filter(function(p){return p.length})
-        return stops.indexOf(ps[ps.length - 1]) == -1
+        return !stops[ps[ps.length - 1]]
     })
 }
 
 function isNotOk(poem){
 
-    return wordfilter.blacklisted(poem) && !isCool(poem)
+    return  !isCool(poem)
 }
 
 var arrayUnique = function(a) {
