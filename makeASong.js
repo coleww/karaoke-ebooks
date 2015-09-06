@@ -46,7 +46,8 @@ function makeADamnSong (m) {
   var attempts = times(function(i){
     var ting = gimmeOne(m)
     console.log(ting)
-    document.getElementById('loadingdude').textContent = "LOADING" + i
+    document.getElementById('loadingdude').textContent = i
+    document.getElementById('loadingdude').value = i
     return ting
   }, 25)
 
