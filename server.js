@@ -27,7 +27,7 @@ if (live) {
 var T = new Twit(twit_configs)
 
 var server = http.createServer(function (req, res) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://development.karaoke-ebooks.divshot.io http://www.karaoke-ebooks.party/')
+  res.setHeader('Access-Control-Allow-Origin', 'http://development.karaoke-ebooks.divshot.io')
   res.setHeader('Access-Control-Request-Method', 'OPTIONS, GET')
   res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET')
   res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept, Authorization, Token, Auth-Token, Email')
