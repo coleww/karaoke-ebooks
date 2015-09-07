@@ -188,13 +188,13 @@ function groupTheMatches (rhymes) {
 
 function attemptAPoem(m){
   var magic_num = (~~(Math.random() * 3))
-  var first = m.random(5 + magic_num)
+  var first = m.random(4 + magic_num)
   var second
   var toTry = shuffle(pronouncing.rhymes(first[first.length - 1]))
   toTry.every(function(rhyme){
     if(m.search(rhyme.toLowerCase())){
       // got that
-      second = m.fillBack(rhyme.toLowerCase(), 4 + magic_num)
+      second = m.fillBack(rhyme.toLowerCase(), 3 + magic_num)
       // console.log(first.join(" "), second.join(" "))
       // console.log(toTry, first[first.length - 1], rhyme, second)
       return false
