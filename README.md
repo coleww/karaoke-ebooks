@@ -3,6 +3,9 @@
 
 
 
+OHHHH ALSO COOOL:
+plug ina  mic, and have it get alllll reverby?
+BUT IF SO: add range sliders for volumes! drums melody and vox!
 
 
 

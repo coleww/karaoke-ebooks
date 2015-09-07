@@ -26,7 +26,6 @@ document.getElementById('doit').addEventListener('click', function (){
       throw err
     } else {
       var linesToAdd = JSON.parse(body).data
-
       var flavors = document.querySelectorAll('input[name=flavors]:checked');
       for (var i = 0; i < flavors.length; i++){
         console.log(flavors[i].value)
@@ -40,6 +39,9 @@ document.getElementById('doit').addEventListener('click', function (){
         var stype = document.querySelector('input[name="songtype"]:checked').value
       // var lines = ['foo', 'bar']
         var data = (stype == '50s') ? data50s : data80s
+
+        data.key.tonic = document.getElementById('tonicSelector').value
+        data.key.scale = document.getElementById('scaleSelector').value
         var seq = new Sequencer(data, lines);
         seq.run()
         document.getElementById('bruh').style.display = "inline-block"
