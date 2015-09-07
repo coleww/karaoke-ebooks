@@ -17,7 +17,7 @@ Markov.prototype.seed = function(lines){
     // MASSAGE THE HECK OUT OF THAT LINE FIRST!
 
 
-    var words = line.split(" ").filter(function(w){return !w.match(/\./) && !w.match('@') && !w.match('#')})
+    var words = line.split(" ").filter(function(w){return !w.match(/\./) && !w.match('@') && !w.match('#')}).map(function(w){ return w.replace(/\W/g, '')})
 
     // GOOD ENOUGH! YEAH!
 
