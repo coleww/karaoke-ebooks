@@ -55,7 +55,13 @@ Sequencer.prototype.run = function(){
       // ITS REALLY BAD
 
       // EXCEPT NOT ON THE INTRO OR BRIDGE, PUT SOME LIKE "OHHHHH YEAHHH WHOOOO HOOOOO AT RANDOM THERE INSTEAD!"
+      if (that.section == 'bridge'){
+
+      document.getElementById("karaoke").textContent = "SOLO: " + lik.split("/").join("  /  ")  + " :SOLO"
+      } else {
+
       document.getElementById("karaoke").textContent = lik.split("/").join("  /  ")
+      }
 
       var inter
       var ii = 0

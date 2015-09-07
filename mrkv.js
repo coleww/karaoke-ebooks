@@ -52,7 +52,7 @@ Markov.prototype.backward = function(key){
   var next
   shuffle(Object.keys(this.chain)).every(function(k){
 
-    if(that.chain[k].indexOf(key) !== -1){
+    if(that.map[key] && that.chain[k].indexOf(key) !== -1){
       next = k.split("|")
       return false
     } else {
