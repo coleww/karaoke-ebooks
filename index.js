@@ -37,7 +37,8 @@ document.getElementById('doit').addEventListener('click', function (){
         console.log('WOW that only took ', then - now)
         document.getElementById('loading').style.display = "none"
         var stype = document.querySelector('input[name="songtype"]:checked').value
-      // var lines = ['foo', 'bar']
+
+      // var lines = ['foo', 'bar', 'assssss', 'wjateeeber bruuuuuhhhh', 'cool it!', 'now dance!@@!!!!@']
         var data = (stype == '50s') ? data50s : data80s
 
         data.key.tonic = document.querySelectorAll('#opts select')[0].value
