@@ -44,7 +44,7 @@ Instrument.prototype.play = function(pos, ac, key, section, tick){
 
 
       if(this.name == 'bounce'){
-        var freq3 = int2freq(noteInt + 7, key) // up an 8v
+        var freq3 = int2freq(noteInt + 7, key) // up an 8v // unless its a pentatonic scale, in which case it'll get REAL WEIRD (cool)
         window.setTimeout(function(){
           that.player.frequency.setValueAtTime(freq3, ac.currentTime);
           // that.player.start();

@@ -49,6 +49,11 @@ Sequencer.prototype.run = function(){
       var lik = that.lines.shift()
       console.log(lik)
 
+      // UMMM if there isn't one then i think u should stop? i guess?
+      // TODO
+      // DOTHIS
+      // ITS REALLY BAD
+
       // EXCEPT NOT ON THE INTRO OR BRIDGE, PUT SOME LIKE "OHHHHH YEAHHH WHOOOO HOOOOO AT RANDOM THERE INSTEAD!"
       document.getElementById("karaoke").textContent = lik.split("/").join("  /  ")
 
