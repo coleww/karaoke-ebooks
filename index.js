@@ -41,7 +41,7 @@ document.getElementById('doit').addEventListener('click', function (){
       // var lines = ['foo', 'bar', 'assssss', 'wjateeeber bruuuuuhhhh', 'cool it!', 'now dance!@@!!!!@']
         var data = (stype == '50s') ? data50s : data80s
 
-        data.key.tonic = document.querySelectorAll('#opts select')[0].value
+        data.key.tonic = document.querySelectorAll('#opts select')[0].value + '3'
         data.key.scale = document.querySelectorAll('#opts select')[1].value
         var seq = new Sequencer(data, lines);
         seq.run()

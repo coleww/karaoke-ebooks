@@ -42,14 +42,15 @@ var server = http.createServer(function (req, res) {
   // just use the desired username as the path
   var uname = url.parse(req.url).pathname.substr(1)
   var username = (uname.match(/^@/)) ? uname.substr(1) : ''
-
+  var doItReally = !!username.match('?')
+  if (doItReally) username.replace('?', '')
   console.log('request for: ', username)
   if(!!username) {
     doThatThang(username, function (data) {
       console.log('got #: ', data.length)
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify({data: data}));
-    })
+    }, doItReally)
   } else {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end("HEYYYYYYYYYYYYYSSSSSSSUP? WHAT U DOING HERE?");
@@ -59,10 +60,10 @@ var server = http.createServer(function (req, res) {
 server.listen(process.env.PORT || 8000)
 console.log('listening on: ', process.env.PORT || 8000)
 
-function doThatThang(username, cb) {
+function doThatThang(username, cb, doItReally) {
   if (live) {
     memjs.get(username, function(err, value) {
-      if (!value) {
+      if (!value || doItReally) {
         hitTheTwitter(username, function (data) {
             var dats = data.filter(function(t){
               return !t.match('@Botgle') // lol
