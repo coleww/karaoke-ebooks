@@ -1,6 +1,9 @@
 {
   "instruments":[
     {
+      "filterFreq": 700,
+                  "gain": 0.8,
+                  "distortion": 200,
       "name":"kick",
       "type":"drum",
       "sections": {
@@ -29,6 +32,9 @@
     },
 
     {
+      "filterFreq": 1200,
+                  "gain": 0.68,
+                  "distortion": 100,
       "name":"snare",
       "type":"drum",
       "sections": {
@@ -56,6 +62,9 @@
       }
     },
     {
+      "filterFreq": 1500,
+                  "gain": 0.5,
+                  "distortion": 300,
       "name":"hat",
       "type":"drum",
       "sections": {
@@ -83,6 +92,9 @@
       }
     },
     {
+      "filterFreq": 20000,
+                  "gain": 0.48,
+                  "distortion": 400,
       "name":"cym",
       "type":"drum",
       "sections": {
@@ -110,6 +122,9 @@
       }
     },
     {
+      "filterFreq": 1100,
+                  "gain": 0.78,
+                  "distortion": 100,
       "name":"bounce",
       "type":"square",
       "sections": {
@@ -143,6 +158,9 @@
       }
     },
     {
+      "filterFreq": 15000,
+                  "gain": 0.68,
+                  "distortion": 700,
       "name":"lead",
       "type":"sine",
       "sections": {
@@ -183,6 +201,9 @@
 
 
     {
+      "filterFreq": 15000,
+                  "gain": 0.68,
+                  "distortion": 700,
       "name":"harm",
       "type":"triangle",
       "sections": {
@@ -219,6 +240,9 @@
       }
     },
     {
+      "filterFreq": 10000,
+                  "gain": 0.8,
+                  "distortion": 900,
       "name":"solo",
       "type":"sawtooth",
       "sections": {
@@ -236,7 +260,7 @@
   "bpm":57,
   "key":{
     "tonic":"D2",
-    "scale":"minor"},
+    "scale":"pentMin"},
   "steps":16,
   "sections": ["intro", "intro", "verse", "verse", "verse", "verse", "chorus", "chorus", "chorus", "chorus", "verse", "verse", "verse", "verse", "chorus", "chorus", "chorus", "chorus", "bridge", "bridge", "bridge", "bridge", "bridge", "bridge", "chorus", "chorus", "chorus", "chorus", "chorus", "chorus", "chorus", "outro"]
 }

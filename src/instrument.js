@@ -1,12 +1,14 @@
 var int2freq = require("int2freq");
 
-var Instrument = function(player, opts){
+var Instrument = function(player, opts, wobble){
   this.player = player;
   this.name = opts.name;
   this.type = opts.type;
   this.sections = opts.sections
   this.current = 0;
   this.playing = false;
+  this.wobble = wobble
+
 }
 
 Instrument.prototype.play = function(pos, ac, key, section, tick){
@@ -18,8 +20,15 @@ Instrument.prototype.play = function(pos, ac, key, section, tick){
       var freq = int2freq(~~noteInt, key);
       // TODO:
       // WRAP THIS BUSINESS?
+
+
+
       this.player.frequency.setValueAtTime(freq, ac.currentTime);
       this.player.start();
+
+
+
+
       this.playing = true;
       var that = this
 
@@ -46,6 +55,7 @@ Instrument.prototype.play = function(pos, ac, key, section, tick){
       if(this.name == 'bounce'){
         var freq3 = int2freq(noteInt + 7, key) // up an 8v // unless its a pentatonic scale, in which case it'll get REAL WEIRD (cool)
         window.setTimeout(function(){
+          that.wobble.lfo.frequency.value = [0.5, 1, 1.5, 2][pos % 4]
           that.player.frequency.setValueAtTime(freq3, ac.currentTime);
           // that.player.start();
           that.playing = true;

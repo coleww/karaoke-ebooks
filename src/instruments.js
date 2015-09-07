@@ -3,6 +3,12 @@ var Sampler = require('./sampler');
 var Oscillator = require('openmusic-oscillator');
 var Instrument = require('./instrument');
 
+var makeDistortionCurve = require('make-distortion-curve')
+
+// var make_drone = require('drone-e-o-synth')
+var make_wobble = require('wobbler')
+// var make_tri = require('tri-tri')
+
 
 module.exports = function createInstruments(ac, instrumentData){
   var instruments = [];
@@ -23,15 +29,34 @@ module.exports = function createInstruments(ac, instrumentData){
 
     var gainNode = ac.createGain();
 
+    gainNode.gain.value = data.gain
+
     var filter = ac.createBiquadFilter();
     filter.type = 'lowpass';
     filter.frequency.value = 800;
 
+    filter.frequency.value = data.filterFreq
+
+
+
+    var distortion = ac.createWaveShaper()
+    distortion.curve = makeDistortionCurve(data.distortion)
+
     player.connect(gainNode);
     gainNode.connect(filter);
-    filter.connect(ac.destination);
+    filter.connect(distortion)
+    var wobble
+    if (data.name == 'bounce') {
+      wobble = make_wobble(ac)
+      distortion.connect(wobble.input())
+      wobble.connect(ac.destination)
+      wobble.start()
+    } else {
 
-    var instrument = new Instrument(player, data);
+      distortion.connect(ac.destination);
+    }
+
+    var instrument = new Instrument(player, data, wobble);
     instruments.push(instrument)
   });
 
