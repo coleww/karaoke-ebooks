@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>PROBLUMZ</title>
+    <title>KARAOKE EBOOKS</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="stylesheet" type="text/css" href="main.css">
   </head>
@@ -51,7 +51,7 @@
           var keySelect = document.getElementById("opts");
 
             var tonic = document.createElement("select");
-            tonic.setAttribute("id", "tonicSelector")
+            // tonic.setAttribute("id", "tonicSelector")
             ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"].forEach(function(note){
               var opt = document.createElement("option");
               opt.value = opt.textContent = note;
@@ -63,7 +63,7 @@
 
 
             var key = document.createElement("select");
-            key.setAttribute("id", "scaleSelector")
+            // key.setAttribute("id", "scaleSelector")
             ["major", "minor", "pentMaj", "pentMin"].forEach(function(scale){
               var opt = document.createElement("option");
               opt.value = opt.textContent = scale;

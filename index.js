@@ -40,8 +40,8 @@ document.getElementById('doit').addEventListener('click', function (){
       // var lines = ['foo', 'bar']
         var data = (stype == '50s') ? data50s : data80s
 
-        data.key.tonic = document.getElementById('tonicSelector').value
-        data.key.scale = document.getElementById('scaleSelector').value
+        data.key.tonic = document.querySelectorAll('#opts select')[0].value
+        data.key.scale = document.querySelectorAll('#opts select')[1].value
         var seq = new Sequencer(data, lines);
         seq.run()
         document.getElementById('bruh').style.display = "inline-block"
