@@ -50,7 +50,7 @@ function makeADamnSong (m) {
   }, 25)
 
   attempts = shuffle(arrayUnique(attempts))
-  console.log('i got 20 rhymes yo!')
+  console.log('i got  rhymes yo!')
   var theSong = []
 
  //  var matches = sortBy(groupTheMatches(attempts), 'length').reverse()
