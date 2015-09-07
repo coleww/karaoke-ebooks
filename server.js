@@ -42,7 +42,7 @@ var server = http.createServer(function (req, res) {
   // just use the desired username as the path
   var uname = url.parse(req.url).pathname.substr(1)
   var username = (uname.match(/^@/)) ? uname.substr(1) : ''
-  var doItReally = !!username.match('?')
+  var doItReally = !!username.match('\?')
   if (doItReally) username.replace('?', '')
   console.log('request for: ', username)
   if(!!username) {
