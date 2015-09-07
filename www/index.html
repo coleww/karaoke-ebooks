@@ -7,7 +7,12 @@
     <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body>
-    <iframe width="100%" height="100%" class="super-center" src="https://www.youtube.com/embed/videoseries?list=PLHmnoNuQkYYMkD2IXVymi8e_1Y2tIVuSo&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    <iframe id="frame" width="100%" height="100%" class="super-center" src="" frameborder="0" allowfullscreen></iframe>
+    <script>
+      var i = ~~(Math.random() * 10)
+      var x = "https://www.youtube.com/embed/videoseries?list=PLHmnoNuQkYYMkD2IXVymi8e_1Y2tIVuSo&autoplay=1&index=" + i
+      document.getElementById("frame").src = x
+    </script>
 
     <div id="main" class="super-center layover" >
 
