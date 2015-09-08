@@ -79,7 +79,7 @@ Sequencer.prototype.run = function(){
       // FUCK YEAH FUCK YEAH SCIENCE
 
       if(!that.section) {
-        that.stop(0)
+        that.stop()
         that.instruments.forEach(function(i){
           if(i.type !== 'drum') i.player.stop(0)
         })
