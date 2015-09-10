@@ -23,13 +23,15 @@ Instrument.prototype.play = function(pos, ac, key, section, tick){
 
 
 
-      this.player.frequency.setValueAtTime(freq, ac.currentTime);
-      this.player.start();
+      if(freq) {
+        this.player.frequency.setValueAtTime(freq, ac.currentTime);
+        this.player.start();
 
 
 
 
-      this.playing = true;
+        this.playing = true;
+      }
       var that = this
 
 
@@ -42,12 +44,14 @@ Instrument.prototype.play = function(pos, ac, key, section, tick){
 
           // TODO:
           // WRAP that BUSINESS?
-          that.player.frequency.setValueAtTime(freq2, ac.currentTime);
-          that.player.start();
-          window.setTimeout(function() {
-            that.player.stop(0)
-          }, tick / 2.0)
-          that.playing = true;
+          if(freq2){
+            that.player.frequency.setValueAtTime(freq2, ac.currentTime);
+            that.player.start();
+            window.setTimeout(function() {
+              that.player.stop(0)
+            }, tick / 2.0)
+            that.playing = true;
+          }
         }, tick / 2.0)
       }
 

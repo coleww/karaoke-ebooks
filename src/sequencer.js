@@ -81,7 +81,10 @@ Sequencer.prototype.run = function(){
       if(!that.section) {
         that.stop()
         that.instruments.forEach(function(i){
-          if(i.type !== 'drum') i.player.stop(0)
+          if(i.type !== 'drum') {
+            i.player.frequency.value = 500
+            i.player.stop(0)
+          }
         })
       }
     }
