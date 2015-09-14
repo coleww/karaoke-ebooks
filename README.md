@@ -1,48 +1,19 @@
 # KARAOKE EBOOKS
 
+twitter fueled markov generated karaoke music.
 
+![](./demo.gif)
 
+this code is atrocious. i'm not sorry about that.
 
-OHHHH ALSO COOOL:
-plug ina  mic, and have it get alllll reverby?
-BUT IF SO: add range sliders for volumes! drums melody and vox!
+/src is basically a fork of me [probability sequencer](http://www.github.com/coleww/problumz).
 
+### development
 
-
-
-needs an "intro"
-needs to hold on the intro beat until twitter data has loaded.
-
-
-
-
-
-
-
-
-
-
-
-
-:notes: [a probabilistic audio sequencer](http://coleww.github.io/problumz/) :speaker:
-
-usually a sequencer is all like `[X][ ][X][ ]` which means play on the first and third beat but not the second or fourth, whereas this sequencer is all like `[0.44][0.732][1][0]` which means there is a 44% chance of playing on the first beat and a 73.2% chance of playing on the second, and the third beat will totally play whereas the fourth will never ever ever. similarly for the synthesizers instead of being all like `imagine a sparkling row of piano keys` they are more like `[0,0,1][ ][-1][ ]` which, given a tonic note of C3 and the major key, means that on the first beat there is a 66.6666666666666666% chance of a C3 playing and a 33.333333333333333333% chance of a D3 playing, and on the second beat nothing will play, and the third beat will definitely play a B2 note, followed by another beat of nothing.
-
------------------------------
-
-uses a variety of [openmusic modules](https://github.com/openmusic) for web audio stuff and [int2freq](https://github.com/coleww/int2freq) for "random" frequency selection.
-
-------------------------------
-
-### DEV:
 ```
-# install dependencies
 npm install
-
-# start watchify
+node server.js
+# modify `var host` in index.js to point to localhost :/
 npm run watch
-
-# start local server
-python -m SimpleHTTPServer
+serve
 ```
-
