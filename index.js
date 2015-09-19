@@ -2,6 +2,8 @@ var data50s = require('./data');
 var data80s = require('./blue_mondata');
 var xhr = require('xhr')
 var constructForMeASongPlease = require('./makeASong')
+var loadSample2Buff = require('load-sample-2-buff')
+var SamplePlayer = require('openmusic-sample-player')
 
 var flavorStash = {
   'marx': require('./flavors/marx'),
@@ -47,6 +49,18 @@ document.getElementById('doit').addEventListener('click', function (){
         seq.run()
         document.getElementById('bruh').style.display = "inline-block"
         document.getElementById('karaoke').style.display = "inline-block"
+
+        var audioContext = new AudioContext();
+        ["deng", "pos", "siren", "fire"].forEach(function (sound){
+
+          var player = SamplePlayer(audioContext);
+          loadSample2Buff(audioContext, './' + sound + '.ogg', function(buffer){
+              player.buffer = buffer
+              document.querySelector('.' + sound).addEventListener("click", function (e) {
+                player.start()
+              })
+          })
+        })
       })
     }
   })

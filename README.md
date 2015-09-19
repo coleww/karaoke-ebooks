@@ -15,5 +15,5 @@ npm install
 node server.js
 # modify `var host` in index.js to point to localhost :/
 npm run watch
-serve
+# serve the /www dir
 ```
