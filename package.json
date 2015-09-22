@@ -6,7 +6,8 @@
   "scripts": {
     "build": "browserify -g uglifyify index.js -t brfs -o www/bundle.js",
     "deploy": "npm run build && divshot push",
-    "watch": "watchify index.js -t brfs -o www/bundle.js --debug --verbose"
+    "watch": "watchify index.js -t brfs -o www/bundle.js --debug --verbose",
+    "server": "forever -m 5 server/index.js"
   },
   "author": "Cole Willsea <coleww@gmail.com> (http://colewillsea.com/)",
   "license": "MIT",

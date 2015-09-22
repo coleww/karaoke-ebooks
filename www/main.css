@@ -106,3 +106,12 @@ input {
 .cf {
   clear: both;
 }
+
+.soundboard {
+  border: 1px solid red;
+}
+
+.sample {
+
+  border: 1px solid blue;
+}

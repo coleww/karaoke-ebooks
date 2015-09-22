@@ -6,7 +6,11 @@ twitter fueled markov generated karaoke music.
 
 this code is atrocious. i'm not sorry about that.
 
-/src is basically a fork of me [probability sequencer](http://www.github.com/coleww/problumz).
+/audioSrc is basically a fork of [probability sequencer](http://www.github.com/coleww/problumz) which I have now deprecated in favor of https://github.com/coleww/overtone-live-coding so have fun with that one! all the procedural seed data is in /songs
+
+/rhymeSrc contains the custom mrkv implementation and rhyme construction algorithm
+
+/server is the thing that grabs all the tweets and caches them on a lil heroku thing *nice*
 
 ### development
 

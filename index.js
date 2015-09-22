@@ -1,7 +1,7 @@
-var data50s = require('./data');
-var data80s = require('./blue_mondata');
+var data50s = require('./songs/data');
+var data80s = require('./songs/blue_mondata');
 var xhr = require('xhr')
-var constructForMeASongPlease = require('./makeASong')
+var constructForMeASongPlease = require('./rhymeSrc/makeASong')
 var loadSample2Buff = require('load-sample-2-buff')
 var SamplePlayer = require('openmusic-sample-player')
 
@@ -13,7 +13,7 @@ var flavorStash = {
   'taylor': require('./flavors/taylor'),
 }
 
-var Sequencer = require('./src/sequencer');
+var Sequencer = require('./audioSrc/sequencer');
 
 var host = 'http://karaoke-ebooks.herokuapp.com' //
 // var host = 'http://localhost:8000'
@@ -40,7 +40,6 @@ document.getElementById('doit').addEventListener('click', function (){
         document.getElementById('loading').style.display = "none"
         var stype = document.querySelector('input[name="songtype"]:checked').value
 
-      // var lines = ['foo', 'bar', 'assssss', 'wjateeeber bruuuuuhhhh', 'cool it!', 'now dance!@@!!!!@']
         var data = (stype == '50s') ? data50s : data80s
 
         data.key.tonic = document.querySelectorAll('#opts select')[0].value + '2'
@@ -51,10 +50,9 @@ document.getElementById('doit').addEventListener('click', function (){
         document.getElementById('karaoke').style.display = "inline-block"
 
         var audioContext = new AudioContext();
-        ["deng", "pos", "siren", "fire"].forEach(function (sound){
-
+        ["deng", "npm", "brows", "node", "js", "und", "cb"].forEach(function (sound){
           var player = SamplePlayer(audioContext);
-          loadSample2Buff(audioContext, './' + sound + '.ogg', function(buffer){
+          loadSample2Buff(audioContext, './samples/' + sound + '.wav', function(buffer){
               player.buffer = buffer
               document.querySelector('.' + sound).addEventListener("click", function (e) {
                 player.start()
