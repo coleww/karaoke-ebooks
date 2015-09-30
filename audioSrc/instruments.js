@@ -12,7 +12,7 @@ var make_wobble = require('wobbler')
 
 module.exports = function createInstruments(ac, instrumentData){
   var instruments = [];
-
+  var tuna = new Tuna(ac);
   instrumentData.forEach(function(data){
     var player;
     if(data.type == 'drum'){
@@ -46,12 +46,54 @@ module.exports = function createInstruments(ac, instrumentData){
     gainNode.connect(filter);
     filter.connect(distortion)
     var wobble
-    if (data.name == 'bounce') {
+    if (data.name == 'bounce' || data.name == 'kick') {
+      var overdrive = new tuna.Overdrive({
+        outputGain:  Math.random() < 0.5 ? 0.5 : 0.35,         //0 to 1+
+        drive:  Math.random() < 0.5 ? 0.7 : 0.5,              //0 to 1
+        curveAmount: Math.random(),          //0 to 1
+        algorithmIndex: ~~(Math.random() * 6),       //0 to 5, selects one of our drive algorithms
+        bypass: 0
+      });
       wobble = make_wobble(ac)
       distortion.connect(wobble.input())
-      wobble.connect(ac.destination)
+      wobble.connect(overdrive)
+      overdrive.connect(ac.destination)
       wobble.start()
-    } else {
+    } else if (data.name == 'solo' || data.name == 'cym') {
+
+      var wahwah = new tuna.WahWah({
+        automode: true,                //true/false
+        baseFrequency: 0.5,            //0 to 1
+        excursionOctaves: 2,           //1 to 6
+        sweep: 0.2,                    //0 to 1
+        resonance: 10,                 //1 to 100
+        sensitivity: 0.5,              //-1 to 1
+        bypass: 0
+      });
+      distortion.connect(wahwah)
+      wahwah.connect(ac.destination)
+
+    } else if (data.name == 'harm' || data.name == 'snare') {
+      var chorus = new tuna.Chorus({
+          rate:  Math.random() < 0.5 ? 1.5 : 2,         //0.01 to 8+
+          feedback:  Math.random() < 0.5 ? 0.2 : 0.3,     //0 to 1+
+          delay:  Math.random() < 0.5 ? 0.0045 : 0.009,     //0 to 1
+          bypass: 0          //the value 1 starts the effect as bypassed, 0 or 1
+      });
+      distortion.connect(chorus)
+      chorus.connect(ac.destination)
+    } else if (data.name == 'lead' || data.name == 'hat') {
+      var phaser = new tuna.Phaser({
+          rate:  Math.random() < 0.5 ? 1.2 : 2,                     //0.01 to 8 is a decent range, but higher values are possible
+          depth: Math.random() < 0.5 ? 0.3 : 0.6,                    //0 to 1
+          feedback:  Math.random() < 0.5 ? 0.2 : 0.3,                 //0 to 1+
+          stereoPhase: 30,               //0 to 180
+          baseModulationFrequency: Math.random() < 0.5 ? 700 : 500,  //500 to 1500
+          bypass: 0
+      });
+      distortion.connect(phaser)
+      phaser.connect(ac.destination)
+    }  else {
 
       distortion.connect(ac.destination);
     }
