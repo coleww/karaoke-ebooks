@@ -29,7 +29,7 @@ module.exports = function createInstruments(ac, instrumentData){
 
     var gainNode = ac.createGain();
 
-    gainNode.gain.value = data.gain
+    gainNode.gain.value = data.gain - 0.2
 
     var filter = ac.createBiquadFilter();
     filter.type = 'lowpass';
