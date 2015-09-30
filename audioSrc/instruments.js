@@ -73,26 +73,6 @@ module.exports = function createInstruments(ac, instrumentData){
       distortion.connect(wahwah)
       wahwah.connect(ac.destination)
 
-    } else if (data.name == 'harm' || data.name == 'snare' || data.name == 'cym') {
-      var chorus = new tuna.Chorus({
-          rate:  Math.random() < 0.5 ? 1.5 : 2,         //0.01 to 8+
-          feedback:  Math.random() < 0.5 ? 0.2 : 0.3,     //0 to 1+
-          delay:  Math.random() < 0.5 ? 0.0045 : 0.009,     //0 to 1
-          bypass: 0          //the value 1 starts the effect as bypassed, 0 or 1
-      });
-      distortion.connect(chorus)
-      chorus.connect(ac.destination)
-    } else if (data.name == 'lead' || data.name == 'hat') {
-      var phaser = new tuna.Phaser({
-          rate:  Math.random() < 0.5 ? 1.2 : 2,                     //0.01 to 8 is a decent range, but higher values are possible
-          depth: Math.random() < 0.5 ? 0.3 : 0.1,                    //0 to 1
-          feedback:  Math.random() < 0.5 ? 0.2 : 0.3,                 //0 to 1+
-          stereoPhase: 30,               //0 to 180
-          baseModulationFrequency: Math.random() < 0.5 ? 700 : 500,  //500 to 1500
-          bypass: 0
-      });
-      distortion.connect(phaser)
-      phaser.connect(ac.destination)
     }  else {
 
       distortion.connect(ac.destination);
