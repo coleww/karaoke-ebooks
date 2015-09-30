@@ -134,7 +134,7 @@
       "filterFreq": 1100,
             "gain": 0.7,
             "distortion": 500,
-      "name":"bass",
+      "name":"bounce",
       "type":"square",
       "sections": {
         "intro": {
@@ -208,7 +208,7 @@
     },
     {
       "filterFreq": 2000,
-            "gain": 0.6,
+            "gain": 0.7,
             "distortion": 200,
       "name":"harm",
       "type":"triangle",
