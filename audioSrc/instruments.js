@@ -9,7 +9,7 @@ var makeDistortionCurve = require('make-distortion-curve')
 var make_wobble = require('wobbler')
 // var make_tri = require('tri-tri')
 
-var Tuna = require('tuna')
+var Tuna = require('tunajs')
 module.exports = function createInstruments(ac, instrumentData){
   var instruments = [];
   var tuna = new Tuna(ac);
@@ -59,7 +59,7 @@ module.exports = function createInstruments(ac, instrumentData){
       wobble.connect(overdrive)
       overdrive.connect(ac.destination)
       wobble.start()
-    } else if (data.name == 'solo' || data.name == 'cym') {
+    } else if (data.name == 'solo') {
 
       var wahwah = new tuna.WahWah({
         automode: true,                //true/false
@@ -73,7 +73,7 @@ module.exports = function createInstruments(ac, instrumentData){
       distortion.connect(wahwah)
       wahwah.connect(ac.destination)
 
-    } else if (data.name == 'harm' || data.name == 'snare') {
+    } else if (data.name == 'harm' || data.name == 'snare' || data.name == 'cym') {
       var chorus = new tuna.Chorus({
           rate:  Math.random() < 0.5 ? 1.5 : 2,         //0.01 to 8+
           feedback:  Math.random() < 0.5 ? 0.2 : 0.3,     //0 to 1+
@@ -85,7 +85,7 @@ module.exports = function createInstruments(ac, instrumentData){
     } else if (data.name == 'lead' || data.name == 'hat') {
       var phaser = new tuna.Phaser({
           rate:  Math.random() < 0.5 ? 1.2 : 2,                     //0.01 to 8 is a decent range, but higher values are possible
-          depth: Math.random() < 0.5 ? 0.3 : 0.6,                    //0 to 1
+          depth: Math.random() < 0.5 ? 0.3 : 0.1,                    //0 to 1
           feedback:  Math.random() < 0.5 ? 0.2 : 0.3,                 //0 to 1+
           stereoPhase: 30,               //0 to 180
           baseModulationFrequency: Math.random() < 0.5 ? 700 : 500,  //500 to 1500
