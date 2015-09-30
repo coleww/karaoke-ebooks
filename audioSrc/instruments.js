@@ -46,18 +46,17 @@ module.exports = function createInstruments(ac, instrumentData){
     gainNode.connect(filter);
     filter.connect(distortion)
     var wobble
-    if (data.name == 'bounce' || data.name == 'kick') {
-      var overdrive = new tuna.Overdrive({
-        outputGain:  Math.random() < 0.5 ? 0.5 : 0.35,         //0 to 1+
-        drive:  Math.random() < 0.5 ? 0.7 : 0.5,              //0 to 1
-        curveAmount: Math.random(),          //0 to 1
-        algorithmIndex: ~~(Math.random() * 6),       //0 to 5, selects one of our drive algorithms
-        bypass: 0
-      });
+    if (data.name == 'bounce') {
+      // var overdrive = new tuna.Overdrive({
+      //   outputGain:  Math.random() < 0.5 ? 0.5 : 0.35,         //0 to 1+
+      //   drive:  Math.random() < 0.5 ? 0.7 : 0.5,              //0 to 1
+      //   curveAmount: Math.random(),          //0 to 1
+      //   algorithmIndex: ~~(Math.random() * 6),       //0 to 5, selects one of our drive algorithms
+      //   bypass: 0
+      // });
       wobble = make_wobble(ac)
       distortion.connect(wobble.input())
-      wobble.connect(overdrive)
-      overdrive.connect(ac.destination)
+      wobble.connect(ac.destination)
       wobble.start()
     } else if (data.name == 'solo') {
 
