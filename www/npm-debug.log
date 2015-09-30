@@ -1,0 +1,342 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/Users/cole/.nvm/v0.12.0/bin/npm', 'install' ]
+2 info using npm@2.14.2
+3 info using node@v0.12.0
+4 verbose readDependencies loading dependencies from /Users/cole/projects/karaoke_ebooks/package.json
+5 warn package.json problumz@1.0.0 No repository field.
+6 verbose install where, deps [ '/Users/cole/projects/karaoke_ebooks',
+6 verbose install   [ 'forever',
+6 verbose install     'memjs',
+6 verbose install     'twit',
+6 verbose install     'after',
+6 verbose install     'array-shuffle',
+6 verbose install     'brfs',
+6 verbose install     'browserify',
+6 verbose install     'call-n-times',
+6 verbose install     'drone-e-o-synth',
+6 verbose install     'each-cons',
+6 verbose install     'fast-levenshtein',
+6 verbose install     'flatten-array',
+6 verbose install     'in-range',
+6 verbose install     'int2freq',
+6 verbose install     'iscool',
+6 verbose install     'level',
+6 verbose install     'load-sample-2-buff',
+6 verbose install     'make-distortion-curve',
+6 verbose install     'openmusic-oscillator',
+6 verbose install     'openmusic-sample-player',
+6 verbose install     'pick-random',
+6 verbose install     'pronouncing',
+6 verbose install     'sort-array',
+6 verbose install     'stopwords',
+6 verbose install     'tri-tri',
+6 verbose install     'uglifyify',
+6 verbose install     'watchify',
+6 verbose install     'wobbler',
+6 verbose install     'wordfilter',
+6 verbose install     'xhr' ] ]
+7 verbose install where, peers [ '/Users/cole/projects/karaoke_ebooks', [] ]
+8 verbose installManyTop reading for lifecycle /Users/cole/projects/karaoke_ebooks/package.json
+9 info preinstall problumz@1.0.0
+10 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/after/package.json
+11 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/array-sample/package.json
+12 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/array-shuffle/package.json
+13 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/brfs/package.json
+14 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/browserify/package.json
+15 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/call-n-times/package.json
+16 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/drone-e-o-synth/package.json
+17 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/each-cons/package.json
+18 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/fast-levenshtein/package.json
+19 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/flatten-array/package.json
+20 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/forever/package.json
+21 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/in-range/package.json
+22 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/int2freq/package.json
+23 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/iscool/package.json
+24 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/level/package.json
+25 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/load-sample-2-buff/package.json
+26 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/make-distortion-curve/package.json
+27 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/markov/package.json
+28 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/memjs/package.json
+29 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/openmusic-oscillator/package.json
+30 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/openmusic-sample-player/package.json
+31 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/pick-random/package.json
+32 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/pronouncing/package.json
+33 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/sort-array/package.json
+34 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/sort-by/package.json
+35 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/stopwords/package.json
+36 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/tri-tri/package.json
+37 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/twit/package.json
+38 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/uglifyify/package.json
+39 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/watchify/package.json
+40 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/wobbler/package.json
+41 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/wordfilter/package.json
+42 verbose installManyTop reading scoped package data from /Users/cole/projects/karaoke_ebooks/node_modules/xhr/package.json
+43 info package.json after@0.8.1 No license field.
+44 info package.json openmusic-oscillator@1.3.0 license should be a valid SPDX license expression
+45 info package.json sort-by@1.1.1 No README data
+46 info package.json twit@2.1.0 No license field.
+47 info package.json wobbler@1.0.0 No repository field.
+48 info package.json wordfilter@0.2.1 No license field.
+49 info package.json flatten-array@0.0.4 license should be a valid SPDX license expression
+50 info package.json memjs@0.8.6 No license field.
+51 info package.json openmusic-sample-player@1.6.0 license should be a valid SPDX license expression
+52 info package.json stopwords@0.0.5 No license field.
+53 info package.json xhr@2.0.4 No license field.
+54 verbose readDependencies loading dependencies from /Users/cole/projects/karaoke_ebooks/package.json
+55 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/after/package.json
+56 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/array-sample/package.json
+57 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/array-shuffle/package.json
+58 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/brfs/package.json
+59 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/browserify/package.json
+60 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/call-n-times/package.json
+61 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/drone-e-o-synth/package.json
+62 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/each-cons/package.json
+63 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/fast-levenshtein/package.json
+64 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/flatten-array/package.json
+65 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/forever/package.json
+66 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/in-range/package.json
+67 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/int2freq/package.json
+68 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/iscool/package.json
+69 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/level/package.json
+70 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/load-sample-2-buff/package.json
+71 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/make-distortion-curve/package.json
+72 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/markov/package.json
+73 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/memjs/package.json
+74 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/openmusic-oscillator/package.json
+75 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/openmusic-sample-player/package.json
+76 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/pick-random/package.json
+77 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/pronouncing/package.json
+78 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/sort-array/package.json
+79 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/sort-by/package.json
+80 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/stopwords/package.json
+81 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/tri-tri/package.json
+82 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/twit/package.json
+83 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/uglifyify/package.json
+84 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/watchify/package.json
+85 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/wobbler/package.json
+86 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/wordfilter/package.json
+87 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/xhr/package.json
+88 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/.bin/brfs/package.json
+89 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/.bin/browserify/package.json
+90 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/.bin/forever/package.json
+91 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/.bin/pick-random/package.json
+92 verbose targetResolver reading package data from /Users/cole/projects/karaoke_ebooks/node_modules/.bin/watchify/package.json
+93 verbose already installed skipping wordfilter@^0.2.1 /Users/cole/projects/karaoke_ebooks
+94 verbose already installed skipping xhr@^2.0.4 /Users/cole/projects/karaoke_ebooks
+95 verbose already installed skipping forever@^0.15.1 /Users/cole/projects/karaoke_ebooks
+96 verbose already installed skipping memjs@^0.8.6 /Users/cole/projects/karaoke_ebooks
+97 verbose already installed skipping twit@^2.1.0 /Users/cole/projects/karaoke_ebooks
+98 verbose already installed skipping after@^0.8.1 /Users/cole/projects/karaoke_ebooks
+99 verbose already installed skipping array-shuffle@^1.0.0 /Users/cole/projects/karaoke_ebooks
+100 verbose already installed skipping brfs@^1.4.1 /Users/cole/projects/karaoke_ebooks
+101 verbose already installed skipping browserify@^9.0.7 /Users/cole/projects/karaoke_ebooks
+102 verbose already installed skipping call-n-times@^2.0.0 /Users/cole/projects/karaoke_ebooks
+103 verbose already installed skipping drone-e-o-synth@^1.0.1 /Users/cole/projects/karaoke_ebooks
+104 verbose already installed skipping each-cons@^1.0.0 /Users/cole/projects/karaoke_ebooks
+105 verbose already installed skipping fast-levenshtein@^1.0.7 /Users/cole/projects/karaoke_ebooks
+106 verbose already installed skipping flatten-array@0.0.4 /Users/cole/projects/karaoke_ebooks
+107 verbose already installed skipping in-range@^1.0.0 /Users/cole/projects/karaoke_ebooks
+108 verbose already installed skipping int2freq@^1.0.0 /Users/cole/projects/karaoke_ebooks
+109 verbose already installed skipping iscool@^1.1.7 /Users/cole/projects/karaoke_ebooks
+110 verbose already installed skipping level@^1.3.0 /Users/cole/projects/karaoke_ebooks
+111 verbose already installed skipping load-sample-2-buff@^1.0.1 /Users/cole/projects/karaoke_ebooks
+112 verbose already installed skipping make-distortion-curve@^1.0.0 /Users/cole/projects/karaoke_ebooks
+113 verbose already installed skipping openmusic-oscillator@^1.3.0 /Users/cole/projects/karaoke_ebooks
+114 silly cache add args [ 'openmusic-sample-player@github:coleww/sample-player', null ]
+115 verbose cache add spec openmusic-sample-player@github:coleww/sample-player
+116 verbose already installed skipping pick-random@^1.0.1 /Users/cole/projects/karaoke_ebooks
+117 silly cache add parsed spec { raw: 'openmusic-sample-player@github:coleww/sample-player',
+117 silly cache add   scope: null,
+117 silly cache add   name: 'openmusic-sample-player',
+117 silly cache add   rawSpec: 'github:coleww/sample-player',
+117 silly cache add   spec: 'github:coleww/sample-player',
+117 silly cache add   type: 'hosted',
+117 silly cache add   hosted:
+117 silly cache add    { type: 'github',
+117 silly cache add      ssh: 'git@github.com:coleww/sample-player.git',
+117 silly cache add      sshUrl: 'git+ssh://git@github.com/coleww/sample-player.git',
+117 silly cache add      httpsUrl: 'git+https://github.com/coleww/sample-player.git',
+117 silly cache add      gitUrl: 'git://github.com/coleww/sample-player.git',
+117 silly cache add      shortcut: 'github:coleww/sample-player',
+117 silly cache add      directUrl: 'https://raw.githubusercontent.com/coleww/sample-player/master/package.json' } }
+118 verbose addRemoteGit caching github:coleww/sample-player
+119 verbose addRemoteGit coleww/sample-player is a repository hosted by github
+120 silly tryGitProto attempting to clone git://github.com/coleww/sample-player.git
+121 silly tryClone cloning coleww/sample-player via git://github.com/coleww/sample-player.git
+122 verbose tryClone git-github-com-coleww-sample-player-git-3e14ed30 not in flight; caching
+123 silly cache add args [ 'pronouncing@github:aparrish/pronouncingjs', null ]
+124 verbose cache add spec pronouncing@github:aparrish/pronouncingjs
+125 verbose already installed skipping sort-array@^0.1.0 /Users/cole/projects/karaoke_ebooks
+126 verbose already installed skipping stopwords@0.0.5 /Users/cole/projects/karaoke_ebooks
+127 verbose already installed skipping tri-tri@^1.0.3 /Users/cole/projects/karaoke_ebooks
+128 verbose already installed skipping uglifyify@^3.0.1 /Users/cole/projects/karaoke_ebooks
+129 verbose already installed skipping watchify@^3.1.0 /Users/cole/projects/karaoke_ebooks
+130 verbose already installed skipping wobbler@^1.0.0 /Users/cole/projects/karaoke_ebooks
+131 silly cache add parsed spec { raw: 'pronouncing@github:aparrish/pronouncingjs',
+131 silly cache add   scope: null,
+131 silly cache add   name: 'pronouncing',
+131 silly cache add   rawSpec: 'github:aparrish/pronouncingjs',
+131 silly cache add   spec: 'github:aparrish/pronouncingjs',
+131 silly cache add   type: 'hosted',
+131 silly cache add   hosted:
+131 silly cache add    { type: 'github',
+131 silly cache add      ssh: 'git@github.com:aparrish/pronouncingjs.git',
+131 silly cache add      sshUrl: 'git+ssh://git@github.com/aparrish/pronouncingjs.git',
+131 silly cache add      httpsUrl: 'git+https://github.com/aparrish/pronouncingjs.git',
+131 silly cache add      gitUrl: 'git://github.com/aparrish/pronouncingjs.git',
+131 silly cache add      shortcut: 'github:aparrish/pronouncingjs',
+131 silly cache add      directUrl: 'https://raw.githubusercontent.com/aparrish/pronouncingjs/master/package.json' } }
+132 verbose addRemoteGit caching github:aparrish/pronouncingjs
+133 verbose addRemoteGit aparrish/pronouncingjs is a repository hosted by github
+134 silly tryGitProto attempting to clone git://github.com/aparrish/pronouncingjs.git
+135 silly tryClone cloning aparrish/pronouncingjs via git://github.com/aparrish/pronouncingjs.git
+136 verbose tryClone git-github-com-aparrish-pronouncingjs-git-3458626e not in flight; caching
+137 info git [ 'clone',
+137 info git   '--template=/Users/cole/.npm/_git-remotes/_templates',
+137 info git   '--mirror',
+137 info git   'git://github.com/coleww/sample-player.git',
+137 info git   '/Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-3e14ed30' ]
+138 info git [ 'config', '--get', 'remote.origin.url' ]
+139 silly validateExistingRemote aparrish/pronouncingjs remote.origin.url: git://github.com/aparrish/pronouncingjs.git
+140 verbose validateExistingRemote aparrish/pronouncingjs is updating existing cached remote /Users/cole/.npm/_git-remotes/git-github-com-aparrish-pronouncingjs-git-3458626e
+141 info git [ 'fetch', '-a', 'origin' ]
+142 verbose updateRemote git fetch -a origin (git://github.com/aparrish/pronouncingjs.git)
+143 verbose setPermissions aparrish/pronouncingjs set permissions on /Users/cole/.npm/_git-remotes/git-github-com-aparrish-pronouncingjs-git-3458626e
+144 verbose resolveHead aparrish/pronouncingjs original treeish: master
+145 info git [ 'rev-list', '-n1', 'master' ]
+146 silly resolveHead aparrish/pronouncingjs resolved treeish: 3713e548d00000e3e2d1ad7150ef2ea800448ec3
+147 verbose resolveHead aparrish/pronouncingjs resolved Git URL: git://github.com/aparrish/pronouncingjs.git#3713e548d00000e3e2d1ad7150ef2ea800448ec3
+148 silly resolveHead Git working directory: /var/folders/vv/gmcvqtm97c1fv7h6rp0mk37m0000gn/T/npm-43008-180f5fb2/git-cache-b61f226e6d95/3713e548d00000e3e2d1ad7150ef2ea800448ec3
+149 info git [ 'clone',
+149 info git   '/Users/cole/.npm/_git-remotes/git-github-com-aparrish-pronouncingjs-git-3458626e',
+149 info git   '/var/folders/vv/gmcvqtm97c1fv7h6rp0mk37m0000gn/T/npm-43008-180f5fb2/git-cache-b61f226e6d95/3713e548d00000e3e2d1ad7150ef2ea800448ec3' ]
+150 verbose cloneResolved aparrish/pronouncingjs clone Cloning into '/var/folders/vv/gmcvqtm97c1fv7h6rp0mk37m0000gn/T/npm-43008-180f5fb2/git-cache-b61f226e6d95/3713e548d00000e3e2d1ad7150ef2ea800448ec3'...
+150 verbose cloneResolved done.
+151 info git [ 'checkout', '3713e548d00000e3e2d1ad7150ef2ea800448ec3' ]
+152 verbose checkoutTreeish aparrish/pronouncingjs checkout Note: checking out '3713e548d00000e3e2d1ad7150ef2ea800448ec3'.
+152 verbose checkoutTreeish
+152 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+152 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+152 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+152 verbose checkoutTreeish
+152 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+152 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+152 verbose checkoutTreeish
+152 verbose checkoutTreeish   git checkout -b <new-branch-name>
+152 verbose checkoutTreeish
+152 verbose checkoutTreeish HEAD is now at 3713e54... Merge pull request #2 from coleww/patch-1
+153 verbose addLocalDirectory /Users/cole/.npm/pronouncing/0.0.1/package.tgz not in flight; packing
+154 verbose tar pack [ '/Users/cole/.npm/pronouncing/0.0.1/package.tgz',
+154 verbose tar pack   '/var/folders/vv/gmcvqtm97c1fv7h6rp0mk37m0000gn/T/npm-43008-180f5fb2/git-cache-b61f226e6d95/3713e548d00000e3e2d1ad7150ef2ea800448ec3' ]
+155 verbose tarball /Users/cole/.npm/pronouncing/0.0.1/package.tgz
+156 verbose folder /var/folders/vv/gmcvqtm97c1fv7h6rp0mk37m0000gn/T/npm-43008-180f5fb2/git-cache-b61f226e6d95/3713e548d00000e3e2d1ad7150ef2ea800448ec3
+157 verbose mirrorRemote coleww/sample-player git clone git://github.com/coleww/sample-player.git
+158 verbose setPermissions coleww/sample-player set permissions on /Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-3e14ed30
+159 verbose resolveHead coleww/sample-player original treeish: master
+160 info git [ 'rev-list', '-n1', 'master' ]
+161 silly resolveHead coleww/sample-player resolved treeish: 33f3439f0664b6c2bad9ff41152e7c6202eec5a6
+162 verbose resolveHead coleww/sample-player resolved Git URL: git://github.com/coleww/sample-player.git#33f3439f0664b6c2bad9ff41152e7c6202eec5a6
+163 silly resolveHead Git working directory: /var/folders/vv/gmcvqtm97c1fv7h6rp0mk37m0000gn/T/npm-43008-180f5fb2/git-cache-e1fe3f3fe384/33f3439f0664b6c2bad9ff41152e7c6202eec5a6
+164 info git [ 'clone',
+164 info git   '/Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-3e14ed30',
+164 info git   '/var/folders/vv/gmcvqtm97c1fv7h6rp0mk37m0000gn/T/npm-43008-180f5fb2/git-cache-e1fe3f3fe384/33f3439f0664b6c2bad9ff41152e7c6202eec5a6' ]
+165 verbose cloneResolved coleww/sample-player clone Cloning into '/var/folders/vv/gmcvqtm97c1fv7h6rp0mk37m0000gn/T/npm-43008-180f5fb2/git-cache-e1fe3f3fe384/33f3439f0664b6c2bad9ff41152e7c6202eec5a6'...
+165 verbose cloneResolved done.
+166 info git [ 'checkout', '33f3439f0664b6c2bad9ff41152e7c6202eec5a6' ]
+167 verbose checkoutTreeish coleww/sample-player checkout Note: checking out '33f3439f0664b6c2bad9ff41152e7c6202eec5a6'.
+167 verbose checkoutTreeish
+167 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+167 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+167 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+167 verbose checkoutTreeish
+167 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+167 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+167 verbose checkoutTreeish
+167 verbose checkoutTreeish   git checkout -b <new-branch-name>
+167 verbose checkoutTreeish
+167 verbose checkoutTreeish HEAD is now at 33f3439... docs: enumerate attributes
+168 error addLocal Could not install /var/folders/vv/gmcvqtm97c1fv7h6rp0mk37m0000gn/T/npm-43008-180f5fb2/git-cache-e1fe3f3fe384/33f3439f0664b6c2bad9ff41152e7c6202eec5a6
+169 silly tryHTTPS attempting to clone git+https://github.com/coleww/sample-player.git
+170 silly tryClone cloning coleww/sample-player via git+https://github.com/coleww/sample-player.git
+171 verbose tryClone https-github-com-coleww-sample-player-git-97f6c1d7 not in flight; caching
+172 info git [ 'clone',
+172 info git   '--template=/Users/cole/.npm/_git-remotes/_templates',
+172 info git   '--mirror',
+172 info git   'https://github.com/coleww/sample-player.git',
+172 info git   '/Users/cole/.npm/_git-remotes/https-github-com-coleww-sample-player-git-97f6c1d7' ]
+173 verbose addLocalTarball adding from inside cache /Users/cole/.npm/pronouncing/0.0.1/package.tgz
+174 verbose addRemoteGit data._from: aparrish/pronouncingjs
+175 verbose addRemoteGit data._resolved: git://github.com/aparrish/pronouncingjs.git#3713e548d00000e3e2d1ad7150ef2ea800448ec3
+176 silly cache afterAdd pronouncing@0.0.1
+177 verbose afterAdd /Users/cole/.npm/pronouncing/0.0.1/package/package.json not in flight; writing
+178 verbose afterAdd /Users/cole/.npm/pronouncing/0.0.1/package/package.json written
+179 verbose mirrorRemote coleww/sample-player git clone https://github.com/coleww/sample-player.git
+180 verbose setPermissions coleww/sample-player set permissions on /Users/cole/.npm/_git-remotes/https-github-com-coleww-sample-player-git-97f6c1d7
+181 verbose resolveHead coleww/sample-player original treeish: master
+182 info git [ 'rev-list', '-n1', 'master' ]
+183 silly resolveHead coleww/sample-player resolved treeish: 33f3439f0664b6c2bad9ff41152e7c6202eec5a6
+184 verbose resolveHead coleww/sample-player resolved Git URL: git+https://github.com/coleww/sample-player.git#33f3439f0664b6c2bad9ff41152e7c6202eec5a6
+185 silly resolveHead Git working directory: /var/folders/vv/gmcvqtm97c1fv7h6rp0mk37m0000gn/T/npm-43008-180f5fb2/git-cache-803b4d538f03/33f3439f0664b6c2bad9ff41152e7c6202eec5a6
+186 info git [ 'clone',
+186 info git   '/Users/cole/.npm/_git-remotes/https-github-com-coleww-sample-player-git-97f6c1d7',
+186 info git   '/var/folders/vv/gmcvqtm97c1fv7h6rp0mk37m0000gn/T/npm-43008-180f5fb2/git-cache-803b4d538f03/33f3439f0664b6c2bad9ff41152e7c6202eec5a6' ]
+187 verbose cloneResolved coleww/sample-player clone Cloning into '/var/folders/vv/gmcvqtm97c1fv7h6rp0mk37m0000gn/T/npm-43008-180f5fb2/git-cache-803b4d538f03/33f3439f0664b6c2bad9ff41152e7c6202eec5a6'...
+187 verbose cloneResolved done.
+188 info git [ 'checkout', '33f3439f0664b6c2bad9ff41152e7c6202eec5a6' ]
+189 verbose checkoutTreeish coleww/sample-player checkout Note: checking out '33f3439f0664b6c2bad9ff41152e7c6202eec5a6'.
+189 verbose checkoutTreeish
+189 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+189 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+189 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+189 verbose checkoutTreeish
+189 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+189 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+189 verbose checkoutTreeish
+189 verbose checkoutTreeish   git checkout -b <new-branch-name>
+189 verbose checkoutTreeish
+189 verbose checkoutTreeish HEAD is now at 33f3439... docs: enumerate attributes
+190 error addLocal Could not install /var/folders/vv/gmcvqtm97c1fv7h6rp0mk37m0000gn/T/npm-43008-180f5fb2/git-cache-803b4d538f03/33f3439f0664b6c2bad9ff41152e7c6202eec5a6
+191 silly trySSH attempting to clone git@github.com:coleww/sample-player.git
+192 silly tryClone cloning coleww/sample-player via git@github.com:coleww/sample-player.git
+193 verbose tryClone git-github-com-coleww-sample-player-git-2d403d49 not in flight; caching
+194 info git [ 'clone',
+194 info git   '--template=/Users/cole/.npm/_git-remotes/_templates',
+194 info git   '--mirror',
+194 info git   'git@github.com:coleww/sample-player.git',
+194 info git   '/Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-2d403d49' ]
+195 error git clone --template=/Users/cole/.npm/_git-remotes/_templates --mirror git@github.com:coleww/sample-player.git /Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-2d403d49: Cloning into bare repository '/Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-2d403d49'...
+195 error git clone --template=/Users/cole/.npm/_git-remotes/_templates --mirror git@github.com:coleww/sample-player.git /Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-2d403d49: Permission denied (publickey).
+195 error git clone --template=/Users/cole/.npm/_git-remotes/_templates --mirror git@github.com:coleww/sample-player.git /Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-2d403d49: fatal: Could not read from remote repository.
+195 error git clone --template=/Users/cole/.npm/_git-remotes/_templates --mirror git@github.com:coleww/sample-player.git /Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-2d403d49:
+195 error git clone --template=/Users/cole/.npm/_git-remotes/_templates --mirror git@github.com:coleww/sample-player.git /Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-2d403d49: Please make sure you have the correct access rights
+195 error git clone --template=/Users/cole/.npm/_git-remotes/_templates --mirror git@github.com:coleww/sample-player.git /Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-2d403d49: and the repository exists.
+196 verbose stack Error: Command failed: git clone --template=/Users/cole/.npm/_git-remotes/_templates --mirror git@github.com:coleww/sample-player.git /Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-2d403d49
+196 verbose stack Cloning into bare repository '/Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-2d403d49'...
+196 verbose stack Permission denied (publickey).
+196 verbose stack fatal: Could not read from remote repository.
+196 verbose stack
+196 verbose stack Please make sure you have the correct access rights
+196 verbose stack and the repository exists.
+196 verbose stack
+196 verbose stack     at ChildProcess.exithandler (child_process.js:744:12)
+196 verbose stack     at ChildProcess.emit (events.js:110:17)
+196 verbose stack     at maybeClose (child_process.js:1008:16)
+196 verbose stack     at Socket.<anonymous> (child_process.js:1176:11)
+196 verbose stack     at Socket.emit (events.js:107:17)
+196 verbose stack     at Pipe.close (net.js:476:12)
+197 verbose cwd /Users/cole/projects/karaoke_ebooks/www
+198 error Darwin 14.0.0
+199 error argv "node" "/Users/cole/.nvm/v0.12.0/bin/npm" "install"
+200 error node v0.12.0
+201 error npm  v2.14.2
+202 error code 128
+203 error Command failed: git clone --template=/Users/cole/.npm/_git-remotes/_templates --mirror git@github.com:coleww/sample-player.git /Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-2d403d49
+203 error Cloning into bare repository '/Users/cole/.npm/_git-remotes/git-github-com-coleww-sample-player-git-2d403d49'...
+203 error Permission denied (publickey).
+203 error fatal: Could not read from remote repository.
+203 error
+203 error Please make sure you have the correct access rights
+203 error and the repository exists.
+204 error If you need help, you may report this error at:
+204 error     <https://github.com/npm/npm/issues>
+205 verbose exit [ 1, true ]
