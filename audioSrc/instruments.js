@@ -9,7 +9,7 @@ var makeDistortionCurve = require('make-distortion-curve')
 var make_wobble = require('wobbler')
 // var make_tri = require('tri-tri')
 
-
+var Tuna = require('tuna')
 module.exports = function createInstruments(ac, instrumentData){
   var instruments = [];
   var tuna = new Tuna(ac);
