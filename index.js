@@ -1,3 +1,12 @@
+console.log("v1.1.1")
+
+
+
+
+
+
+
+
 var data50s = require('./songs/data');
 var data80s = require('./songs/blue_mondata');
 var xhr = require('xhr')
@@ -49,16 +58,7 @@ document.getElementById('doit').addEventListener('click', function (){
         document.getElementById('bruh').style.display = "inline-block"
         document.getElementById('karaoke').style.display = "inline-block"
 
-        var audioContext = new AudioContext();
-        ["deng", "npm", "brows", "node", "js", "und", "cb"].forEach(function (sound){
-          var player = SamplePlayer(audioContext);
-          loadSample2Buff(audioContext, './samples/' + sound + '.wav', function(buffer){
-              player.buffer = buffer
-              document.querySelector('.' + sound).addEventListener("click", function (e) {
-                player.start()
-              })
-          })
-        })
+
       })
     }
   })
