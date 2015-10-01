@@ -1,12 +1,6 @@
 console.log("v1.1.1")
 
 
-
-
-
-
-
-
 var data50s = require('./songs/data');
 var data80s = require('./songs/blue_mondata');
 var xhr = require('xhr')
