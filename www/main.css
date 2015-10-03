@@ -5,6 +5,14 @@ body {
 
 }
 
+.red {
+   text-shadow: 2px 4px #ff0000;
+}
+
+.blue {
+   text-shadow: 4px 2px #ffff00;
+}
+
 .container{
   background-color: white;
   margin: 50px;
