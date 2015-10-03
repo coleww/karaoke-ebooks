@@ -58,20 +58,6 @@ module.exports = function createInstruments(ac, instrumentData){
       distortion.connect(wobble.input())
       wobble.connect(ac.destination)
       wobble.start()
-    } else if (data.name == 'solo') {
-
-      var wahwah = new tuna.WahWah({
-        automode: true,                //true/false
-        baseFrequency: 0.5,            //0 to 1
-        excursionOctaves: 1,           //1 to 6
-        sweep: 0.2,                    //0 to 1
-        resonance: 3,                 //1 to 100
-        sensitivity: 0.5,              //-1 to 1
-        bypass: 0
-      });
-      distortion.connect(wahwah)
-      wahwah.connect(ac.destination)
-
     }  else {
 
       distortion.connect(ac.destination);

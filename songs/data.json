@@ -2,9 +2,9 @@
   "instruments":[
 
     {
-      "filterFreq": 1000,
+      "filterFreq": 700,
       "gain": 0.7,
-      "distortion": 400,
+      "distortion": 800,
       "name":"kick",
       "type":"drum",
       "sections": {
@@ -35,7 +35,7 @@
       }
     },
     {
-      "filterFreq": 1500,
+      "filterFreq": 800,
             "gain": 0.5,
             "distortion": 200,
       "name":"snare",
@@ -68,7 +68,7 @@
       }
     },
     {
-      "filterFreq": 5000,
+      "filterFreq": 1500,
             "gain": 0.6,
             "distortion": 600,
       "name":"hat",
@@ -131,9 +131,9 @@
       }
     },
     {
-      "filterFreq": 1100,
-            "gain": 0.7,
-            "distortion": 500,
+      "filterFreq": 900,
+            "gain": 0.5,
+            "distortion": 750,
       "name":"bounce",
       "type":"square",
       "sections": {
@@ -169,9 +169,9 @@
       }
     },
     {
-      "filterFreq": 2000,
-            "gain": 0.6,
-            "distortion": 200,
+      "filterFreq": 1000,
+            "gain": 0.8,
+            "distortion": 400,
       "name":"lead",
       "type":"sine",
       "sections": {
@@ -247,7 +247,7 @@
     },
     {
       "filterFreq": 900,
-            "gain": 0.7,
+            "gain": 0.6,
             "distortion": 500,
       "name":"solo",
       "type":"sawtooth",

@@ -15,22 +15,25 @@ var host = 'http://karaoke-ebooks.herokuapp.com' //
 
 document.getElementById('doit').addEventListener('click', function (){
   // HIDE THE ONBOARDING!
-  document.getElementById('onboarding').style.display = "none"
-  document.getElementById('loading').style.display = "block"
+  console.log("WOW")
+  loading.style.display = "block"
+  onboarding.style.display = "none"
+  window.setTimeout(function(){
+    var linesToAdd = require('./flavors/horses')
+    var now = new Date().getTime()
+    constructForMeASongPlease(linesToAdd, function (lines) {
+      var then = new Date().getTime()
+      console.log('WOW that only took ', then - now)
+      document.getElementById('loading').style.display = "none"
 
-  var linesToAdd = require('./flavors/horses')
-  var now = new Date().getTime()
-  constructForMeASongPlease(linesToAdd, function (lines) {
-    var then = new Date().getTime()
-    console.log('WOW that only took ', then - now)
-    document.getElementById('loading').style.display = "none"
+      var data = data50s
+      var seq = new Sequencer(data, lines);
 
-    var data = data50s
-    var seq = new Sequencer(data, lines);
+      document.getElementById('bruh').style.display = "inline-block"
+      document.getElementById('karaoke').style.display = "inline-block"
+      seq.run()
+    })
+  }, 500)
 
-    document.getElementById('bruh').style.display = "inline-block"
-    document.getElementById('karaoke').style.display = "inline-block"
-    seq.run()
-  })
 })
 
