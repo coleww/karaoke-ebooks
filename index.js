@@ -27,9 +27,10 @@ document.getElementById('doit').addEventListener('click', function (){
 
     var data = data50s
     var seq = new Sequencer(data, lines);
-    seq.run()
+
     document.getElementById('bruh').style.display = "inline-block"
     document.getElementById('karaoke').style.display = "inline-block"
+    seq.run()
   })
 })
 

@@ -246,9 +246,9 @@
       }
     },
     {
-      "filterFreq": 10000,
-            "gain": 0.8,
-            "distortion": 900,
+      "filterFreq": 900,
+            "gain": 0.7,
+            "distortion": 500,
       "name":"solo",
       "type":"sawtooth",
       "sections": {

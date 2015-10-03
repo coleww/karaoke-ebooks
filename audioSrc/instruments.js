@@ -63,9 +63,9 @@ module.exports = function createInstruments(ac, instrumentData){
       var wahwah = new tuna.WahWah({
         automode: true,                //true/false
         baseFrequency: 0.5,            //0 to 1
-        excursionOctaves: 2,           //1 to 6
+        excursionOctaves: 1,           //1 to 6
         sweep: 0.2,                    //0 to 1
-        resonance: 10,                 //1 to 100
+        resonance: 3,                 //1 to 100
         sensitivity: 0.5,              //-1 to 1
         bypass: 0
       });

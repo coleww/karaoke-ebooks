@@ -10,8 +10,9 @@
 
     <iframe id="frame" width="100%" height="100%" class="super-center" src="" frameborder="0" allowfullscreen></iframe>
     <script>
-      var i = ~~(Math.random() * 15)
-      var x = "https://www.youtube.com/embed/videoseries?list=PLHmnoNuQkYYMkD2IXVymi8e_1Y2tIVuSo&autoplay=1&index=" + i
+      var i = ~~(Math.random() * 4)
+      var x = "http://www.youtube.com/embed?listType=playlist&list=PLHmnoNuQkYYNyhfrCam2NlM6CbfXXdkzr&version=3&loop=1&autoplay=1&rel=0&showinfo=0&autohide=1&index=" + i
+
       document.getElementById("frame").src = x
     </script>
 
@@ -27,29 +28,31 @@
         <h2>MAY ALL YOUR KARAOKE DREAMS COME TRUE</h2>
         <h3>LET YOUR CALLBACKS BE CALLED FREQUENTLY AND ASYNCHRONOUSLY,</h3>
         <h4>AND YOUR NPM INSTALLS BE SWIFT, DECISIVE, AND UNCONFLICTED.</h4>
-        <div class="tweets" style="float: left; padding: 5px; margin: 15px; border: 1px solid black; border-radius: 15px; background-color: white;">
+        <div class="tweets" style="float: left; padding: 1px; margin: 1px; border: 1px solid black; border-radius: 15px; background-color: white;">
 
 
          <br>
          <!-- // -->
-        <div class="buttonsss" style="float: left; padding: 5px; margin: 15px; border: 1px solid black; border-radius: 15px; background-color: white;">
+        <div class="buttonsss" style="float: left; padding: 1px; margin: 1px; border: 1px solid black; border-radius: 15px; background-color: white;">
 
           <button id="doit">do it</button>
         </div>
+
         <br /><br /><br /><br /><br /><br />
-        made by <a href="http://www.colewillsea.com/">Cole Willsea</a>
+        made by <b>@colewillsea</b>
       </div>
 
 
 
 
-      <center id="bruh" style="display: none; background-color: white;">
-        <span id="doing" style="display: inline-block; background-color: red; width: 0%;">&nbsp;</span>
-        <span id="done" style="display: inline-block; background-color: gray; width: 100%;">&nbsp;</span>
-        <h3 id="karaoke" >INTRO</h3>
 
-      </center>
     </div>
+    <center id="bruh" style="display: none; background-color: white;">
+      <span id="doing" style="display: inline-block; background-color: red; width: 0%;">&nbsp;</span>
+      <span id="done" style="display: inline-block; background-color: gray; width: 100%;">&nbsp;</span>
+      <h3 id="karaoke" >INTRO</h3>
+
+    </center>
     <script src="bundle.js"></script>
   </body>
 </html>
