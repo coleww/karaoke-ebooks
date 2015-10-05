@@ -3,7 +3,7 @@
 
     {
       "filterFreq": 700,
-      "gain": 0.7,
+      "gain": 0.6,
       "distortion": 800,
       "name":"kick",
       "type":"drum",
@@ -36,7 +36,7 @@
     },
     {
       "filterFreq": 800,
-            "gain": 0.5,
+            "gain": 0.35,
             "distortion": 200,
       "name":"snare",
       "type":"drum",
@@ -131,7 +131,7 @@
       }
     },
     {
-      "filterFreq": 900,
+      "filterFreq": 700,
             "gain": 0.5,
             "distortion": 750,
       "name":"bounce",
@@ -170,10 +170,10 @@
     },
     {
       "filterFreq": 1000,
-            "gain": 0.8,
+            "gain": 0.5,
             "distortion": 400,
       "name":"lead",
-      "type":"sine",
+      "type":"square",
       "sections": {
         "intro": {
           "probs": [[0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0]],
@@ -207,11 +207,11 @@
       }
     },
     {
-      "filterFreq": 2000,
-            "gain": 0.7,
+      "filterFreq": 500,
+            "gain": 0.5,
             "distortion": 200,
       "name":"harm",
-      "type":"triangle",
+      "type":"square",
       "sections": {
         "intro": {
           "probs": [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],

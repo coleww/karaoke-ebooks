@@ -66,25 +66,25 @@ volume.appendChild(coolSlider);
     player.connect(gainNode);
     gainNode.connect(filter);
     filter.connect(distortion)
-    var wobble
-    if (data.name == 'bounce') {
-      // var overdrive = new tuna.Overdrive({
-      //   outputGain:  Math.random() < 0.5 ? 0.5 : 0.35,         //0 to 1+
-      //   drive:  Math.random() < 0.5 ? 0.7 : 0.5,              //0 to 1
-      //   curveAmount: Math.random(),          //0 to 1
-      //   algorithmIndex: ~~(Math.random() * 6),       //0 to 5, selects one of our drive algorithms
-      //   bypass: 0
-      // });
-      wobble = make_wobble(ac)
-      distortion.connect(wobble.input())
-      wobble.connect(bigGain)
-      wobble.start()
-    }  else {
+    // var wobble
+    // if (data.name == 'bounce') {
+    //   // var overdrive = new tuna.Overdrive({
+    //   //   outputGain:  Math.random() < 0.5 ? 0.5 : 0.35,         //0 to 1+
+    //   //   drive:  Math.random() < 0.5 ? 0.7 : 0.5,              //0 to 1
+    //   //   curveAmount: Math.random(),          //0 to 1
+    //   //   algorithmIndex: ~~(Math.random() * 6),       //0 to 5, selects one of our drive algorithms
+    //   //   bypass: 0
+    //   // });
+    //   wobble = make_wobble(ac)
+    //   distortion.connect(wobble.input())
+    //   wobble.connect(bigGain)
+    //   wobble.start()
+    // }  else {
 
       distortion.connect(bigGain)
-    }
+    // }
 
-    var instrument = new Instrument(player, data, wobble);
+    var instrument = new Instrument(player, data);
     instruments.push(instrument)
   });
   bigGain.connect(ac.destination)
