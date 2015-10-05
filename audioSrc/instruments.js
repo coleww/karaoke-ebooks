@@ -9,8 +9,29 @@ var makeDistortionCurve = require('make-distortion-curve')
 var make_wobble = require('wobbler')
 // var make_tri = require('tri-tri')
 
+
+
 var Tuna = require('tunajs')
 module.exports = function createInstruments(ac, instrumentData){
+
+var bigGain = ac.createGain();
+
+    bigGain.gain.value = 0.75
+
+require('openmusic-slider').register('openmusic-slider');
+
+var coolSlider = document.createElement('openmusic-slider');
+coolSlider.min = 0
+coolSlider.max = 1
+coolSlider.step = 0.05
+coolSlider.value = 0.75
+coolSlider.addEventListener('change', function(e){
+  bigGain.gain.value = parseFloat(e.target.value)
+
+})
+volume.appendChild(coolSlider);
+
+
   var instruments = [];
   var tuna = new Tuna(ac);
   instrumentData.forEach(function(data){
@@ -56,16 +77,16 @@ module.exports = function createInstruments(ac, instrumentData){
       // });
       wobble = make_wobble(ac)
       distortion.connect(wobble.input())
-      wobble.connect(ac.destination)
+      wobble.connect(bigGain)
       wobble.start()
     }  else {
 
-      distortion.connect(ac.destination);
+      distortion.connect(bigGain)
     }
 
     var instrument = new Instrument(player, data, wobble);
     instruments.push(instrument)
   });
-
+  bigGain.connect(ac.destination)
   return instruments;
 }

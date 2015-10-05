@@ -13,6 +13,8 @@ var Sequencer = require('./audioSrc/sequencer');
 var host = 'http://karaoke-ebooks.herokuapp.com' //
 // var host = 'http://localhost:8000'
 
+
+
 document.getElementById('doit').addEventListener('click', function (){
   // HIDE THE ONBOARDING!
   console.log("WOW")
