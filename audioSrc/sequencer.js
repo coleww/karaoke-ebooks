@@ -5,6 +5,7 @@ function getTick(bpm){
 }
 
 var Sequencer = function(data, lines){
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
   this.ac = new AudioContext();
   this.bpm = data.bpm;
   this.instruments = createInstruments(this.ac, data.instruments);
