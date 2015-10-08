@@ -4,7 +4,9 @@ twitter fueled markov generated karaoke music.
 
 ![](./demo.gif)
 
-this code is atrocious. i'm not sorry about that.
+this code is atrocious. i'm not sorry about that. it's my project and i'll cry about callback hell if i want to. If yr deeply interested in hacking on this project just open an issue and i will help you.
+
+---------------------------
 
 /audioSrc is basically a fork of [probability sequencer](http://www.github.com/coleww/problumz) which I have now deprecated in favor of https://github.com/coleww/overtone-live-coding so have fun with that one! all the procedural seed data is in /songs
 
