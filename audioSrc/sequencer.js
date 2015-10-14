@@ -18,6 +18,7 @@ var Sequencer = function(data, lines){
   this.sections = data.sections || ["verse", "verse", "verse", "verse", "chorus", "chorus"]
   this.position = 0;
   this.steps = data.steps;
+  this.savedLik = 'ooooweeeeooooo'
 };
 
 Sequencer.prototype.run = function(){
@@ -37,7 +38,12 @@ Sequencer.prototype.run = function(){
     document.getElementById("done").style.width = 100 - (100 * (parseFloat(that.position) / that.steps)) - 5 + "%"
 
     document.getElementById("doing").style.width = (100 * parseFloat(that.position) / that.steps) - 5 + "%"
-    if(that.position >= that.steps){
+
+    if (that.position == ~~(that.steps / 2)){
+      var msg = new SpeechSynthesisUtterance(that.savedLik);
+      msg.rate = 0.75
+      window.speechSynthesis.speak(msg);
+    } else if(that.position >= that.steps) {
       that.instruments.forEach(function(instrument){
         instrument.next(that.section);
       });
@@ -49,7 +55,7 @@ Sequencer.prototype.run = function(){
       // HERE IS WHERE YOU WOULD GRAB THE NEXT RHYME AND SHOVE IT ON?
       var lik = that.lines.shift()
       console.log(lik)
-
+      that.savedLik = lik.split("/")[1]
       // UMMM if there isn't one then i think u should stop? i guess?
       // TODO
       // DOTHIS
@@ -64,7 +70,8 @@ Sequencer.prototype.run = function(){
       document.getElementById("karaoke").textContent = lik.split("/").join("  /  ")
       }
       console.log('.')
-      var msg = new SpeechSynthesisUtterance(lik.split("/").join(" "));
+      var msg = new SpeechSynthesisUtterance(lik.split("/")[0]);
+      msg.rate = 0.8
       window.speechSynthesis.speak(msg);
 
       var inter
