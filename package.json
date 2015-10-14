@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "browserify -g uglifyify index.js -t brfs -o www/bundle.js",
-    "deploy": "npm run build && divshot push && divshot promote development production",
+    "deploy": "npm run build && cp -r www ../colewillsea.com/karaoke-ebooks && cd ../colewillsea.com && divshot push && divshot promote development production",
     "watch": "watchify index.js -t brfs -o www/bundle.js --debug --verbose",
     "server": "forever -m 5 server/index.js"
   },

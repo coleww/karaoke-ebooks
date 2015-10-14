@@ -39,53 +39,7 @@
           <input type="text" id="uname">
           if this user has < 1000 tweets or produces very repetitive content, yr gonna have a bad time
         </div>
-        <div class="styles" style="float: left; padding: 5px; margin: 15px; border: 1px solid black; border-radius: 15px; background-color: white;">
-          <h5>pick a song style:</h5>
-          <input type="radio" name="songtype" value="50s" checked>50s
-           <br>
-           <input type="radio" name="songtype" value="80s">80s
 
-           <br>
-         </div>
-         <div class="flavors" style="float: left; padding: 5px; margin: 15px; border: 1px solid black; border-radius: 15px; background-color: white;">
-           <h5>add other flavors:</h5>
-           <input type="checkbox" name="flavors" value="marx"> marxism<br>
-           <input type="checkbox" name="flavors" value="smiths"> The Smiths<br>
-           <input type="checkbox" name="flavors" value="oldies"> oldies<br>
-           <input type="checkbox" name="flavors" value="punk"> classic punk<br>
-           <input type="checkbox" name="flavors" value="taylor"> taylor swift<br>
-         </div>
-         <br><div class="opts" id="opts" style="float: left; padding: 5px; margin: 15px; border: 1px solid black; border-radius: 15px; background-color: white;">
-
-         </div>
-         <script>
-          var keySelect = document.getElementById("opts");
-
-            var tonic = document.createElement("select");
-            // tonic.setAttribute("id", "tonicSelector")
-            ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"].forEach(function(note){
-              var opt = document.createElement("option");
-              opt.value = opt.textContent = note;
-              tonic.appendChild(opt);
-            });
-
-
-            keySelect.appendChild(tonic);
-
-
-            var key = document.createElement("select");
-            // key.setAttribute("id", "scaleSelector")
-            ["major", "minor"].forEach(function(scale){
-              var opt = document.createElement("option");
-              opt.value = opt.textContent = scale;
-              key.appendChild(opt);
-            });
-
-
-            keySelect.appendChild(key);
-
-
-         </script>
          <br>
          <!-- // -->
         <div class="buttonsss" style="float: left; padding: 5px; margin: 15px; border: 1px solid black; border-radius: 15px; background-color: white;">
@@ -93,7 +47,8 @@
           <button id="doit">do it</button>
         </div>
         <br /><br /><br /><br /><br /><br />
-        made by <a href="http://www.colewillsea.com/">Cole Willsea</a>
+        made by <a href="http://www.colewillsea.com/">Cole Willsea</a><br /><br />
+        this site probably does not work on mobile devices whatsoever...maybe a tablet?
       </div>
 
 
