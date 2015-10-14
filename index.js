@@ -1,4 +1,4 @@
-console.log("v1.1.2")
+console.log("v1.1.3")
 var data50s = require('./songs/data');
 var xhr = require('xhr')
 var constructForMeASongPlease = require('./rhymeSrc/makeASong')

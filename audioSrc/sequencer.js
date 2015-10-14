@@ -63,7 +63,8 @@ Sequencer.prototype.run = function(){
 
       document.getElementById("karaoke").textContent = lik.split("/").join("  /  ")
       }
-      var msg = new SpeechSynthesisUtterance('lik.split("/").join(" ")');
+      console.log('.')
+      var msg = new SpeechSynthesisUtterance(lik.split("/").join(" "));
       window.speechSynthesis.speak(msg);
 
       var inter
