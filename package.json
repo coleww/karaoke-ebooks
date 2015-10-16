@@ -44,6 +44,7 @@
   "dependencies": {
     "forever": "^0.15.1",
     "memjs": "^0.8.6",
+    "this-is-probably-ok-to-say": "^1.0.3",
     "tunajs": "^0.4.2",
     "twit": "^2.1.0"
   }

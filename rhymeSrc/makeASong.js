@@ -9,8 +9,7 @@ var stops = sw.reduce(function(o, w){
 var wordfilter = require('wordfilter');
 
 var shuffle = require('array-shuffle')
-var makeIsCool = require('iscool')
-var isCool = makeIsCool()
+var isCool = require('this-is-probably-ok-to-say')
 var Markov = require('./mrkv')
 var times = require('call-n-times')
 var levenshtein = require('fast-levenshtein');
