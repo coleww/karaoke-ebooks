@@ -41,7 +41,7 @@ Sequencer.prototype.run = function(){
 
     if (that.position == ~~(that.steps / 2)){
       var msg = new SpeechSynthesisUtterance(that.savedLik);
-      msg.rate = 0.75
+      // msg.rate = 0.75x
       window.speechSynthesis.speak(msg);
     } else if(that.position >= that.steps) {
       that.instruments.forEach(function(instrument){
