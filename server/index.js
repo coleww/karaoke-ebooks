@@ -32,6 +32,7 @@ var server = http.createServer(function (req, res) {
   var earl = url.parse(req.url, true)
   var uname = earl.pathname.substr(1)
   var username = (uname.match(/^@/)) ? uname.substr(1) : ''
+  username = (username.match(/\/$/)) ? username.substr(0, username.length - 1) : username
   var doItReally = !(username.indexOf('?') == -1)
   if (doItReally) username.replace('?', '')
   console.log('request for: ', username)
