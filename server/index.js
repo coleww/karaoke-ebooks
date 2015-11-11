@@ -37,7 +37,7 @@ var server = http.createServer(function (req, res) {
   console.log('request for: ', username)
 
   if (!!username && username.length) {
-    if (earl.query.deeper) {
+    if (earl.query && earl.query.deeper) {
       doThatThang(username, function (data) {
         console.log('got #: ', data.length)
         res.writeHead(200, { "Content-Type": "application/json" });
