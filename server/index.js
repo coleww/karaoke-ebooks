@@ -98,21 +98,21 @@ function getThemTweets(username, cb, goDeeper) {
             if (!goDeeper) {
               cb(userTweets)
             } else {
-              collectSomeData(username, 'lists/ownerships', null, function (userOwnedLists) {
-                collectSomeData(username, 'lists/memberships', null, function (userMemberLists) {
+              // collectSomeData(username, 'lists/ownerships', null, function (userOwnedLists) {
+                // collectSomeData(username, 'lists/memberships', null, function (userMemberLists) {
                   collectSomeData(username, 'favorites/list', null, function (userFaves) {
                     collectSomeData(username, 'users/show', null, function (userData) {
                       cb({
                         tweets: userTweets,
-                        ownedLists: userOwnedLists,
-                        memberLists: userMemberLists,
+                        // ownedLists: userOwnedLists,
+                        // memberLists: userMemberLists,
                         faves: userFaves,
                         show: userData
                       })
                     })
                   })
-                })
-              })
+                // })
+              // })
             }
           })
         })
