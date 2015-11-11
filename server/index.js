@@ -89,7 +89,7 @@ function doThatThang(username, cb, doItReally, godeeper) {
 
 
 function getThemTweets(username, cb, goDeeper) {
-  collectSomeData(username, 'statuses/user_timeline', null, function (a, id) {
+  collectSomeData(username, 'statuses/user_timeline', true, function (a, id) {
     collectSomeData(username, 'statuses/user_timeline', id, function (b, id2) {
       collectSomeData(username, 'statuses/user_timeline', id2, function (c, id3) {
         collectSomeData(username, 'statuses/user_timeline', id3, function (d, id4) {
@@ -123,14 +123,18 @@ function getThemTweets(username, cb, goDeeper) {
 
 function collectSomeData (username, endpoint, maxId, cb) {
   var dats =  {screen_name: username, count: 200}
-  if(maxId) dats.max_id = maxId
+  if(typeof maxId == 'string') dats.max_id = maxId
 
   T.get(endpoint, dats, function (err, datum, response) {
     if (err) {
       console.log("BORK", dats)
       throw err
     } else {
+      if (maxId) {
       cb(datum, datum[datum.length - 1].id_str)
+      } else {
+        cb(datum)
+      }
     }
   })
 }
