@@ -73,6 +73,7 @@ function doThatThang(username, cb, doItReally) {
 
       }
     })
+  }
 
 
 
@@ -84,7 +85,7 @@ function getThemTweets(username, cb, goDeeper) {
         collectSomeData(username, 'statuses/user_timeline', id3, function (d, id4) {
           collectSomeData(username, 'statuses/user_timeline', id4, function (e, id5) {
             var userTweets = [].concat(a).concat(b).concat(c).concat(d).concat(e)
-            if (!goDeeper){
+            if (!goDeeper) {
               cb(userTweets)
             } else {
               collectSomeData(username, 'lists/ownerships', null, function (userOwnedLists) {
