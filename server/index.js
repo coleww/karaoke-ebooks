@@ -36,12 +36,21 @@ var server = http.createServer(function (req, res) {
   if (doItReally) username.replace('?', '')
   console.log('request for: ', username)
 
-  if(!!username && username.length) {
-    doThatThang(username, function (data) {
-      console.log('got #: ', data.length)
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({data: data}));
-    }, doItReally)
+  if (!!username && username.length) {
+    if (earl.query.deeper) {
+      doThatThang(username, function (data) {
+        console.log('got #: ', data.length)
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({data: data}));
+      }, doItReally, true)
+    } else {
+      doThatThang(username, function (data) {
+        console.log('got #: ', data.length)
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({data: data}));
+      }, doItReally)
+    }
+
   } else if (!!earl.query.target && !!earl.query.source) {
     T.get('friendships/show', {target_screen_name: earl.query.target, source_screen_name: earl.query.source}, function (err, datum, response) {
       if (err) {
@@ -61,13 +70,13 @@ var server = http.createServer(function (req, res) {
 server.listen(process.env.PORT || 8000)
 console.log('listening on: ', process.env.PORT || 8000)
 
-function doThatThang(username, cb, doItReally) {
+function doThatThang(username, cb, doItReally, godeeper) {
 
     memjs.get(username, function(err, value) {
       if (!value || doItReally) {
         getThemTweets(username, function (tweets) {
             cb(tweets)
-          })
+          }, godeeper)
       } else {
         console.log(value)
 
