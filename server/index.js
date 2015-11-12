@@ -71,6 +71,19 @@ var server = http.createServer(function (req, res) {
 server.listen(process.env.PORT || 8000)
 console.log('listening on: ', process.env.PORT || 8000)
 
+function shrinky (t) {
+  return {
+    text: t.text,
+    user: {
+      id_str: t.user.id_str
+    },
+    entities: {
+      user_mentions: t.entities.user_mentions
+    },
+    retweeted_status: t.retweeted_status ? {user: {id_str: t.retweeted_status.user.id_str}} : false
+  }
+}
+
 function doThatThang(username, cb, doItReally, godeeper) {
 
     memjs.get(username, function(err, value) {
@@ -79,12 +92,10 @@ function doThatThang(username, cb, doItReally, godeeper) {
             cb(tweets)
 
             if (Array.isArray(tweets)) {
-              tweets = tweets.map(function (t) {return t.text})
+              tweets = tweets.map(shrinky)
             } else {
               Object.keys(tweets).reduce(function (a, b) {
-                a[b] = b !== 'show' ? tweets[b].map(function (t) {
-                  return t.text
-                }) : tweets[b]
+                a[b] = b !== 'show' ? tweets[b].map(shrinky) : tweets[b]
                 return a
               }, {})
             }
