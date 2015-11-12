@@ -98,21 +98,26 @@ function getThemTweets(username, cb, goDeeper) {
             if (!goDeeper) {
               cb(userTweets)
             } else {
-              // collectSomeData(username, 'lists/ownerships', null, function (userOwnedLists) {
-                // collectSomeData(username, 'lists/memberships', null, function (userMemberLists) {
-                  collectSomeData(username, 'favorites/list', null, function (userFaves) {
-                    collectSomeData(username, 'users/show', null, function (userData) {
-                      cb({
-                        tweets: userTweets,
-                        // ownedLists: userOwnedLists,
-                        // memberLists: userMemberLists,
-                        faves: userFaves,
-                        show: userData
+              collectSomeData(username, 'favorites/list', true, function (a1, i1d) {
+                collectSomeData(username, 'favorites/list', i1d, function (b1, i1d2) {
+                  collectSomeData(username, 'favorites/list', i1d2, function (c1, i1d3) {
+                    collectSomeData(username, 'favorites/list', i1d3, function (d1, i1d4) {
+                      collectSomeData(username, 'favorites/list', i1d4, function (e1, i1d5) {
+                        collectSomeData(username, 'users/show', null, function (userData) {
+                          var userFaves = [].concat(a).concat(b1).concat(c1).concat(d1).concat(e1)
+                          cb({
+                            tweets: userTweets,
+                            // ownedLists: userOwnedLists,
+                            // memberLists: userMemberLists,
+                            faves: userFaves,
+                            show: userData
+                          })
+                        })
                       })
                     })
                   })
-                // })
-              // })
+                })
+              })
             }
           })
         })
