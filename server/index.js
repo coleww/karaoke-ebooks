@@ -132,11 +132,13 @@ function collectSomeData (username, endpoint, maxId, cb) {
 
   T.get(endpoint, dats, function (err, datum, response) {
     if (err) {
-      console.log("BORK", dats)
+      console.log("BORK", err)
       throw err
+    } else if (!datum.length) {
+      cb([], maxId)
     } else {
       if (maxId) {
-      cb(datum, datum[datum.length - 1].id_str)
+        cb(datum, datum[datum.length - 1].id_str)
       } else {
         cb(datum)
       }
