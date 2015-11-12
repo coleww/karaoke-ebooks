@@ -51,7 +51,6 @@ var server = http.createServer(function (req, res) {
         res.end(JSON.stringify({data: data}));
       }, doItReally)
     }
-
   } else if (!!earl.query.target && !!earl.query.source) {
     T.get('friendships/show', {target_screen_name: earl.query.target, source_screen_name: earl.query.source}, function (err, datum, response) {
       if (err) {
@@ -106,7 +105,7 @@ function doThatThang(username, cb, doItReally, godeeper) {
           }, godeeper)
       } else {
         console.log(value)
-        cb(JSON.parse(tweets))
+        cb(JSON.parse(value))
       }
     })
   }
