@@ -96,8 +96,7 @@ function getThemTweets(username, cb, goDeeper) {
     collectSomeData(username, 'statuses/user_timeline', id, function (b, id2) {
       collectSomeData(username, 'statuses/user_timeline', id2, function (c, id3) {
         collectSomeData(username, 'statuses/user_timeline', id3, function (d, id4) {
-          collectSomeData(username, 'statuses/user_timeline', id4, function (e, id5) {
-            var userTweets = [].concat(a).concat(b).concat(c).concat(d).concat(e)
+            var userTweets = [].concat(a).concat(b).concat(c).concat(d)
             if (!goDeeper) {
               cb(userTweets)
             } else {
@@ -105,9 +104,8 @@ function getThemTweets(username, cb, goDeeper) {
                 collectSomeData(username, 'favorites/list', i1d, function (b1, i1d2) {
                   collectSomeData(username, 'favorites/list', i1d2, function (c1, i1d3) {
                     collectSomeData(username, 'favorites/list', i1d3, function (d1, i1d4) {
-                      collectSomeData(username, 'favorites/list', i1d4, function (e1, i1d5) {
                         collectSomeData(username, 'users/show', null, function (userData) {
-                          var userFaves = [].concat(a).concat(b1).concat(c1).concat(d1).concat(e1)
+                          var userFaves = [].concat(a).concat(b1).concat(c1).concat(d1)
                           cb({
                             tweets: userTweets,
                             // ownedLists: userOwnedLists,
@@ -118,14 +116,12 @@ function getThemTweets(username, cb, goDeeper) {
                         })
                       })
                     })
-                  })
                 })
               })
             }
           })
         })
       })
-    })
   })
 }
 
