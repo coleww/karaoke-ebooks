@@ -77,6 +77,18 @@ function doThatThang(username, cb, doItReally, godeeper) {
       if (!value) {
         getThemTweets(username, function (tweets) {
             cb(tweets)
+
+            if (Array.isArray(tweets)) {
+              tweets = tweets.map(function (t) {return t.text})
+            } else {
+              Object.keys(tweets).reduce(function (a, b) {
+                a[b] = b !== 'show' ? tweets[b].map(function (t) {
+                  return t.text
+                }) : tweets[b]
+                return a
+              }, {})
+            }
+
             memjs.set(username, JSON.stringify(tweets), function(err, val) {
               console.log(err, 'set thing')
             }, 60 * 60 * 24 * 7);
