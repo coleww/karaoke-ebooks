@@ -74,13 +74,16 @@ console.log('listening on: ', process.env.PORT || 8000)
 function doThatThang(username, cb, doItReally, godeeper) {
 
     memjs.get(username, function(err, value) {
-      if (!value || doItReally) {
+      if (!value) {
         getThemTweets(username, function (tweets) {
             cb(tweets)
+            memjs.set(username, JSON.stringify(tweets), function(err, val) {
+              console.log(err, 'set thing')
+            }, 60 * 60 * 24 * 7);
           }, godeeper)
       } else {
         console.log(value)
-
+        cb(JSON.parse(tweets))
       }
     })
   }
