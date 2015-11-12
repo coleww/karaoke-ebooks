@@ -17,7 +17,7 @@ document.getElementById('doit').addEventListener('click', function (){
     if(err){
       throw err
     } else {
-      var linesToAdd = JSON.parse(body).data
+      var linesToAdd = JSON.parse(body).data.map(function (l) {return l.text})
       var now = new Date().getTime()
       constructForMeASongPlease(linesToAdd, function (lines) {
         var then = new Date().getTime()
