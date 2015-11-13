@@ -84,25 +84,25 @@ function shrinky (t) {
 }
 
 function doThatThang(username, cb, doItReally, godeeper) {
-
-    memjs.get(username, function(err, value) {
+    var prefix = godeeper ? "KAR" : "FRI"
+    memjs.get(prefix + username, function(err, value) {
       if (!value) {
         getThemTweets(username, function (tweets) {
-            cb(tweets)
+          cb(tweets)
 
-            if (Array.isArray(tweets)) {
-              tweets = tweets.map(shrinky)
-            } else {
-              Object.keys(tweets).reduce(function (a, b) {
-                a[b] = b !== 'show' ? tweets[b].map(shrinky) : tweets[b]
-                return a
-              }, {})
-            }
+          if (Array.isArray(tweets)) {
+            tweets = tweets.map(shrinky)
+          } else {
+            Object.keys(tweets).reduce(function (a, b) {
+              a[b] = b !== 'show' ? tweets[b].map(shrinky) : tweets[b]
+              return a
+            }, {})
+          }
 
-            memjs.set(username, JSON.stringify(tweets), function(err, val) {
-              console.log(err, 'set thing')
-            }, 60 * 60 * 24 * 7);
-          }, godeeper)
+          memjs.set(prefix + username, JSON.stringify(tweets), function(err, val) {
+            console.log(err, 'set thing')
+          }, 60 * 60 * 24 * 7);
+        }, godeeper)
       } else {
         console.log(value)
         cb(JSON.parse(value))
