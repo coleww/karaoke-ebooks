@@ -110,40 +110,31 @@ function doThatThang(username, cb, doItReally, godeeper) {
     })
   }
 
-
-
-
 function getThemTweets(username, cb, goDeeper) {
   collectSomeData(username, 'statuses/user_timeline', true, function (a, id) {
     collectSomeData(username, 'statuses/user_timeline', id, function (b, id2) {
       collectSomeData(username, 'statuses/user_timeline', id2, function (c, id3) {
-        collectSomeData(username, 'statuses/user_timeline', id3, function (d, id4) {
-            var userTweets = [].concat(a).concat(b).concat(c).concat(d)
-            if (!goDeeper) {
-              cb(userTweets)
-            } else {
-              collectSomeData(username, 'favorites/list', true, function (a1, i1d) {
-                collectSomeData(username, 'favorites/list', i1d, function (b1, i1d2) {
-                  collectSomeData(username, 'favorites/list', i1d2, function (c1, i1d3) {
-                    collectSomeData(username, 'favorites/list', i1d3, function (d1, i1d4) {
-                        collectSomeData(username, 'users/show', null, function (userData) {
-                          var userFaves = [].concat(a).concat(b1).concat(c1).concat(d1)
-                          cb({
-                            tweets: userTweets,
-                            // ownedLists: userOwnedLists,
-                            // memberLists: userMemberLists,
-                            faves: userFaves,
-                            show: userData
-                          })
-                        })
-                      })
-                    })
+        var userTweets = [].concat(a).concat(b).concat(c)
+        if (!goDeeper) {
+          cb(userTweets)
+        } else {
+          collectSomeData(username, 'favorites/list', true, function (a1, i1d) {
+            collectSomeData(username, 'favorites/list', i1d, function (b1, i1d2) {
+              collectSomeData(username, 'users/show', null, function (userData) {
+                var userFaves = [].concat(a).concat(b1).concat(c1).concat(d1)
+                cb({
+                  tweets: userTweets,
+                  // ownedLists: userOwnedLists,
+                  // memberLists: userMemberLists,
+                  faves: userFaves,
+                  show: userData
                 })
               })
-            }
+            })
           })
-        })
+        }
       })
+    })
   })
 }
 
