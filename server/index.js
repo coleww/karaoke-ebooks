@@ -121,7 +121,7 @@ function getThemTweets(username, cb, goDeeper) {
           collectSomeData(username, 'favorites/list', true, function (a1, i1d) {
             collectSomeData(username, 'favorites/list', i1d, function (b1, i1d2) {
               collectSomeData(username, 'users/show', null, function (userData) {
-                var userFaves = [].concat(a).concat(b1).concat(c1).concat(d1)
+                var userFaves = [].concat(a).concat(b1)
                 cb({
                   tweets: userTweets,
                   // ownedLists: userOwnedLists,
