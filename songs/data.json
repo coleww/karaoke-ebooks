@@ -69,7 +69,7 @@
     },
     {
       "filterFreq": 5000,
-            "gain": 0.6,
+            "gain": 0.4,
             "distortion": 600,
       "name":"hat",
       "type":"drum",
