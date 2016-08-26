@@ -13,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "after": "^0.8.1",
+    "array-sample": "^0.1.0",
     "array-shuffle": "^1.0.0",
     "brfs": "^1.4.1",
     "browserify": "^9.0.7",
